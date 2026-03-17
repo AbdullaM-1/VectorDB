@@ -1,0 +1,26 @@
+USE [hkietech]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[FormFieldMapping](
+	[FormID] [int] NOT NULL,
+	[FieldId] [int] NOT NULL,
+ CONSTRAINT [PK_UserGroup] PRIMARY KEY NONCLUSTERED 
+(
+	[FormID] ASC,
+	[FieldId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[FormFieldMapping]  WITH CHECK ADD  CONSTRAINT [FK_FormFieldMapping_Field] FOREIGN KEY([FieldId])
+REFERENCES [dbo].[Fields] ([FieldId])
+GO
+ALTER TABLE [dbo].[FormFieldMapping] CHECK CONSTRAINT [FK_FormFieldMapping_Field]
+GO
+ALTER TABLE [dbo].[FormFieldMapping]  WITH CHECK ADD  CONSTRAINT [FK_FormFieldMapping_Form] FOREIGN KEY([FormID])
+REFERENCES [dbo].[Forms] ([FormId])
+GO
+ALTER TABLE [dbo].[FormFieldMapping] CHECK CONSTRAINT [FK_FormFieldMapping_Form]
+GO

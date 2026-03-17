@@ -1,0 +1,2495 @@
+{
+  "AccountAddonBillings": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "Accounts": {
+    "references": [],
+    "referenced_by": [
+      "AccountAddonBillings",
+      "AccountBillingItem",
+      "AccountEventLog",
+      "AccountPaymentGatewayBatchItem",
+      "AccountProduct",
+      "AccountProductCategory",
+      "AccountProductSubCategory",
+      "AccountProductSupplier",
+      "AccountRoster",
+      "AccountRosterActivity",
+      "AccountSupplier",
+      "AttendanceLog",
+      "BookingType",
+      "Campaign",
+      "Class",
+      "ClassSchedule",
+      "Club_Number_Audit",
+      "ClubActivityEod",
+      "Court",
+      "DigitalDoorTimezone",
+      "EntityTags",
+      "FacebookLeads",
+      "GroupType",
+      "Holidays",
+      "Icons",
+      "Invoice",
+      "Kpi",
+      "MemberAccessSync",
+      "MemberGroupClassAttendanceLog",
+      "MemberNotes",
+      "MemberOtherFeeRunLog",
+      "Members",
+      "MembershipTypeAccount",
+      "MemberTracking",
+      "MemberViewNotes",
+      "NewsFeed",
+      "OnlineShopTransaction",
+      "OrientationQuestionnaireGroup",
+      "OrientationQuestionnaireParent",
+      "PosTransaction",
+      "PreActivityQuestionaireGroup",
+      "PreActivityQuestionaireParent",
+      "ProspectAttendanceLog",
+      "ProspectMembersCancelled",
+      "ProspectPosTransaction",
+      "Prospects",
+      "RewardsProgramAccount",
+      "Settlement",
+      "SocialTagMapping",
+      "Staff",
+      "StaffAccount",
+      "StaffAttendanceLog",
+      "StaffNotes",
+      "StaffReports",
+      "Stocktakes",
+      "StudentAttendanceLog",
+      "StudentFamily",
+      "Students",
+      "StudentTasks",
+      "SwimClass",
+      "SwimClassSchedule",
+      "SwimStocktakes",
+      "TrainerAccount",
+      "TrainerAttendanceLog",
+      "TrainerNotes",
+      "Vouchers"
+    ]
+  },
+  "AccountBillingItem": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "AccountEventLog": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "AccountPaymentGatewayBatchItem": {
+    "references": [
+      "AccountPaymentGatewayBatch",
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "AccountPaymentGatewayBatch": {
+    "references": [],
+    "referenced_by": [
+      "AccountPaymentGatewayBatchItem"
+    ]
+  },
+  "AccountProduct": {
+    "references": [
+      "AccountProductCategory",
+      "AccountProductSubCategory",
+      "Accounts",
+      "AccountSupplier",
+      "DiscountCoupons"
+    ],
+    "referenced_by": [
+      "AccountProductSupplier",
+      "AccountSupplierOrderItems",
+      "OnlineShopTransactionItem",
+      "PosTransactionItem",
+      "ProspectPosTransactionItem",
+      "Stocktakes",
+      "SwimStocktakes"
+    ]
+  },
+  "AccountProductCategory": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "AccountProduct",
+      "AccountProductSubCategory"
+    ]
+  },
+  "AccountProductSubCategory": {
+    "references": [
+      "AccountProductCategory",
+      "Accounts"
+    ],
+    "referenced_by": [
+      "AccountProduct"
+    ]
+  },
+  "AccountSupplier": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "AccountProduct",
+      "AccountProductSupplier",
+      "AccountSupplierOrders"
+    ]
+  },
+  "DiscountCoupons": {
+    "references": [
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": [
+      "AccountProduct",
+      "MemberPaymentTemplates",
+      "RestrictedDiscountCoupons",
+      "Subscription"
+    ]
+  },
+  "AccountProductSupplier": {
+    "references": [
+      "AccountProduct",
+      "Accounts",
+      "AccountSupplier"
+    ],
+    "referenced_by": []
+  },
+  "AccountRoster": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "Staff": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "AccountRoster",
+      "AccountSupplierOrders",
+      "AccountSupplierOrders",
+      "AmendedPayment",
+      "ClassScheduleMobileAccount",
+      "ClubActivityEod",
+      "DiscountCoupons",
+      "DiscountCoupons",
+      "GroupClassScheduleExcludedTime",
+      "Icons",
+      "Invoice",
+      "Invoice",
+      "MemberActivity",
+      "MemberAppointment",
+      "MemberCall",
+      "MemberCall",
+      "MemberGroup",
+      "MemberMeasurements",
+      "MemberMeasurements",
+      "MemberMembershipTypeChangeHistory",
+      "MemberOtherFeeRunLog",
+      "Members",
+      "MemberSession",
+      "MembershipTypes",
+      "MemberSubscriptionAudit",
+      "MemberSubscriptionAudit",
+      "MemberTrackingSchedule",
+      "MemberVisit",
+      "OnlineShopTransaction",
+      "OptoutHistory",
+      "PaymentDateChangeHistory",
+      "PosTransaction",
+      "PosTransaction",
+      "PosTransactionAudit",
+      "PosTransactionAudit",
+      "ProspectActivity",
+      "ProspectAppointment",
+      "ProspectAppointment",
+      "ProspectCall",
+      "ProspectCall",
+      "ProspectMembersCancelled",
+      "ProspectPosTransaction",
+      "ProspectPosTransaction",
+      "ProspectPosTransactionAudit",
+      "ProspectPosTransactionAudit",
+      "Prospects",
+      "ProspectToDo",
+      "ProspectTrackingSchedule",
+      "StaffAccount",
+      "StaffAttachments",
+      "StaffAttendanceLog",
+      "StaffCertifications",
+      "StaffFingerprint",
+      "StaffNotes",
+      "StaffReports",
+      "StaffSettings",
+      "StaffShift",
+      "StaffTaskAssignee",
+      "StaffTimesheet",
+      "StaffTimesheet",
+      "StaffTrainerAccess",
+      "StaffTrainerAccess",
+      "Stocktakes",
+      "StudentChangedClassHistory",
+      "StudentClassCreditHistory",
+      "StudentFamily",
+      "StudentFamily",
+      "StudentFamily",
+      "StudentNotes",
+      "StudentPosTransaction",
+      "SwimScheduleExcludedTime",
+      "SwimStocktakes",
+      "TrainerBooking",
+      "Workout",
+      "Workout",
+      "WorkoutTemplate",
+      "WorkoutTemplate"
+    ]
+  },
+  "AccountRosterActivity": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "AccountSupplierOrderItems": {
+    "references": [
+      "AccountProduct",
+      "AccountSupplierOrders"
+    ],
+    "referenced_by": []
+  },
+  "AccountSupplierOrders": {
+    "references": [
+      "AccountSupplier",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": [
+      "AccountSupplierOrderItems"
+    ]
+  },
+  "AmendedPayment": {
+    "references": [
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "Members": {
+    "references": [
+      "Accounts",
+      "Prospects",
+      "Staff"
+    ],
+    "referenced_by": [
+      "AmendedPayment",
+      "AttendanceLog",
+      "DigitalSignature",
+      "Gateway_Audit",
+      "Invoice",
+      "MemberAccessSync",
+      "MemberActivity",
+      "MemberAgreementHistory",
+      "MemberAppointment",
+      "MemberArchiveReason",
+      "MemberArrears",
+      "MemberAttachment",
+      "MemberBillingItem",
+      "MemberCall",
+      "MemberChangeAudit",
+      "MemberCommunicationFailedLogs",
+      "MemberCreditCard",
+      "MemberDebtCollection",
+      "MemberDisputes",
+      "MemberFailedPayment",
+      "MemberFamilyLink",
+      "MemberFamilyLink",
+      "MemberFamilyLink",
+      "MemberFingerprint",
+      "MemberFitnessTesting",
+      "MemberGroup",
+      "MemberGroupClassSubscription",
+      "MemberKid",
+      "MemberMeasurements",
+      "MemberMedicalConditions",
+      "MemberMembershipTypeChangeHistory",
+      "MemberNotes",
+      "MemberOrientationQuestionnaire",
+      "MemberOtherMembership",
+      "MemberParentGuarantor",
+      "MemberPaymentGatewayTransactionAudit",
+      "MemberPaymentTemplates",
+      "MemberPaymentVariation",
+      "MemberPreActivityQuestionnaire",
+      "MemberPtSubscription",
+      "MemberRestrictedGroupClass",
+      "MemberRewardsProgram",
+      "MemberRewardsProgramLevelHistory",
+      "MemberSubscription",
+      "MemberSubscriptionAudit",
+      "MemberSuspension",
+      "MemberTrackingSchedule",
+      "MemberTrainerBookingAttendance",
+      "MemberVerificationCode",
+      "MemberViewNotes",
+      "MemberVouchers",
+      "MyClubMemberProfile",
+      "MyClubMemberProfile",
+      "OptoutHistory",
+      "PaymentDateChangeHistory",
+      "PaymentGatewayBatchItem",
+      "PaymentHistory",
+      "PosTransaction",
+      "PosTransactionAudit",
+      "RewardsProgramPointsAudit",
+      "StaffTask",
+      "TrainerBooking",
+      "VendorMemberSetting",
+      "Workout"
+    ]
+  },
+  "AnalyticDashboardWidget": {
+    "references": [
+      "AnalyticDashboard",
+      "AnalyticWidgetConfiguration"
+    ],
+    "referenced_by": []
+  },
+  "AnalyticDashboard": {
+    "references": [],
+    "referenced_by": [
+      "AnalyticDashboardWidget"
+    ]
+  },
+  "AnalyticWidgetConfiguration": {
+    "references": [],
+    "referenced_by": [
+      "AnalyticDashboardWidget"
+    ]
+  },
+  "AppBrandingScreenConfiguration": {
+    "references": [
+      "AppBrandingScreen"
+    ],
+    "referenced_by": []
+  },
+  "AppBrandingScreen": {
+    "references": [],
+    "referenced_by": [
+      "AppBrandingScreenConfiguration"
+    ]
+  },
+  "aspnet_Membership": {
+    "references": [
+      "aspnet_Applications",
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "aspnet_Applications": {
+    "references": [],
+    "referenced_by": [
+      "aspnet_Membership",
+      "aspnet_Paths",
+      "aspnet_Roles",
+      "aspnet_Users"
+    ]
+  },
+  "aspnet_Users": {
+    "references": [
+      "aspnet_Applications"
+    ],
+    "referenced_by": [
+      "aspnet_Membership",
+      "aspnet_PersonalizationPerUser",
+      "aspnet_Profile",
+      "aspnet_UsersInRoles",
+      "Campaign",
+      "Campaign",
+      "Class",
+      "MarketingEmailTemplate",
+      "MarketingEmailTemplate",
+      "MemberVouchers",
+      "MemberVouchers",
+      "NewsFeed",
+      "NewsFeed",
+      "RewardsProgram",
+      "RewardsProgram",
+      "StaffTask",
+      "StaffTask",
+      "StaffTaskAttachment",
+      "SwimClass",
+      "TrainerBooking",
+      "UserLogActivity",
+      "Vouchers",
+      "Vouchers"
+    ]
+  },
+  "aspnet_Paths": {
+    "references": [
+      "aspnet_Applications"
+    ],
+    "referenced_by": [
+      "aspnet_PersonalizationAllUsers",
+      "aspnet_PersonalizationPerUser"
+    ]
+  },
+  "aspnet_PersonalizationAllUsers": {
+    "references": [
+      "aspnet_Paths"
+    ],
+    "referenced_by": []
+  },
+  "aspnet_PersonalizationPerUser": {
+    "references": [
+      "aspnet_Paths",
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "aspnet_Profile": {
+    "references": [
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "aspnet_Roles": {
+    "references": [
+      "aspnet_Applications"
+    ],
+    "referenced_by": [
+      "aspnet_UsersInRoles",
+      "RolePage",
+      "RolePageAction"
+    ]
+  },
+  "aspnet_UsersInRoles": {
+    "references": [
+      "aspnet_Roles",
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "AttendanceLog": {
+    "references": [
+      "Accounts",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "BirthdayEmailAttachments": {
+    "references": [
+      "MarketingBirthdayCampaign"
+    ],
+    "referenced_by": []
+  },
+  "MarketingBirthdayCampaign": {
+    "references": [],
+    "referenced_by": [
+      "BirthdayEmailAttachments"
+    ]
+  },
+  "BookingType": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "CourtBookings",
+      "RoomBookings",
+      "TrainerBookingTypePricing"
+    ]
+  },
+  "Campaign": {
+    "references": [
+      "Accounts",
+      "CampaignType",
+      "Group",
+      "MarketingEmailTemplate",
+      "aspnet_Users",
+      "aspnet_Users"
+    ],
+    "referenced_by": [
+      "CampaignMessageSent"
+    ]
+  },
+  "CampaignType": {
+    "references": [],
+    "referenced_by": [
+      "Campaign"
+    ]
+  },
+  "Group": {
+    "references": [],
+    "referenced_by": [
+      "Campaign"
+    ]
+  },
+  "MarketingEmailTemplate": {
+    "references": [
+      "aspnet_Users",
+      "aspnet_Users"
+    ],
+    "referenced_by": [
+      "Campaign",
+      "CampaignTemplate",
+      "EmailTemplateAttachments",
+      "MemberTracking",
+      "ProspectTracking"
+    ]
+  },
+  "CampaignFilterOptions": {
+    "references": [
+      "CampaignFilters"
+    ],
+    "referenced_by": []
+  },
+  "CampaignFilters": {
+    "references": [],
+    "referenced_by": [
+      "CampaignFilterOptions"
+    ]
+  },
+  "CampaignMessageSent": {
+    "references": [
+      "Campaign"
+    ],
+    "referenced_by": []
+  },
+  "CampaignTemplate": {
+    "references": [
+      "MarketingEmailTemplate"
+    ],
+    "referenced_by": []
+  },
+  "Class": {
+    "references": [
+      "Accounts",
+      "aspnet_Users"
+    ],
+    "referenced_by": [
+      "ClassSchedule",
+      "MemberRestrictedGroupClass",
+      "RestrictedGroupClass",
+      "RewardsProgramClassPointsAllocation",
+      "RewardsProgramPointsAudit"
+    ]
+  },
+  "ClassSchedule": {
+    "references": [
+      "Accounts",
+      "Class",
+      "Trainer"
+    ],
+    "referenced_by": [
+      "ClassScheduleAgeRestriction",
+      "ClassScheduleAttendanceCount",
+      "ClassScheduleChangedInstructor",
+      "ClassScheduleChanges",
+      "ClassScheduleMobileAccount",
+      "ClassScheduleOnDemand",
+      "ClassScheduleOnlineAccount",
+      "GroupClassScheduleExcludedTime",
+      "MemberGroupClassAttendanceLog"
+    ]
+  },
+  "Trainer": {
+    "references": [],
+    "referenced_by": [
+      "ClassSchedule",
+      "ClassScheduleChangedInstructor",
+      "ClassScheduleChangedInstructor",
+      "MemberSubscriptionAudit",
+      "MemberTrainerBookingAttendance",
+      "ProspectTrainerBookingAttendance",
+      "StaffTrainerAccess",
+      "SwimClassSchedule",
+      "SwimClassScheduleChangedInstructor",
+      "SwimClassScheduleChangedInstructor",
+      "TrainerAccount",
+      "TrainerAttachments",
+      "TrainerAttendanceLog",
+      "TrainerBooking",
+      "TrainerBookingTypePricing",
+      "TrainerCertifications",
+      "TrainerNotes",
+      "TrainerShift",
+      "TrainerShiftBlock",
+      "TrainerShiftBlockParent"
+    ]
+  },
+  "ClassScheduleAgeRestriction": {
+    "references": [
+      "ClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "ClassScheduleAttendanceCount": {
+    "references": [
+      "ClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "ClassScheduleChangedInstructor": {
+    "references": [
+      "Trainer",
+      "Trainer",
+      "ClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "ClassScheduleChanges": {
+    "references": [
+      "ClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "ClassScheduleMobileAccount": {
+    "references": [
+      "ClassSchedule",
+      "Lookup_Type_Items",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "Lookup_Type_Items": {
+    "references": [
+      "Lookup_Types"
+    ],
+    "referenced_by": [
+      "ClassScheduleMobileAccount",
+      "FitnessTestingType",
+      "MemberArchiveReason",
+      "MemberViewNotes",
+      "StudentSwimSkills",
+      "Subscription",
+      "WorkoutTemplate"
+    ]
+  },
+  "ClassScheduleOnDemand": {
+    "references": [
+      "ClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "ClassScheduleOnlineAccount": {
+    "references": [
+      "ClassSchedule",
+      "OnlineAccount"
+    ],
+    "referenced_by": []
+  },
+  "OnlineAccount": {
+    "references": [],
+    "referenced_by": [
+      "ClassScheduleOnlineAccount",
+      "SwimClassScheduleOnlineAccount"
+    ]
+  },
+  "Club_Number_Audit": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "ClubActivityEod": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "Court": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "CourtAvailability",
+      "CourtBookings"
+    ]
+  },
+  "CourtAvailability": {
+    "references": [
+      "Court"
+    ],
+    "referenced_by": []
+  },
+  "CourtBookings": {
+    "references": [
+      "BookingType",
+      "Court"
+    ],
+    "referenced_by": []
+  },
+  "DigitalDoorTimezone": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "DigitalSignature": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "EmailTemplateAttachments": {
+    "references": [
+      "MarketingEmailTemplate"
+    ],
+    "referenced_by": []
+  },
+  "EntityTags": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "Exercise": {
+    "references": [
+      "ExerciseBodyPart"
+    ],
+    "referenced_by": [
+      "WorkoutGroupExercise",
+      "WorkoutTemplateGroupExercise"
+    ]
+  },
+  "ExerciseBodyPart": {
+    "references": [],
+    "referenced_by": [
+      "Exercise"
+    ]
+  },
+  "ExerciseDataTypeUnit": {
+    "references": [
+      "ExerciseDataType"
+    ],
+    "referenced_by": [
+      "WorkoutGroupExerciseSet",
+      "WorkoutTemplateGroupExerciseSet"
+    ]
+  },
+  "ExerciseDataType": {
+    "references": [],
+    "referenced_by": [
+      "ExerciseDataTypeUnit",
+      "WorkoutGroupExerciseSet",
+      "WorkoutTemplateGroupExerciseSet"
+    ]
+  },
+  "FacebookLeads": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "FitnessTestingType": {
+    "references": [
+      "Lookup_Type_Items"
+    ],
+    "referenced_by": [
+      "MemberFitnessTesting"
+    ]
+  },
+  "FormFieldMapping": {
+    "references": [
+      "Fields",
+      "Forms"
+    ],
+    "referenced_by": []
+  },
+  "Fields": {
+    "references": [],
+    "referenced_by": [
+      "FormFieldMapping"
+    ]
+  },
+  "Forms": {
+    "references": [
+      "FormTypes"
+    ],
+    "referenced_by": [
+      "FormFieldMapping"
+    ]
+  },
+  "FormTypes": {
+    "references": [],
+    "referenced_by": [
+      "Forms"
+    ]
+  },
+  "Gateway_Audit": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "GroupClassScheduleExcludedTime": {
+    "references": [
+      "ClassSchedule",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "GroupType": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "GroupTypeLinkToMembershipType",
+      "MemberGroup",
+      "WorkoutMemberGroup"
+    ]
+  },
+  "GroupTypeLinkToMembershipType": {
+    "references": [
+      "GroupType",
+      "MembershipTypes"
+    ],
+    "referenced_by": []
+  },
+  "MembershipTypes": {
+    "references": [
+      "MemberAttendanceRestriction",
+      "MembershipContractTypes",
+      "Staff"
+    ],
+    "referenced_by": [
+      "GroupTypeLinkToMembershipType",
+      "MemberOtherMembership",
+      "MemberPaymentGatewayTransactionAudit",
+      "MemberPaymentTemplates",
+      "MembershipTypeAccount",
+      "PosTransactionGenericItem",
+      "RestrictedDiscountCoupons",
+      "RestrictedGroupClass",
+      "StudentPosTransactionGenericItem"
+    ]
+  },
+  "GuestTrainerBookingAttendance": {
+    "references": [
+      "TrainerBookingGuest"
+    ],
+    "referenced_by": []
+  },
+  "TrainerBookingGuest": {
+    "references": [],
+    "referenced_by": [
+      "GuestTrainerBookingAttendance",
+      "MemberTrainerBookingAttendance",
+      "TrainerBooking"
+    ]
+  },
+  "Holidays": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "Icons": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "Invoice": {
+    "references": [
+      "Accounts",
+      "Contacts",
+      "Members",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": [
+      "InvoiceItem"
+    ]
+  },
+  "Contacts": {
+    "references": [],
+    "referenced_by": [
+      "Invoice"
+    ]
+  },
+  "InvoiceItem": {
+    "references": [
+      "Invoice"
+    ],
+    "referenced_by": []
+  },
+  "Kpi": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "Lookup_Types": {
+    "references": [],
+    "referenced_by": [
+      "Lookup_Type_Items"
+    ]
+  },
+  "MasterCalendarBlock": {
+    "references": [
+      "MasterCalendarBlockParent"
+    ],
+    "referenced_by": []
+  },
+  "MasterCalendarBlockParent": {
+    "references": [],
+    "referenced_by": [
+      "MasterCalendarBlock"
+    ]
+  },
+  "MemberAccessSync": {
+    "references": [
+      "Accounts",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberActivity": {
+    "references": [
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberAgreementHistory": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberAppointment": {
+    "references": [
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberArchiveReason": {
+    "references": [
+      "Lookup_Type_Items",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberArrears": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberAttachment": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberAttendanceRestrictionMultiple": {
+    "references": [
+      "MemberAttendanceRestriction"
+    ],
+    "referenced_by": []
+  },
+  "MemberAttendanceRestriction": {
+    "references": [],
+    "referenced_by": [
+      "MemberAttendanceRestrictionMultiple",
+      "MembershipTypes"
+    ]
+  },
+  "MemberBillingItem": {
+    "references": [
+      "MemberKid",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberKid": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": [
+      "MemberBillingItem"
+    ]
+  },
+  "MemberCall": {
+    "references": [
+      "Members",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberChangeAudit": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberCommunicationFailedLogs": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberCreditCard": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberDebtCollection": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberDisputes": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberFailedPayment": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberFamilyLink": {
+    "references": [
+      "Members",
+      "Members",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberFingerprint": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberFitnessTesting": {
+    "references": [
+      "FitnessTestingType",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberGroup": {
+    "references": [
+      "GroupType",
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberGroupClassAttendanceLog": {
+    "references": [
+      "Accounts",
+      "ClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "MemberGroupClassSubscription": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberMeasurements": {
+    "references": [
+      "Members",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberMedicalConditions": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberMembershipTypeChangeHistory": {
+    "references": [
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberNotes": {
+    "references": [
+      "Accounts",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberOrientationQuestionnaire": {
+    "references": [
+      "OrientationQuestionnaire",
+      "OrientationQuestionnaireGroup",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "OrientationQuestionnaire": {
+    "references": [
+      "OrientationQuestionnaireGroup"
+    ],
+    "referenced_by": [
+      "MemberOrientationQuestionnaire"
+    ]
+  },
+  "OrientationQuestionnaireGroup": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "MemberOrientationQuestionnaire",
+      "OrientationQuestionnaire"
+    ]
+  },
+  "MemberOtherFeeRunLog": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberOtherMembership": {
+    "references": [
+      "Members",
+      "MembershipTypes",
+      "PaymentHistory"
+    ],
+    "referenced_by": []
+  },
+  "PaymentHistory": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": [
+      "MemberOtherMembership"
+    ]
+  },
+  "MemberParentGuarantor": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberPaymentGatewayTransactionAudit": {
+    "references": [
+      "Members",
+      "MembershipTypes",
+      "PaymentGateway"
+    ],
+    "referenced_by": []
+  },
+  "PaymentGateway": {
+    "references": [],
+    "referenced_by": [
+      "MemberPaymentGatewayTransactionAudit",
+      "MemberPaymentTemplates",
+      "ProspectPaymentGatewayTransactionAudit",
+      "StudentPaymentGatewayTransactionAudit",
+      "StudentPaymentTemplates"
+    ]
+  },
+  "MemberPaymentTemplates": {
+    "references": [
+      "DiscountCoupons",
+      "Members",
+      "MembershipTypes",
+      "PaymentGateway"
+    ],
+    "referenced_by": []
+  },
+  "MemberPaymentVariation": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberPreActivityQuestionnaire": {
+    "references": [
+      "PreActivityQuestionaire",
+      "PreActivityQuestionaireGroup",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "PreActivityQuestionaire": {
+    "references": [
+      "PreActivityQuestionaireGroup"
+    ],
+    "referenced_by": [
+      "MemberPreActivityQuestionnaire",
+      "ProspectPreActivityQuestionnaire"
+    ]
+  },
+  "PreActivityQuestionaireGroup": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "MemberPreActivityQuestionnaire",
+      "PreActivityQuestionaire",
+      "ProspectPreActivityQuestionnaire"
+    ]
+  },
+  "MemberPtSubscription": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberReferrals": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "Prospects": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": [
+      "MemberReferrals",
+      "Members",
+      "OptoutHistory",
+      "ProspectActivity",
+      "ProspectAppointment",
+      "ProspectAttachment",
+      "ProspectCall",
+      "ProspectCommunicationFailedLogs",
+      "ProspectCreditCard",
+      "ProspectKid",
+      "ProspectMedicalConditions",
+      "ProspectNotes",
+      "ProspectParentGuarantor",
+      "ProspectPaymentGatewayTransactionAudit",
+      "ProspectPaymentHistory",
+      "ProspectPosTransaction",
+      "ProspectPosTransactionAudit",
+      "ProspectPreActivityQuestionnaire",
+      "ProspectToDo",
+      "ProspectTrackingSchedule",
+      "ProspectTrainerBookingAttendance",
+      "ProspectVerificationCode",
+      "StudentSwimClassBookingDetail",
+      "TrainerBooking"
+    ]
+  },
+  "MemberRestrictedGroupClass": {
+    "references": [
+      "Members",
+      "Class"
+    ],
+    "referenced_by": []
+  },
+  "MemberRewardsProgram": {
+    "references": [
+      "Members",
+      "RewardsProgram",
+      "RewardsProgramPointLevel"
+    ],
+    "referenced_by": []
+  },
+  "RewardsProgram": {
+    "references": [
+      "aspnet_Users",
+      "aspnet_Users"
+    ],
+    "referenced_by": [
+      "MemberRewardsProgram",
+      "MemberRewardsProgramLevelHistory",
+      "RewardsProgramAccount",
+      "RewardsProgramClassPointsAllocation",
+      "RewardsProgramPointLevel",
+      "RewardsProgramPointsAudit"
+    ]
+  },
+  "RewardsProgramPointLevel": {
+    "references": [
+      "RewardsProgram"
+    ],
+    "referenced_by": [
+      "MemberRewardsProgram",
+      "MemberRewardsProgramLevelHistory"
+    ]
+  },
+  "MemberRewardsProgramLevelHistory": {
+    "references": [
+      "Members",
+      "RewardsProgram",
+      "RewardsProgramPointLevel"
+    ],
+    "referenced_by": []
+  },
+  "MemberSession": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MembershipTypeAccount": {
+    "references": [
+      "Accounts",
+      "MembershipTypes"
+    ],
+    "referenced_by": []
+  },
+  "MembershipContractTypes": {
+    "references": [],
+    "referenced_by": [
+      "MembershipTypes"
+    ]
+  },
+  "MemberSubscription": {
+    "references": [
+      "Members",
+      "PosTransaction",
+      "Subscription"
+    ],
+    "referenced_by": [
+      "MemberSubscriptionAudit"
+    ]
+  },
+  "PosTransaction": {
+    "references": [
+      "Accounts",
+      "Staff",
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": [
+      "MemberSubscription",
+      "PosTransactionAudit",
+      "PosTransactionGenericItem",
+      "PosTransactionItem",
+      "PosTransactionPayment"
+    ]
+  },
+  "Subscription": {
+    "references": [
+      "DiscountCoupons",
+      "Lookup_Type_Items"
+    ],
+    "referenced_by": [
+      "MemberSubscription"
+    ]
+  },
+  "MemberSubscriptionAudit": {
+    "references": [
+      "Members",
+      "MemberSubscription",
+      "Staff",
+      "Staff",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "MemberSuspension": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberTracking": {
+    "references": [
+      "Accounts",
+      "MarketingEmailTemplate"
+    ],
+    "referenced_by": [
+      "MemberTrackingSchedule"
+    ]
+  },
+  "MemberTrackingSchedule": {
+    "references": [
+      "Members",
+      "MemberTracking",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberTrainerBookingAttendance": {
+    "references": [
+      "Members",
+      "Trainer",
+      "TrainerBookingGuest"
+    ],
+    "referenced_by": []
+  },
+  "MemberVerificationCode": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "MemberViewNotes": {
+    "references": [
+      "Lookup_Type_Items",
+      "Members",
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "MemberVisit": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "MemberVouchers": {
+    "references": [
+      "Members",
+      "aspnet_Users",
+      "aspnet_Users",
+      "Vouchers"
+    ],
+    "referenced_by": []
+  },
+  "Vouchers": {
+    "references": [
+      "Accounts",
+      "aspnet_Users",
+      "aspnet_Users"
+    ],
+    "referenced_by": [
+      "MemberVouchers"
+    ]
+  },
+  "MyClubMemberProfile": {
+    "references": [
+      "Members",
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "NewsFeed": {
+    "references": [
+      "Accounts",
+      "aspnet_Users",
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "OnlineShopTransaction": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": [
+      "OnlineShopTransactionItem",
+      "OnlineShopTransactionPayment"
+    ]
+  },
+  "OnlineShopTransactionItem": {
+    "references": [
+      "AccountProduct",
+      "OnlineShopTransaction"
+    ],
+    "referenced_by": []
+  },
+  "OnlineShopTransactionPayment": {
+    "references": [
+      "OnlineShopTransaction"
+    ],
+    "referenced_by": []
+  },
+  "OptoutHistory": {
+    "references": [
+      "Members",
+      "Prospects",
+      "Staff",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "Students": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": [
+      "OptoutHistory",
+      "StudentArrears",
+      "StudentAttachment",
+      "StudentAttendanceLog",
+      "StudentBillingItem",
+      "StudentCancelledFromWholeClasses",
+      "StudentChangedClassHistory",
+      "StudentClassCreditHistory",
+      "StudentClassWaitList",
+      "StudentCommunicationFailedLogs",
+      "StudentDigitalSignature",
+      "StudentFamilyLink",
+      "StudentNotes",
+      "StudentPaymentGatewayBatchItem",
+      "StudentPaymentGatewayTransactionAudit",
+      "StudentPaymentHistory",
+      "StudentPaymentTemplates",
+      "StudentPosTransaction",
+      "StudentSwimClassBookingDetail",
+      "StudentSwimSkills",
+      "StudentTasks"
+    ]
+  },
+  "OrientationQuestionnaireParent": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "Page": {
+    "references": [
+      "PageGroup"
+    ],
+    "referenced_by": [
+      "PageAction",
+      "RolePage"
+    ]
+  },
+  "PageGroup": {
+    "references": [],
+    "referenced_by": [
+      "Page"
+    ]
+  },
+  "PageAction": {
+    "references": [
+      "Page"
+    ],
+    "referenced_by": [
+      "RolePageAction"
+    ]
+  },
+  "PaymentDateChangeHistory": {
+    "references": [
+      "Members",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "PaymentGatewayBatchItem": {
+    "references": [
+      "Members",
+      "PaymentGatewayBatch"
+    ],
+    "referenced_by": []
+  },
+  "PaymentGatewayBatch": {
+    "references": [],
+    "referenced_by": [
+      "PaymentGatewayBatchItem"
+    ]
+  },
+  "PosTillSummary": {
+    "references": [
+      "PosTillSummaryNote"
+    ],
+    "referenced_by": []
+  },
+  "PosTillSummaryNote": {
+    "references": [],
+    "referenced_by": [
+      "PosTillSummary"
+    ]
+  },
+  "PosTransactionAudit": {
+    "references": [
+      "Members",
+      "PosTransaction",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "PosTransactionGenericItem": {
+    "references": [
+      "MembershipTypes",
+      "PosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "PosTransactionItem": {
+    "references": [
+      "AccountProduct",
+      "PosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "PosTransactionPayment": {
+    "references": [
+      "PosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "PreActivityQuestionaireParent": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "ProspectActivity": {
+    "references": [
+      "Prospects",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectAppointment": {
+    "references": [
+      "Staff",
+      "Prospects",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectAttachment": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectAttendanceLog": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "ProspectCall": {
+    "references": [
+      "Staff",
+      "Prospects",
+      "ProspectTracking",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectTracking": {
+    "references": [
+      "MarketingEmailTemplate"
+    ],
+    "referenced_by": [
+      "ProspectCall",
+      "ProspectTrackingSchedule"
+    ]
+  },
+  "ProspectCommunicationFailedLogs": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectCreditCard": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectKid": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectMasterCalendarBlock": {
+    "references": [
+      "ProspectMasterCalendarBlockParent"
+    ],
+    "referenced_by": []
+  },
+  "ProspectMasterCalendarBlockParent": {
+    "references": [],
+    "referenced_by": [
+      "ProspectMasterCalendarBlock"
+    ]
+  },
+  "ProspectMedicalConditions": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectMembersCancelled": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectNotes": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectParentGuarantor": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectPaymentGatewayTransactionAudit": {
+    "references": [
+      "PaymentGateway",
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectPaymentHistory": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectPosTransaction": {
+    "references": [
+      "Accounts",
+      "Staff",
+      "Prospects",
+      "Staff"
+    ],
+    "referenced_by": [
+      "ProspectPosTransactionAudit",
+      "ProspectPosTransactionItem",
+      "ProspectPosTransactionPayment"
+    ]
+  },
+  "ProspectPosTransactionAudit": {
+    "references": [
+      "ProspectPosTransaction",
+      "Prospects",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectPosTransactionItem": {
+    "references": [
+      "AccountProduct",
+      "ProspectPosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "ProspectPosTransactionPayment": {
+    "references": [
+      "ProspectPosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "ProspectPreActivityQuestionnaire": {
+    "references": [
+      "PreActivityQuestionaire",
+      "PreActivityQuestionaireGroup",
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "ProspectToDo": {
+    "references": [
+      "Prospects",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectTrackingSchedule": {
+    "references": [
+      "Prospects",
+      "ProspectTracking",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "ProspectTrainerBookingAttendance": {
+    "references": [
+      "Prospects",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "ProspectVerificationCode": {
+    "references": [
+      "Prospects"
+    ],
+    "referenced_by": []
+  },
+  "RestrictedDiscountCoupons": {
+    "references": [
+      "DiscountCoupons",
+      "MembershipTypes"
+    ],
+    "referenced_by": []
+  },
+  "RestrictedGroupClass": {
+    "references": [
+      "Class",
+      "MembershipTypes"
+    ],
+    "referenced_by": []
+  },
+  "RewardsProgramAccount": {
+    "references": [
+      "Accounts",
+      "RewardsProgram"
+    ],
+    "referenced_by": []
+  },
+  "RewardsProgramClassPointsAllocation": {
+    "references": [
+      "Class",
+      "RewardsProgram"
+    ],
+    "referenced_by": []
+  },
+  "RewardsProgramPointsAudit": {
+    "references": [
+      "Class",
+      "Members",
+      "RewardsProgram"
+    ],
+    "referenced_by": []
+  },
+  "RolePage": {
+    "references": [
+      "aspnet_Roles",
+      "Page"
+    ],
+    "referenced_by": []
+  },
+  "RolePageAction": {
+    "references": [
+      "aspnet_Roles",
+      "PageAction"
+    ],
+    "referenced_by": []
+  },
+  "RoomAvailability": {
+    "references": [
+      "Rooms"
+    ],
+    "referenced_by": []
+  },
+  "Rooms": {
+    "references": [],
+    "referenced_by": [
+      "RoomAvailability",
+      "RoomBookings"
+    ]
+  },
+  "RoomBookings": {
+    "references": [
+      "BookingType",
+      "Rooms"
+    ],
+    "referenced_by": []
+  },
+  "Settlement": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "SocialTagMapping": {
+    "references": [
+      "Accounts"
+    ],
+    "referenced_by": []
+  },
+  "StaffAccount": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffAttachments": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffAttendanceLog": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffCertifications": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffFingerprint": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffNotes": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffReports": {
+    "references": [
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffSettings": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffShift": {
+    "references": [
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffTask": {
+    "references": [
+      "aspnet_Users",
+      "aspnet_Users",
+      "Members"
+    ],
+    "referenced_by": [
+      "StaffTaskAssignee"
+    ]
+  },
+  "StaffTaskAssignee": {
+    "references": [
+      "Staff",
+      "StaffTask"
+    ],
+    "referenced_by": []
+  },
+  "StaffTaskAttachment": {
+    "references": [
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "StaffTimesheet": {
+    "references": [
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StaffTrainerAccess": {
+    "references": [
+      "Staff",
+      "Staff",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "Stocktakes": {
+    "references": [
+      "AccountProduct",
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "StudentArrears": {
+    "references": [
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentAttachment": {
+    "references": [
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentAttendanceLog": {
+    "references": [
+      "Accounts",
+      "Students",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "SwimClassSchedule": {
+    "references": [
+      "Accounts",
+      "SwimClass",
+      "Trainer"
+    ],
+    "referenced_by": [
+      "StudentAttendanceLog",
+      "StudentCancelledFromWholeClasses",
+      "StudentChangedClassHistory",
+      "StudentClassCreditHistory",
+      "StudentClassWaitList",
+      "StudentRemoveFromSwimClassBooking",
+      "StudentSwimClassBookingDetail",
+      "SwimClassScheduleChangedInstructor",
+      "SwimClassScheduleOnlineAccount",
+      "SwimClassScheduleTerm",
+      "SwimScheduleExcludedTime"
+    ]
+  },
+  "StudentBillingItem": {
+    "references": [
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentCancelledClasses": {
+    "references": [
+      "StudentSwimClassBookingDetail"
+    ],
+    "referenced_by": []
+  },
+  "StudentSwimClassBookingDetail": {
+    "references": [
+      "Prospects",
+      "StudentPosTransaction",
+      "Students",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": [
+      "StudentCancelledClasses",
+      "StudentFullClassSchedule",
+      "StudentPaymentTemplates",
+      "StudentRemoveFromSwimClassBooking"
+    ]
+  },
+  "StudentCancelledFromWholeClasses": {
+    "references": [
+      "Students",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "StudentChangedClassHistory": {
+    "references": [
+      "Staff",
+      "Students",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "StudentClassCreditHistory": {
+    "references": [
+      "Staff",
+      "StudentPosTransaction",
+      "Students",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "StudentPosTransaction": {
+    "references": [
+      "Staff",
+      "Students"
+    ],
+    "referenced_by": [
+      "StudentClassCreditHistory",
+      "StudentPIFHistory",
+      "StudentPosTransactionGenericItem",
+      "StudentPosTransactionItem",
+      "StudentPosTransactionPayment",
+      "StudentSwimClassBookingDetail"
+    ]
+  },
+  "StudentClassWaitList": {
+    "references": [
+      "Students",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "StudentCommunicationFailedLogs": {
+    "references": [
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentDigitalSignature": {
+    "references": [
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentFamily": {
+    "references": [
+      "Accounts",
+      "Staff",
+      "Staff",
+      "Staff"
+    ],
+    "referenced_by": [
+      "StudentFamilyLink"
+    ]
+  },
+  "StudentFamilyLink": {
+    "references": [
+      "StudentFamily",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentFullClassSchedule": {
+    "references": [
+      "StudentSwimClassBookingDetail"
+    ],
+    "referenced_by": []
+  },
+  "StudentNotes": {
+    "references": [
+      "Staff",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentPaymentGatewayBatchItem": {
+    "references": [
+      "StudentPaymentGatewayBatch",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentPaymentGatewayBatch": {
+    "references": [],
+    "referenced_by": [
+      "StudentPaymentGatewayBatchItem"
+    ]
+  },
+  "StudentPaymentGatewayTransactionAudit": {
+    "references": [
+      "PaymentGateway",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentPaymentHistory": {
+    "references": [
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentPaymentTemplates": {
+    "references": [
+      "PaymentGateway",
+      "Students",
+      "StudentSwimClassBookingDetail"
+    ],
+    "referenced_by": [
+      "StudentPaymentVariation"
+    ]
+  },
+  "StudentPaymentVariation": {
+    "references": [
+      "StudentPaymentTemplates"
+    ],
+    "referenced_by": []
+  },
+  "StudentPIFHistory": {
+    "references": [
+      "StudentPosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "StudentPosTransactionGenericItem": {
+    "references": [
+      "MembershipTypes",
+      "StudentPosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "StudentPosTransactionItem": {
+    "references": [
+      "StudentPosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "StudentPosTransactionPayment": {
+    "references": [
+      "StudentPosTransaction"
+    ],
+    "referenced_by": []
+  },
+  "StudentRemoveFromSwimClassBooking": {
+    "references": [
+      "StudentSwimClassBookingDetail",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "StudentSwimSkills": {
+    "references": [
+      "Lookup_Type_Items",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "StudentTasks": {
+    "references": [
+      "Accounts",
+      "Students"
+    ],
+    "referenced_by": []
+  },
+  "SwimClass": {
+    "references": [
+      "Accounts",
+      "aspnet_Users"
+    ],
+    "referenced_by": [
+      "SwimClassSchedule"
+    ]
+  },
+  "SwimClassScheduleChangedInstructor": {
+    "references": [
+      "Trainer",
+      "Trainer",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "SwimClassScheduleOnlineAccount": {
+    "references": [
+      "OnlineAccount",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "SwimClassScheduleTerm": {
+    "references": [
+      "SwimClassSchedule",
+      "SwimTerm"
+    ],
+    "referenced_by": []
+  },
+  "SwimTerm": {
+    "references": [],
+    "referenced_by": [
+      "SwimClassScheduleTerm"
+    ]
+  },
+  "SwimScheduleExcludedTime": {
+    "references": [
+      "Staff",
+      "SwimClassSchedule"
+    ],
+    "referenced_by": []
+  },
+  "SwimStocktakes": {
+    "references": [
+      "AccountProduct",
+      "Accounts",
+      "Staff"
+    ],
+    "referenced_by": []
+  },
+  "TrainerAccount": {
+    "references": [
+      "Accounts",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerAttachments": {
+    "references": [
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerAttendanceLog": {
+    "references": [
+      "Accounts",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerBooking": {
+    "references": [
+      "aspnet_Users",
+      "Members",
+      "Prospects",
+      "Staff",
+      "Trainer",
+      "TrainerBookingGuest"
+    ],
+    "referenced_by": []
+  },
+  "TrainerBookingTypePricing": {
+    "references": [
+      "BookingType",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerCertifications": {
+    "references": [
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerNotes": {
+    "references": [
+      "Accounts",
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerShift": {
+    "references": [
+      "Trainer"
+    ],
+    "referenced_by": []
+  },
+  "TrainerShiftBlock": {
+    "references": [
+      "Trainer",
+      "TrainerShiftBlockParent"
+    ],
+    "referenced_by": []
+  },
+  "TrainerShiftBlockParent": {
+    "references": [
+      "Trainer"
+    ],
+    "referenced_by": [
+      "TrainerShiftBlock"
+    ]
+  },
+  "UserLogActivity": {
+    "references": [
+      "aspnet_Users"
+    ],
+    "referenced_by": []
+  },
+  "VendorMemberSetting": {
+    "references": [
+      "Members"
+    ],
+    "referenced_by": []
+  },
+  "Workout": {
+    "references": [
+      "Staff",
+      "Members",
+      "Staff",
+      "WorkoutTemplate"
+    ],
+    "referenced_by": [
+      "WorkoutGroup"
+    ]
+  },
+  "WorkoutTemplate": {
+    "references": [
+      "Staff",
+      "Lookup_Type_Items",
+      "Staff"
+    ],
+    "referenced_by": [
+      "Workout",
+      "WorkoutTemplateGroup"
+    ]
+  },
+  "WorkoutGroup": {
+    "references": [
+      "Workout"
+    ],
+    "referenced_by": [
+      "WorkoutGroupExercise"
+    ]
+  },
+  "WorkoutGroupExercise": {
+    "references": [
+      "Exercise",
+      "WorkoutGroup"
+    ],
+    "referenced_by": [
+      "WorkoutGroupExerciseComment",
+      "WorkoutGroupExerciseSet"
+    ]
+  },
+  "WorkoutGroupExerciseComment": {
+    "references": [
+      "WorkoutGroupExercise"
+    ],
+    "referenced_by": []
+  },
+  "WorkoutGroupExerciseSet": {
+    "references": [
+      "ExerciseDataType",
+      "ExerciseDataTypeUnit",
+      "WorkoutGroupExercise"
+    ],
+    "referenced_by": [
+      "WorkoutGroupExerciseSetResult"
+    ]
+  },
+  "WorkoutGroupExerciseSetResult": {
+    "references": [
+      "WorkoutGroupExerciseSet"
+    ],
+    "referenced_by": []
+  },
+  "WorkoutMemberGroup": {
+    "references": [
+      "GroupType"
+    ],
+    "referenced_by": []
+  },
+  "WorkoutTemplateGroup": {
+    "references": [
+      "WorkoutTemplate"
+    ],
+    "referenced_by": [
+      "WorkoutTemplateGroupExercise"
+    ]
+  },
+  "WorkoutTemplateGroupExercise": {
+    "references": [
+      "Exercise",
+      "WorkoutTemplateGroup",
+      "WorkoutTemplateGroupExercise"
+    ],
+    "referenced_by": [
+      "WorkoutTemplateGroupExercise",
+      "WorkoutTemplateGroupExerciseSet"
+    ]
+  },
+  "WorkoutTemplateGroupExerciseSet": {
+    "references": [
+      "ExerciseDataType",
+      "ExerciseDataTypeUnit",
+      "WorkoutTemplateGroupExercise"
+    ],
+    "referenced_by": []
+  }
+}

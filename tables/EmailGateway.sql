@@ -1,0 +1,21 @@
+USE [hkietech]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EmailGateway](
+	[EmailGatewayId] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](100) NOT NULL,
+	[ApiKey] [varchar](100) NOT NULL,
+	[ApiUrl] [varchar](200) NOT NULL,
+	[IsActive] [bit] NOT NULL,
+	[HasSubAccount] [bit] NOT NULL,
+ CONSTRAINT [PK_EmailGateway] PRIMARY KEY CLUSTERED 
+(
+	[EmailGatewayId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[EmailGateway] ADD  DEFAULT ((0)) FOR [HasSubAccount]
+GO

@@ -1,0 +1,21 @@
+USE [hkietech]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ProcessLog](
+	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+	[AccountId] [int] NOT NULL,
+	[ModuleType] [varchar](15) NOT NULL,
+	[Reference] [varchar](50) NOT NULL,
+	[ProcessName] [varchar](15) NOT NULL,
+	[ProcessDateUtc] [datetime] NOT NULL,
+	[Payload] [nvarchar](max) NOT NULL,
+	[HasError] [bit] NOT NULL,
+ CONSTRAINT [PK_ProcessLog] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO

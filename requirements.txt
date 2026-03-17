@@ -1,0 +1,13 @@
+# Flask microservice
+flask>=3.0.0
+
+# LangChain + FAISS vector store
+langchain>=0.3.0
+langchain-community>=0.3.0
+faiss-cpu>=1.7.4
+
+# Embeddings (local, no API key required)
+sentence-transformers>=2.2.0
+
+# Optional: OpenAI embeddings (set OPENAI_API_KEY)
+# langchain-openai>=0.2.0

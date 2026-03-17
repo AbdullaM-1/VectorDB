@@ -1,0 +1,645 @@
+{
+  "run_at": "2026-03-06T17:20:04.154792Z",
+  "total_tests": 17,
+  "passed": 15,
+  "tests": [
+    {
+      "name": "GET /health",
+      "request": {
+        "method": "GET",
+        "path": "/health"
+      },
+      "status_code": 200,
+      "response": {
+        "service": "vector-db",
+        "status": "ok"
+      },
+      "duration_sec": 2.1,
+      "timestamp": "2026-03-06T17:19:30.693097Z"
+    },
+    {
+      "name": "GET / (service info)",
+      "request": {
+        "method": "GET",
+        "path": "/"
+      },
+      "status_code": 200,
+      "response": {
+        "endpoints": {
+          "GET /health": "Health check",
+          "GET /search?q=...&k=4": "Similarity search",
+          "POST /documents": "Add documents (body: texts, optional metadatas)",
+          "POST /search": "Similarity search (body: query, k)"
+        },
+        "service": "FAISS Vector DB (LangChain)"
+      },
+      "duration_sec": 2.061,
+      "timestamp": "2026-03-06T17:19:32.753908Z"
+    },
+    {
+      "name": "POST /search (q='AccountId', k=3)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "AccountId",
+          "k": 3
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 3,
+        "query": "AccountId",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[aspnet_Membership](\r\n\t[ApplicationId] [uniqueidentifier] NOT NULL,\r\n\t[UserId] [uniqueidentifier] NOT NULL,\r\n\t[Password] [nvarchar](128) NOT NULL,\r\n\t[PasswordFormat] [int] NOT NULL,\r\n\t[PasswordSalt] [nvarchar](128) NOT NULL,\r\n\t[MobilePIN] [nvarchar](16) NULL,\r\n\t[Email] [nvarchar](256) NULL,\r\n\t[LoweredEmail] [nvarchar](256) NULL,\r\n\t[PasswordQuestion] [nvarchar](256) NULL,\r\n\t[PasswordAnswer] [nvarchar](128) NULL,\r\n\t[IsApproved] [bit] NOT NULL,\r\n\t[IsLockedOut] [bit] NOT NULL,\r\n\t[CreateDate] [datetime] NOT NULL,\r\n\t[LastLoginDate] [datetime] NOT NULL,\r\n\t[LastPasswordChangedDate] [datetime] NOT NULL,\r\n\t[LastLockoutDate] [datetime] NOT NULL,\r\n\t[FailedPasswordAttemptCount] [int] NOT NULL,\r\n\t[FailedPasswordAttemptWindowStart] [datetime] NOT NULL,\r\n\t[FailedPasswordAnswerAttemptCount] [int] NOT NULL,\r\n\t[FailedPasswordAnswerAttemptWindowStart] [datetime] NOT NULL,\r\n\t[Comment] [ntext] NULL,\r\nPRIMARY KEY NONCLUSTERED \r\n(\r\n\t[UserId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership] ADD  DEFAULT ((0)) FOR [PasswordFormat]\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership]  WITH CHECK ADD FOREIGN KEY([ApplicationId])\r\nREFERENCES [dbo].[aspnet_Applications] ([ApplicationId])\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership]  WITH CHECK ADD FOREIGN KEY([UserId])\r\nREFERENCES [dbo].[aspnet_Users] ([UserId])\r\nGO\r\n",
+            "metadata": {
+              "source": "aspnet_Membership.sql",
+              "table": "aspnet_Membership"
+            },
+            "score": 1.2896367311477661
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentGateway](\r\n\t[PaymentGatewayId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[Name] [nvarchar](100) NOT NULL,\r\n\t[CustomerId] [nvarchar](100) NULL,\r\n\t[Password] [nvarchar](100) NULL,\r\n\t[Url] [nvarchar](200) NULL,\r\n\t[IsTest] [bit] NOT NULL,\r\n\t[IsActive] [bit] NOT NULL,\r\n\t[IsDefault] [bit] NOT NULL,\r\n\t[DeClientId] [nvarchar](100) NULL,\r\n\t[CcClientId] [nvarchar](100) NULL,\r\n\t[VaultUrl] [nvarchar](200) NULL,\r\n\t[CertPassword] [nvarchar](100) NULL,\r\n\t[Network] [nvarchar](200) NULL,\r\n\t[JSONUrl] [varchar](200) NULL,\r\n\t[AuthToken] [varchar](200) NULL,\r\n\t[HMACSecret] [nvarchar](50) NULL,\r\n\t[RefundClientId] [nvarchar](100) NULL,\r\n\t[SwimDeClientId] [nvarchar](100) NULL,\r\n\t[SwimCcClientId] [nvarchar](100) NULL,\r\n\t[SwimRefundClientId] [nvarchar](100) NULL,\r\n\t[UseJsonApi] [bit] NOT NULL,\r\n\t[CcBillingEnabled] [bit] NOT NULL,\r\n\t[DeBillingEnabled] [bit] NOT NULL,\r\n\t[IsCreditCard] [bit] NOT NULL,\r\n\t[IsDirectEntry] [bit] NOT NULL,\r\n\t[IsApplePay] [bit] NOT NULL,\r\n\t[IsGooglePay] [bit] NOT NULL,\r\n CONSTRAINT [PK_PaymentGateway] PRIMARY KEY CLUSTERED \r\n(\r\n\t[PaymentGatewayId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((1)) FOR [UseJsonApi]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [CcBillingEnabled]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [DeBillingEnabled]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsCreditCard]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsDirectEntry]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsApplePay]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsGooglePay]\r\nGO\r\n",
+            "metadata": {
+              "source": "PaymentGateway.sql",
+              "table": "PaymentGateway"
+            },
+            "score": 1.3788213729858398
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[ClubActivityEod](\r\n\t[Id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[ActivityLocalDateTime] [datetime] NOT NULL,\r\n\t[MembersArchived] [int] NOT NULL,\r\n\t[MembersSuspended] [int] NOT NULL,\r\n\t[ActiveMemberCount] [int] NOT NULL,\r\n\t[MemberRenewals] [int] NOT NULL,\r\n\t[POSTakings] [decimal](18, 0) NOT NULL,\r\n\t[CreatedDateUtc] [datetime] NOT NULL,\r\n\t[CreatedBy] [int] NOT NULL,\r\n\t[UpdatedDateUtc] [datetime] NOT NULL,\r\n\t[POSReferral] [int] NOT NULL,\r\n\t[PossiblePifRenewals] [int] NOT NULL,\r\n\t[ActualPifRenewalsSold] [int] NOT NULL,\r\n\t[ActualDbMembers] [int] NOT NULL,\r\n CONSTRAINT [PK_ClubActivityEod] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [POSReferral]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [PossiblePifRenewals]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [ActualPifRenewalsSold]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [ActualDbMembers]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod]  WITH CHECK ADD  CONSTRAINT [FK_ClubActivityEod_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] CHECK CONSTRAINT [FK_ClubActivityEod_Accounts]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod]  WITH CHECK ADD  CONSTRAINT [FK_ClubActivityEod_Staff] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] CHECK CONSTRAINT [FK_ClubActivityEod_Staff]\r\nGO\r\n",
+            "metadata": {
+              "source": "ClubActivityEod.sql",
+              "table": "ClubActivityEod"
+            },
+            "score": 1.388910174369812
+          }
+        ]
+      },
+      "duration_sec": 2.171,
+      "timestamp": "2026-03-06T17:19:34.925277Z"
+    },
+    {
+      "name": "POST /search (q='Members', k=4)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "Members",
+          "k": 4
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 4,
+        "query": "Members",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Members](\r\n\t[member_id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[member_number] [varchar](20) NOT NULL,\r\n\t[member_first_name] [varchar](50) NULL,\r\n\t[member_last_name] [varchar](50) NULL,\r\n\t[member_dob] [smalldatetime] NULL,\r\n\t[member_gender] [varchar](50) NULL,\r\n\t[member_address] [varchar](300) NULL,\r\n\t[member_email] [varchar](150) NULL,\r\n\t[member_suburb] [varchar](50) NULL,\r\n\t[member_state] [varchar](50) NULL,\r\n\t[member_postcode] [varchar](50) NULL,\r\n\t[member_homephone] [varchar](50) NULL,\r\n\t[member_workphone] [varchar](50) NULL,\r\n\t[member_mobile] [varchar](50) NULL,\r\n\t[member_emergencycontactname] [varchar](50) NULL,\r\n\t[member_emergencycontactno] [varchar](50) NULL,\r\n\t[member_photo_location] [varchar](300) NULL,\r\n\t[member_sales_person] [int] NULL,\r\n\t[member_trainer] [int] NULL,\r\n\t[member_howheard] [int] NULL,\r\n\t[member_status] [varchar](50) NULL,\r\n\t[member_barcode] [varchar](30) NULL,\r\n\t[source_id] [varchar](50) NULL,\r\n\t[member_occupation] [varchar](50) NULL,\r\n\t[member_employer] [varchar](50) NULL,\r\n\t[last_sms_datetime] [datetime] NULL,\r\n\t[is_new_member] [bit] NOT NULL,\r\n\t[is_payment_pending] [bit] NOT NULL,\r\n\t[last_status_update_utcdatetime] [datetime] NULL,\r\n\t[MedicalInfo] [varchar](max) NULL,\r\n\t[CreatedBy] [int] NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[MemberStreetNumber] [varchar](50) NULL,\r\n\t[AccessControlUserId] [int] NULL,\r\n\t[IsManuallyTag] [bit] NULL,\r\n\t[GeoCoordinates] [varchar](50) NULL,\r\n\t[HasMobileApp] [bit] NOT NULL,\r\n\t[PtFrequency] [int] NULL,\r\n\t[NumberofPtsessions] [int] NULL,\r\n\t[MaxNumberOfBookedClasses] [int] NULL,\r\n\t[IsSmsBlocked] [bit] NOT NULL,\r\n\t[Department] [int] NOT NULL,\r\n\t[IsEmailSubscribed] [bit] NOT NULL,\r\n\t[DeletedDateUtc] [datetime] NULL,\r\n\t[DeletedBy] [nvarchar](100) NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[PortalUserId] [nvarchar](128) NULL,\r\n\t[EmergencyRelationship] [varchar](50) NULL,\r\n\t[FitnessPassportNumber] [varchar](20) NULL,\r\n\t[ReferredBy] [nvarchar](1000) NULL,\r\n\t[IsBadEmail] [bit] NOT NULL,\r\n\t[IsBadMobile] [bit] NOT NULL,\r\n\t[HasAppAccess] [bit] NOT NULL,\r\n\t[DriversLicense] [nvarchar](50) NULL,\r\n\t[AccessBlocked] [bit] NOT NULL,\r\n\t[AccessBlockedReason] [varchar](150) NULL,\r\n\t[IsOverduePaidOnline] [bit] NOT NULL,\r\n\t[IsBlackListed] [bit] NOT NULL,\r\n\t[IsCovidVaccinated] [bit] NOT NULL,\r\n\t[CovidVaccinationDetails] [varchar](500) NULL,\r\n\t[CovidVaccinatedDateTimeRecorded] [datetime] NULL,\r\n\t[CovidVaccinatedRecordedByStaffId] [int] NULL,\r\n\t[TransferMembershipUtcDateTime] [datetime] NULL,\r\n\t[TransferredFrom] [nvarchar](100) NULL,\r\n\t[Trainer] [int] NULL,\r\n\t[NDISNumber] [varchar](100) NULL,\r\n\t[StatusCheckSum] [varchar](128) NULL,\r\n\t[IsOnlineSignupCompleted] [bit] NULL,\r\n\t[ProspectNumber] [varchar](10) NULL,\r\n\t[LastRoyaltyChargedDateUtc] [datetime] NULL,\r\n\t[LastUpdatedUtcDateTime] [datetime] NULL,\r\n\t[OnlineSignupSource] [int] NULL,\r\n\t[FacialRecognitionId] [varchar](100) NULL,\r\n\t[AccessPin] [varchar](50) NULL,\r\n\t[LastVisitUtcDateTime] [datetime] NULL,\r\n\t[LastVisitLocalDateTime] [datetime] NULL,\r\n CONSTRAINT [PK_Members] PRIMARY KEY CLUSTERED \r\n(\r\n\t[member_number] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  CONSTRAINT [DF_Members_member_status]  DEFAULT (N'Active') FOR [member_status]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  CONSTRAINT [DF_Members_is_new_member]  DEFAULT ((0)) FOR [is_new_member]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  CONSTRAINT [DF_Members_is_payment_pending]  DEFAULT ((0)) FOR [is_payment_pending]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [CreatedBy]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [HasMobileApp]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsSmsBlocked]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  CONSTRAINT [DF_Members_Department]  DEFAULT ((1)) FOR [Department]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((1)) FOR [IsEmailSubscribed]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsBadEmail]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsBadMobile]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((1)) FOR [HasAppAccess]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [AccessBlocked]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsOverduePaidOnline]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsBlackListed]\r\nGO\r\nALTER TABLE [dbo].[Members] ADD  DEFAULT ((0)) FOR [IsCovidVaccinated]\r\nGO\r\nALTER TABLE [dbo].[Members]  WITH CHECK ADD  CONSTRAINT [FK_Members_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[Members] CHECK CONSTRAINT [FK_Members_Accounts]\r\nGO\r\nALTER TABLE [dbo].[Members]  WITH CHECK ADD  CONSTRAINT [FK_Members_Prospects_ProspectNumber] FOREIGN KEY([ProspectNumber])\r\nREFERENCES [dbo].[Prospects] ([ProspectNumber])\r\nGO\r\nALTER TABLE [dbo].[Members] CHECK CONSTRAINT [FK_Members_Prospects_ProspectNumber]\r\nGO\r\nALTER TABLE [dbo].[Members]  WITH CHECK ADD  CONSTRAINT [FK_members_staff_CovidVaccinatedRecordedByStaffId] FOREIGN KEY([CovidVaccinatedRecordedByStaffId])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[Members] CHECK CONSTRAINT [FK_members_staff_CovidVaccinatedRecordedByStaffId]\r\nGO\r\n",
+            "metadata": {
+              "source": "Members.sql",
+              "table": "Members"
+            },
+            "score": 1.3729894161224365
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[ClubActivityEod](\r\n\t[Id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[ActivityLocalDateTime] [datetime] NOT NULL,\r\n\t[MembersArchived] [int] NOT NULL,\r\n\t[MembersSuspended] [int] NOT NULL,\r\n\t[ActiveMemberCount] [int] NOT NULL,\r\n\t[MemberRenewals] [int] NOT NULL,\r\n\t[POSTakings] [decimal](18, 0) NOT NULL,\r\n\t[CreatedDateUtc] [datetime] NOT NULL,\r\n\t[CreatedBy] [int] NOT NULL,\r\n\t[UpdatedDateUtc] [datetime] NOT NULL,\r\n\t[POSReferral] [int] NOT NULL,\r\n\t[PossiblePifRenewals] [int] NOT NULL,\r\n\t[ActualPifRenewalsSold] [int] NOT NULL,\r\n\t[ActualDbMembers] [int] NOT NULL,\r\n CONSTRAINT [PK_ClubActivityEod] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [POSReferral]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [PossiblePifRenewals]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [ActualPifRenewalsSold]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] ADD  DEFAULT ((0)) FOR [ActualDbMembers]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod]  WITH CHECK ADD  CONSTRAINT [FK_ClubActivityEod_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] CHECK CONSTRAINT [FK_ClubActivityEod_Accounts]\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod]  WITH CHECK ADD  CONSTRAINT [FK_ClubActivityEod_Staff] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[ClubActivityEod] CHECK CONSTRAINT [FK_ClubActivityEod_Staff]\r\nGO\r\n",
+            "metadata": {
+              "source": "ClubActivityEod.sql",
+              "table": "ClubActivityEod"
+            },
+            "score": 1.3863632678985596
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MembershipTypeAccount](\r\n\t[MembershipTypeAccountId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[MembershipTypeId] [int] NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[InClubOnlineSortOrder] [int] NOT NULL,\r\n\t[OnlineSortOrder] [int] NOT NULL,\r\n CONSTRAINT [PK_MembershipTypeAccount] PRIMARY KEY CLUSTERED \r\n(\r\n\t[MembershipTypeAccountId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] ADD  DEFAULT ((0)) FOR [InClubOnlineSortOrder]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] ADD  DEFAULT ((0)) FOR [OnlineSortOrder]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount]  WITH CHECK ADD  CONSTRAINT [FK_MembershipTypeAccount_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] CHECK CONSTRAINT [FK_MembershipTypeAccount_Accounts]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount]  WITH CHECK ADD  CONSTRAINT [FK_MembershipTypeAccount_MembershipTypeAccount] FOREIGN KEY([MembershipTypeId])\r\nREFERENCES [dbo].[MembershipTypes] ([contract_id])\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] CHECK CONSTRAINT [FK_MembershipTypeAccount_MembershipTypeAccount]\r\nGO\r\n",
+            "metadata": {
+              "source": "MembershipTypeAccount.sql",
+              "table": "MembershipTypeAccount"
+            },
+            "score": 1.4164812564849854
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Group](\r\n\t[GroupId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[GroupName] [nvarchar](80) NOT NULL,\r\n\t[Gender] [int] NULL,\r\n\t[AgeFrom] [int] NULL,\r\n\t[AgeTo] [int] NULL,\r\n\t[MembershipType] [nvarchar](500) NULL,\r\n\t[SalesPerson] [nvarchar](1000) NULL,\r\n\t[Trainer] [nvarchar](1000) NULL,\r\n\t[MembershipStatus] [nvarchar](100) NULL,\r\n\t[CreatedUtcDateTime] [datetime] NOT NULL,\r\n CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED \r\n(\r\n\t[GroupId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\n",
+            "metadata": {
+              "source": "Group.sql",
+              "table": "Group"
+            },
+            "score": 1.4229615926742554
+          }
+        ]
+      },
+      "duration_sec": 2.069,
+      "timestamp": "2026-03-06T17:19:36.994599Z"
+    },
+    {
+      "name": "POST /search (q='FOREIGN KEY', k=3)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "FOREIGN KEY",
+          "k": 3
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 3,
+        "query": "FOREIGN KEY",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[StaffTaskAssignee](\r\n\t[StaffTaskAssigneeId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[StaffTaskId] [bigint] NOT NULL,\r\n\t[AssigneeId] [int] NOT NULL,\r\n\t[Status] [tinyint] NOT NULL\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[StaffTaskAssignee]  WITH CHECK ADD  CONSTRAINT [FK_StaffTaskAssignee_Staff] FOREIGN KEY([AssigneeId])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[StaffTaskAssignee] CHECK CONSTRAINT [FK_StaffTaskAssignee_Staff]\r\nGO\r\nALTER TABLE [dbo].[StaffTaskAssignee]  WITH CHECK ADD  CONSTRAINT [FK_StaffTaskAssignee_StaffTask] FOREIGN KEY([StaffTaskId])\r\nREFERENCES [dbo].[StaffTask] ([StaffTaskId])\r\nGO\r\nALTER TABLE [dbo].[StaffTaskAssignee] CHECK CONSTRAINT [FK_StaffTaskAssignee_StaffTask]\r\nGO\r\n",
+            "metadata": {
+              "source": "StaffTaskAssignee.sql",
+              "table": "StaffTaskAssignee"
+            },
+            "score": 1.0771840810775757
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[FormFieldMapping](\r\n\t[FormID] [int] NOT NULL,\r\n\t[FieldId] [int] NOT NULL,\r\n CONSTRAINT [PK_UserGroup] PRIMARY KEY NONCLUSTERED \r\n(\r\n\t[FormID] ASC,\r\n\t[FieldId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[FormFieldMapping]  WITH CHECK ADD  CONSTRAINT [FK_FormFieldMapping_Field] FOREIGN KEY([FieldId])\r\nREFERENCES [dbo].[Fields] ([FieldId])\r\nGO\r\nALTER TABLE [dbo].[FormFieldMapping] CHECK CONSTRAINT [FK_FormFieldMapping_Field]\r\nGO\r\nALTER TABLE [dbo].[FormFieldMapping]  WITH CHECK ADD  CONSTRAINT [FK_FormFieldMapping_Form] FOREIGN KEY([FormID])\r\nREFERENCES [dbo].[Forms] ([FormId])\r\nGO\r\nALTER TABLE [dbo].[FormFieldMapping] CHECK CONSTRAINT [FK_FormFieldMapping_Form]\r\nGO\r\n",
+            "metadata": {
+              "source": "FormFieldMapping.sql",
+              "table": "FormFieldMapping"
+            },
+            "score": 1.1219538450241089
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountSupplierOrderItems](\r\n\t[Id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[AccountProductId] [bigint] NOT NULL,\r\n\t[AccountSupplierOrderId] [int] NOT NULL,\r\n\t[Quantity] [int] NOT NULL,\r\n CONSTRAINT [PK_AccountSupplierOrderItems] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrderItems]  WITH CHECK ADD  CONSTRAINT [FK_AccountProduct_AccountSupplierOrderItems_AccountProductId] FOREIGN KEY([AccountProductId])\r\nREFERENCES [dbo].[AccountProduct] ([AccountProductId])\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrderItems] CHECK CONSTRAINT [FK_AccountProduct_AccountSupplierOrderItems_AccountProductId]\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrderItems]  WITH CHECK ADD  CONSTRAINT [FK_AccountSupplierOrderItems_AccountSupplierOrder_AccountSupplierOrderId] FOREIGN KEY([AccountSupplierOrderId])\r\nREFERENCES [dbo].[AccountSupplierOrders] ([Id])\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrderItems] CHECK CONSTRAINT [FK_AccountSupplierOrderItems_AccountSupplierOrder_AccountSupplierOrderId]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountSupplierOrderItems.sql",
+              "table": "AccountSupplierOrderItems"
+            },
+            "score": 1.166924238204956
+          }
+        ]
+      },
+      "duration_sec": 2.087,
+      "timestamp": "2026-03-06T17:19:39.080328Z"
+    },
+    {
+      "name": "POST /search (q='billing invoice', k=4)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "billing invoice",
+          "k": 4
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 4,
+        "query": "billing invoice",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountBillingItem](\r\n\t[AccountBillingItemId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[BillingReason] [int] NOT NULL,\r\n\t[BillingAmount] [money] NOT NULL,\r\n\t[BillingReference] [varchar](100) NULL,\r\n\t[CreatedUtcDateTime] [datetime] NOT NULL,\r\n\t[ProcessedUtcDateTime] [datetime] NULL,\r\n\t[MessageId] [varchar](50) NULL,\r\n\t[PaymentType] [int] NULL,\r\n\t[Quantity] [int] NOT NULL,\r\n CONSTRAINT [PK_AccountBillingItem] PRIMARY KEY CLUSTERED \r\n(\r\n\t[AccountBillingItemId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountBillingItem] ADD  DEFAULT ((1)) FOR [Quantity]\r\nGO\r\nALTER TABLE [dbo].[AccountBillingItem]  WITH CHECK ADD  CONSTRAINT [FK_AccountBillingItem_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountBillingItem] CHECK CONSTRAINT [FK_AccountBillingItem_Accounts]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountBillingItem.sql",
+              "table": "AccountBillingItem"
+            },
+            "score": 1.0944254398345947
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[InvoiceItem](\r\n\t[InvoiceItemId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[InvoiceId] [bigint] NOT NULL,\r\n\t[ItemCode] [nvarchar](50) NULL,\r\n\t[Description] [nvarchar](500) NULL,\r\n\t[Quantity] [decimal](18, 2) NOT NULL,\r\n\t[UnitPrice] [money] NOT NULL,\r\n\t[Discount] [decimal](18, 0) NULL,\r\n\t[AccountType] [smallint] NOT NULL,\r\n\t[Amount] [money] NOT NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n CONSTRAINT [PK_InvoiceItem] PRIMARY KEY CLUSTERED \r\n(\r\n\t[InvoiceItemId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[InvoiceItem] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[InvoiceItem]  WITH CHECK ADD  CONSTRAINT [FK_InvoiceItem_Invoice] FOREIGN KEY([InvoiceId])\r\nREFERENCES [dbo].[Invoice] ([InvoiceId])\r\nGO\r\nALTER TABLE [dbo].[InvoiceItem] CHECK CONSTRAINT [FK_InvoiceItem_Invoice]\r\nGO\r\n",
+            "metadata": {
+              "source": "InvoiceItem.sql",
+              "table": "InvoiceItem"
+            },
+            "score": 1.2063250541687012
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Invoice](\r\n\t[InvoiceId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[InvoiceNumber] [nvarchar](50) NOT NULL,\r\n\t[MemberNumber] [varchar](20) NULL,\r\n\t[DateLocal] [datetime] NOT NULL,\r\n\t[DueDateLocal] [datetime] NOT NULL,\r\n\t[Status] [smallint] NOT NULL,\r\n\t[CreatedDateUTC] [datetime] NOT NULL,\r\n\t[CreatedBy] [int] NOT NULL,\r\n\t[UpdatedDateUtc] [datetime] NULL,\r\n\t[UpdatedBy] [int] NULL,\r\n\t[Reference] [nvarchar](500) NULL,\r\n\t[PaymentDateLocal] [datetime] NULL,\r\n\t[GST] [money] NOT NULL,\r\n\t[TotalAmount] [money] NOT NULL,\r\n\t[InvoiceType] [smallint] NOT NULL,\r\n\t[ContactId] [bigint] NULL,\r\n\t[EmailSent] [nvarchar](50) NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[DeletedUtcDateTime] [datetime] NULL,\r\n\t[DeletedBy] [nvarchar](50) NULL,\r\n\t[AccountId] [int] NULL,\r\n CONSTRAINT [PK_Invoice] PRIMARY KEY CLUSTERED \r\n(\r\n\t[InvoiceId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[Invoice] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[Invoice]  WITH CHECK ADD  CONSTRAINT [FK_Invoice_Accounts_AccountId] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[Invoice] CHECK CONSTRAINT [FK_Invoice_Accounts_AccountId]\r\nGO\r\nALTER TABLE [dbo].[Invoice]  WITH CHECK ADD  CONSTRAINT [FK_Invoice_Contacts] FOREIGN KEY([ContactId])\r\nREFERENCES [dbo].[Contacts] ([ContactId])\r\nGO\r\nALTER TABLE [dbo].[Invoice] CHECK CONSTRAINT [FK_Invoice_Contacts]\r\nGO\r\nALTER TABLE [dbo].[Invoice]  WITH CHECK ADD  CONSTRAINT [FK_Invoice_Members] FOREIGN KEY([MemberNumber])\r\nREFERENCES [dbo].[Members] ([member_number])\r\nGO\r\nALTER TABLE [dbo].[Invoice] CHECK CONSTRAINT [FK_Invoice_Members]\r\nGO\r\nALTER TABLE [dbo].[Invoice]  WITH CHECK ADD  CONSTRAINT [FK_Invoice_Staff] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[Invoice] CHECK CONSTRAINT [FK_Invoice_Staff]\r\nGO\r\nALTER TABLE [dbo].[Invoice]  WITH CHECK ADD  CONSTRAINT [FK_Invoice_Staff1] FOREIGN KEY([UpdatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[Invoice] CHECK CONSTRAINT [FK_Invoice_Staff1]\r\nGO\r\n",
+            "metadata": {
+              "source": "Invoice.sql",
+              "table": "Invoice"
+            },
+            "score": 1.2205790281295776
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountAddonBillings](\r\n\t[Id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[ProductCatalogId] [int] NOT NULL,\r\n\t[ProductName] [varchar](200) NOT NULL,\r\n\t[Price] [money] NOT NULL,\r\n\t[IsOneOffBilling] [bit] NOT NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[DeletedUtcDateTime] [datetime] NULL,\r\n CONSTRAINT [PK_AccountAddonBillings] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountAddonBillings]  WITH CHECK ADD  CONSTRAINT [FK_AccountAddonBillings_Account_AccountId] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountAddonBillings] CHECK CONSTRAINT [FK_AccountAddonBillings_Account_AccountId]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountAddonBillings.sql",
+              "table": "AccountAddonBillings"
+            },
+            "score": 1.2503247261047363
+          }
+        ]
+      },
+      "duration_sec": 2.099,
+      "timestamp": "2026-03-06T17:19:41.180239Z"
+    },
+    {
+      "name": "POST /search (q='CREATE TABLE', k=2)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "CREATE TABLE",
+          "k": 2
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 2,
+        "query": "CREATE TABLE",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[TrainerBooking](\r\n\t[TrainerBookingId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[TrainerId] [int] NOT NULL,\r\n\t[MemberNumber] [varchar](20) NULL,\r\n\t[TrainingDate] [date] NOT NULL,\r\n\t[StartTime] [time](7) NOT NULL,\r\n\t[EndTime] [time](7) NOT NULL,\r\n\t[Comments] [varchar](100) NULL,\r\n\t[Type] [smallint] NOT NULL,\r\n\t[BookingTypeId] [int] NULL,\r\n\t[TrainerBookingGuestId] [bigint] NULL,\r\n\t[Source] [int] NOT NULL,\r\n\t[OnlineAccountId] [int] NULL,\r\n\t[AccountId] [int] NULL,\r\n\t[RecurrenceCode] [varchar](15) NULL,\r\n\t[PaymentVoid] [bit] NOT NULL,\r\n\t[RemindInMinute] [int] NOT NULL,\r\n\t[LastReminderSentOnLocal] [datetime] NULL,\r\n\t[MemberPtSubscriptionId] [bigint] NOT NULL,\r\n\t[IsCancelled] [bit] NOT NULL,\r\n\t[CancelledDateTimeUtc] [datetime] NULL,\r\n\t[IsProcessedCancellation] [bit] NOT NULL,\r\n\t[IsChargeLateFeeCancellation] [bit] NOT NULL,\r\n\t[CancellationProcessedBy] [uniqueidentifier] NULL,\r\n\t[ProcessedDateTimeUtc] [datetime] NULL,\r\n\t[IsCancelledWithinCancellationNotice] [bit] NOT NULL,\r\n\t[IsStoredCreditUsed] [bit] NOT NULL,\r\n\t[ProspectNumber] [varchar](10) NULL,\r\n\t[CreatedDateUtc] [datetime] NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[DeletedDateTimeUtc] [datetime] NULL,\r\n\t[DeletedBy] [int] NULL,\r\n\t[CreatedBy] [int] NULL,\r\n\t[CancellationSource] [int] NULL,\r\n CONSTRAINT [PK_TrainerBooking] PRIMARY KEY CLUSTERED \r\n(\r\n\t[TrainerBookingId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((1)) FOR [Source]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [PaymentVoid]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  CONSTRAINT [DF_TrainerBooking_RemindInMinute]  DEFAULT ((0)) FOR [RemindInMinute]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [MemberPtSubscriptionId]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsCancelled]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsProcessedCancellation]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsChargeLateFeeCancellation]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsCancelledWithinCancellationNotice]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsStoredCreditUsed]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_CancellationProcessedBy_aspnet_User] FOREIGN KEY([CancellationProcessedBy])\r\nREFERENCES [dbo].[aspnet_Users] ([UserId])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_CancellationProcessedBy_aspnet_User]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Members] FOREIGN KEY([MemberNumber])\r\nREFERENCES [dbo].[Members] ([member_number])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Members]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Prospects] FOREIGN KEY([ProspectNumber])\r\nREFERENCES [dbo].[Prospects] ([ProspectNumber])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Prospects]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Staffs] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Staffs]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Trainer] FOREIGN KEY([TrainerId])\r\nREFERENCES [dbo].[Trainer] ([TrainerId])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Trainer]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_TrainerBookingGuest] FOREIGN KEY([TrainerBookingGuestId])\r\nREFERENCES [dbo].[TrainerBookingGuest] ([Id])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_TrainerBookingGuest]\r\nGO\r\n",
+            "metadata": {
+              "source": "TrainerBooking.sql",
+              "table": "TrainerBooking"
+            },
+            "score": 1.2668838500976562
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Trainer](\r\n\t[TrainerId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[FirstName] [varchar](100) NULL,\r\n\t[LastName] [varchar](100) NULL,\r\n\t[MobilePhone] [nvarchar](20) NOT NULL,\r\n\t[HomePhone] [nvarchar](20) NULL,\r\n\t[PhotoLocation] [nvarchar](300) NULL,\r\n\t[Email] [nvarchar](255) NULL,\r\n\t[LastModifiedUTCDateTime] [datetime] NOT NULL,\r\n\t[IsActive] [bit] NOT NULL,\r\n\t[IsChargeable] [bit] NOT NULL,\r\n\t[EmailForPtBookings] [bit] NOT NULL,\r\n\t[PTBookingCutOffTime] [int] NULL,\r\n\t[MaxNumberOfMember] [int] NOT NULL,\r\n\t[BookingTypes] [varchar](100) NULL,\r\n\t[Barcode] [varchar](10) NULL,\r\n\t[PortalUserId] [nvarchar](128) NULL,\r\n\t[PushNotificationForPtBookings] [bit] NOT NULL,\r\n\t[IsMasterTrainer] [bit] NOT NULL,\r\n\t[PtCancellationNotice] [int] NULL,\r\n\t[PtCancellationLateFee] [decimal](18, 2) NULL,\r\n\t[SendSmsOnCancellationPtSessionIsEnabled] [bit] NOT NULL,\r\n\t[NoShowFee] [decimal](18, 2) NULL,\r\n\t[Bio] [nvarchar](max) NULL,\r\n\t[OnlineCost] [decimal](18, 2) NOT NULL,\r\n\t[ShowOnline] [bit] NOT NULL,\r\n\t[HourlyRate] [money] NOT NULL,\r\n\t[EnableMaxBooking] [bit] NOT NULL,\r\n\t[MaxBooking] [int] NOT NULL,\r\n\t[CreatedOnUtcDateTime] [datetime] NULL,\r\n\t[EnableMaxBookingDays] [bit] NOT NULL,\r\n\t[MaxBookingDays] [int] NOT NULL,\r\n\t[EmailForProgramBookings] [bit] NOT NULL,\r\n\t[SmsForPtBookings] [bit] NOT NULL,\r\n\t[InstructorCategoryId] [int] NOT NULL,\r\n CONSTRAINT [PK_Trainer] PRIMARY KEY CLUSTERED \r\n(\r\n\t[TrainerId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [IsActive]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((5)) FOR [MaxNumberOfMember]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [PushNotificationForPtBookings]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [IsMasterTrainer]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [SendSmsOnCancellationPtSessionIsEnabled]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  CONSTRAINT [DF_Trainer_OnlineCost]  DEFAULT ((0)) FOR [OnlineCost]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  CONSTRAINT [DF_Trainer_ShowOnline]  DEFAULT ((0)) FOR [ShowOnline]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [HourlyRate]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [EnableMaxBooking]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((1)) FOR [MaxBooking]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [EnableMaxBookingDays]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [MaxBookingDays]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [SmsForPtBookings]\r\nGO\r\nALTER TABLE [dbo].[Trainer] ADD  DEFAULT ((0)) FOR [InstructorCategoryId]\r\nGO\r\n",
+            "metadata": {
+              "source": "Trainer.sql",
+              "table": "Trainer"
+            },
+            "score": 1.2773382663726807
+          }
+        ]
+      },
+      "duration_sec": 2.072,
+      "timestamp": "2026-03-06T17:19:43.252083Z"
+    },
+    {
+      "name": "POST /search (q='Staff Trainer', k=3)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "Staff Trainer",
+          "k": 3
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 3,
+        "query": "Staff Trainer",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[StaffTrainerAccess](\r\n\t[Id] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[StaffId] [int] NOT NULL,\r\n\t[TrainerId] [int] NOT NULL,\r\n\t[TrainerType] [smallint] NOT NULL,\r\n\t[CreatedDateTimeUtc] [datetime] NOT NULL,\r\n\t[CreatedBy] [int] NOT NULL,\r\n CONSTRAINT [PK_StaffTrainerAccess] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[StaffTrainerAccess]  WITH CHECK ADD  CONSTRAINT [FK_StaffTrainerAccess_Staff] FOREIGN KEY([StaffId])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[StaffTrainerAccess] CHECK CONSTRAINT [FK_StaffTrainerAccess_Staff]\r\nGO\r\nALTER TABLE [dbo].[StaffTrainerAccess]  WITH CHECK ADD  CONSTRAINT [FK_StaffTrainerAccess_Staff1] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[StaffTrainerAccess] CHECK CONSTRAINT [FK_StaffTrainerAccess_Staff1]\r\nGO\r\nALTER TABLE [dbo].[StaffTrainerAccess]  WITH CHECK ADD  CONSTRAINT [FK_StaffTrainerAccess_Trainer] FOREIGN KEY([TrainerId])\r\nREFERENCES [dbo].[Trainer] ([TrainerId])\r\nGO\r\nALTER TABLE [dbo].[StaffTrainerAccess] CHECK CONSTRAINT [FK_StaffTrainerAccess_Trainer]\r\nGO\r\n",
+            "metadata": {
+              "source": "StaffTrainerAccess.sql",
+              "table": "StaffTrainerAccess"
+            },
+            "score": 1.1936103105545044
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[TrainerShiftBlock](\r\n\t[TrainerShiftBlockId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[TrainerId] [int] NOT NULL,\r\n\t[LocalTrainingDate] [date] NOT NULL,\r\n\t[TrainerType] [smallint] NOT NULL,\r\n\t[StartTimeUtc] [time](7) NOT NULL,\r\n\t[EndTimeUtc] [time](7) NOT NULL,\r\n\t[Reference] [varchar](100) NULL,\r\n\t[CreatedDateUtc] [datetime] NOT NULL,\r\n\t[TrainerShiftBlockParentId] [int] NULL,\r\n\t[RecurrenceCode] [varchar](15) NULL,\r\n CONSTRAINT [PK_TrainerShiftBlock] PRIMARY KEY CLUSTERED \r\n(\r\n\t[TrainerShiftBlockId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[TrainerShiftBlock]  WITH CHECK ADD  CONSTRAINT [FK_TrainerShiftBlock_Trainer] FOREIGN KEY([TrainerId])\r\nREFERENCES [dbo].[Trainer] ([TrainerId])\r\nGO\r\nALTER TABLE [dbo].[TrainerShiftBlock] CHECK CONSTRAINT [FK_TrainerShiftBlock_Trainer]\r\nGO\r\nALTER TABLE [dbo].[TrainerShiftBlock]  WITH CHECK ADD  CONSTRAINT [FK_TrainerShiftBlockParent_TrainerShiftBlock] FOREIGN KEY([TrainerShiftBlockParentId])\r\nREFERENCES [dbo].[TrainerShiftBlockParent] ([TrainerShiftBlockParentId])\r\nGO\r\nALTER TABLE [dbo].[TrainerShiftBlock] CHECK CONSTRAINT [FK_TrainerShiftBlockParent_TrainerShiftBlock]\r\nGO\r\n",
+            "metadata": {
+              "source": "TrainerShiftBlock.sql",
+              "table": "TrainerShiftBlock"
+            },
+            "score": 1.2591017484664917
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[TrainerBooking](\r\n\t[TrainerBookingId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[TrainerId] [int] NOT NULL,\r\n\t[MemberNumber] [varchar](20) NULL,\r\n\t[TrainingDate] [date] NOT NULL,\r\n\t[StartTime] [time](7) NOT NULL,\r\n\t[EndTime] [time](7) NOT NULL,\r\n\t[Comments] [varchar](100) NULL,\r\n\t[Type] [smallint] NOT NULL,\r\n\t[BookingTypeId] [int] NULL,\r\n\t[TrainerBookingGuestId] [bigint] NULL,\r\n\t[Source] [int] NOT NULL,\r\n\t[OnlineAccountId] [int] NULL,\r\n\t[AccountId] [int] NULL,\r\n\t[RecurrenceCode] [varchar](15) NULL,\r\n\t[PaymentVoid] [bit] NOT NULL,\r\n\t[RemindInMinute] [int] NOT NULL,\r\n\t[LastReminderSentOnLocal] [datetime] NULL,\r\n\t[MemberPtSubscriptionId] [bigint] NOT NULL,\r\n\t[IsCancelled] [bit] NOT NULL,\r\n\t[CancelledDateTimeUtc] [datetime] NULL,\r\n\t[IsProcessedCancellation] [bit] NOT NULL,\r\n\t[IsChargeLateFeeCancellation] [bit] NOT NULL,\r\n\t[CancellationProcessedBy] [uniqueidentifier] NULL,\r\n\t[ProcessedDateTimeUtc] [datetime] NULL,\r\n\t[IsCancelledWithinCancellationNotice] [bit] NOT NULL,\r\n\t[IsStoredCreditUsed] [bit] NOT NULL,\r\n\t[ProspectNumber] [varchar](10) NULL,\r\n\t[CreatedDateUtc] [datetime] NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[DeletedDateTimeUtc] [datetime] NULL,\r\n\t[DeletedBy] [int] NULL,\r\n\t[CreatedBy] [int] NULL,\r\n\t[CancellationSource] [int] NULL,\r\n CONSTRAINT [PK_TrainerBooking] PRIMARY KEY CLUSTERED \r\n(\r\n\t[TrainerBookingId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((1)) FOR [Source]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [PaymentVoid]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  CONSTRAINT [DF_TrainerBooking_RemindInMinute]  DEFAULT ((0)) FOR [RemindInMinute]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [MemberPtSubscriptionId]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsCancelled]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsProcessedCancellation]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsChargeLateFeeCancellation]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsCancelledWithinCancellationNotice]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsStoredCreditUsed]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_CancellationProcessedBy_aspnet_User] FOREIGN KEY([CancellationProcessedBy])\r\nREFERENCES [dbo].[aspnet_Users] ([UserId])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_CancellationProcessedBy_aspnet_User]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Members] FOREIGN KEY([MemberNumber])\r\nREFERENCES [dbo].[Members] ([member_number])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Members]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Prospects] FOREIGN KEY([ProspectNumber])\r\nREFERENCES [dbo].[Prospects] ([ProspectNumber])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Prospects]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Staffs] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Staffs]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_Trainer] FOREIGN KEY([TrainerId])\r\nREFERENCES [dbo].[Trainer] ([TrainerId])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_Trainer]\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking]  WITH CHECK ADD  CONSTRAINT [FK_TrainerBooking_TrainerBookingGuest] FOREIGN KEY([TrainerBookingGuestId])\r\nREFERENCES [dbo].[TrainerBookingGuest] ([Id])\r\nGO\r\nALTER TABLE [dbo].[TrainerBooking] CHECK CONSTRAINT [FK_TrainerBooking_TrainerBookingGuest]\r\nGO\r\n",
+            "metadata": {
+              "source": "TrainerBooking.sql",
+              "table": "TrainerBooking"
+            },
+            "score": 1.3426611423492432
+          }
+        ]
+      },
+      "duration_sec": 2.103,
+      "timestamp": "2026-03-06T17:19:45.355083Z"
+    },
+    {
+      "name": "POST /search (q='MembershipType', k=3)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "MembershipType",
+          "k": 3
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 3,
+        "query": "MembershipType",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MembershipTypeAccount](\r\n\t[MembershipTypeAccountId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[MembershipTypeId] [int] NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[InClubOnlineSortOrder] [int] NOT NULL,\r\n\t[OnlineSortOrder] [int] NOT NULL,\r\n CONSTRAINT [PK_MembershipTypeAccount] PRIMARY KEY CLUSTERED \r\n(\r\n\t[MembershipTypeAccountId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] ADD  DEFAULT ((0)) FOR [InClubOnlineSortOrder]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] ADD  DEFAULT ((0)) FOR [OnlineSortOrder]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount]  WITH CHECK ADD  CONSTRAINT [FK_MembershipTypeAccount_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] CHECK CONSTRAINT [FK_MembershipTypeAccount_Accounts]\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount]  WITH CHECK ADD  CONSTRAINT [FK_MembershipTypeAccount_MembershipTypeAccount] FOREIGN KEY([MembershipTypeId])\r\nREFERENCES [dbo].[MembershipTypes] ([contract_id])\r\nGO\r\nALTER TABLE [dbo].[MembershipTypeAccount] CHECK CONSTRAINT [FK_MembershipTypeAccount_MembershipTypeAccount]\r\nGO\r\n",
+            "metadata": {
+              "source": "MembershipTypeAccount.sql",
+              "table": "MembershipTypeAccount"
+            },
+            "score": 1.229797601699829
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Group](\r\n\t[GroupId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[GroupName] [nvarchar](80) NOT NULL,\r\n\t[Gender] [int] NULL,\r\n\t[AgeFrom] [int] NULL,\r\n\t[AgeTo] [int] NULL,\r\n\t[MembershipType] [nvarchar](500) NULL,\r\n\t[SalesPerson] [nvarchar](1000) NULL,\r\n\t[Trainer] [nvarchar](1000) NULL,\r\n\t[MembershipStatus] [nvarchar](100) NULL,\r\n\t[CreatedUtcDateTime] [datetime] NOT NULL,\r\n CONSTRAINT [PK_Group] PRIMARY KEY CLUSTERED \r\n(\r\n\t[GroupId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\n",
+            "metadata": {
+              "source": "Group.sql",
+              "table": "Group"
+            },
+            "score": 1.2680726051330566
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MembershipContractTypes](\r\n\t[contract_type_id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[contract_type_name] [nvarchar](50) NULL,\r\n CONSTRAINT [PK_MembershipContractTypes] PRIMARY KEY CLUSTERED \r\n(\r\n\t[contract_type_id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\n",
+            "metadata": {
+              "source": "MembershipContractTypes.sql",
+              "table": "MembershipContractTypes"
+            },
+            "score": 1.3129148483276367
+          }
+        ]
+      },
+      "duration_sec": 2.088,
+      "timestamp": "2026-03-06T17:19:47.443347Z"
+    },
+    {
+      "name": "POST /search (q='Payment Gateway', k=2)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "Payment Gateway",
+          "k": 2
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 2,
+        "query": "Payment Gateway",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentHistory](\r\n\t[payment_id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[member_number] [varchar](20) NULL,\r\n\t[payment_date] [datetime] NOT NULL,\r\n\t[payment_amount] [money] NOT NULL,\r\n\t[gateway_message_id] [varchar](50) NOT NULL,\r\n\t[gateway_message] [varchar](1000) NOT NULL,\r\n\t[IsRefund] [bit] NOT NULL,\r\n\t[RegPaymentFee] [money] NULL,\r\n\t[CardSurchargeFee] [money] NULL,\r\n\t[TransactionFee] [money] NULL,\r\n\t[DishonourFee] [money] NULL,\r\n\t[ArrearsFee] [money] NULL,\r\n\t[SetupFee] [money] NULL,\r\n\t[GatewayResponseCode] [varchar](5) NULL,\r\n\t[JoiningFee] [money] NULL,\r\n\t[RefundedPaymentId] [int] NULL,\r\n\t[RefundStaffId] [int] NULL,\r\n\t[AccessCardFee] [decimal](18, 2) NULL,\r\n\t[AddOnAmount] [decimal](18, 2) NULL,\r\n\t[PosTransaction] [decimal](18, 2) NULL,\r\n\t[Prorata] [decimal](18, 2) NULL,\r\n\t[Adjustment] [decimal](18, 2) NULL,\r\n\t[BankAccountNumber] [varchar](50) NULL,\r\n\t[BankAccountName] [varchar](150) NULL,\r\n\t[BankBsbNumber] [varchar](50) NULL,\r\n\t[CreditCardNumber] [varchar](20) NULL,\r\n\t[NameOnCreditCard] [varchar](200) NULL,\r\n\t[CCExpiryDate] [varchar](50) NULL,\r\n\t[CardType] [varchar](20) NULL,\r\n\t[IsOngoingAddOnAmount] [bit] NULL,\r\n\t[AddOnBillUntilDate] [datetime] NULL,\r\n\t[AddOnDateFrom] [datetime] NULL,\r\n\t[AddOnDateTo] [datetime] NULL,\r\n\t[AddOnReason] [varchar](200) NULL,\r\n\t[SuspensionFee] [decimal](18, 2) NULL,\r\n\t[SubscriptionFee] [decimal](18, 2) NULL,\r\n\t[GatewayTnxReference] [nvarchar](80) NULL,\r\n\t[SubscriptionId] [int] NULL,\r\n\t[CancellationLateFee] [decimal](18, 2) NULL,\r\n\t[MaintenanceFee] [decimal](18, 2) NULL,\r\n\t[ClassNoShowFee] [decimal](18, 2) NULL,\r\n\t[PtNoShowFee] [decimal](18, 2) NULL,\r\n\t[IsOverduePaidOnline] [bit] NOT NULL,\r\n\t[PaymentGatewayToken] [varchar](50) NULL,\r\n\t[TransactionId] [varchar](50) NOT NULL,\r\n\t[PaymentType] [varchar](5) NULL,\r\n\t[DeletedDateUtc] [datetime] NULL,\r\n\t[DeletedBy] [nvarchar](100) NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[CrecheClassNoShowFee] [decimal](8, 2) NULL,\r\n\t[PaymentFor] [varchar](100) NULL,\r\n\t[PaymentForReferenceId] [varchar](200) NULL,\r\n\t[ErrorDetail] [varchar](150) NULL,\r\n\t[AccountId] [int] NULL,\r\n CONSTRAINT [PK_PaymentHistory] PRIMARY KEY CLUSTERED \r\n(\r\n\t[payment_id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  CONSTRAINT [DF_PaymentHistory_gateway_message]  DEFAULT ('-') FOR [gateway_message]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  CONSTRAINT [DF_PaymentHistory_IsRefund]  DEFAULT ((0)) FOR [IsRefund]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT (NULL) FOR [JoiningFee]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [AccessCardFee]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [AddOnAmount]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [PosTransaction]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [Prorata]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [Adjustment]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [IsOverduePaidOnline]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ('0') FOR [TransactionId]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory]  WITH CHECK ADD  CONSTRAINT [FK_PaymentHistory_Members] FOREIGN KEY([member_number])\r\nREFERENCES [dbo].[Members] ([member_number])\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] CHECK CONSTRAINT [FK_PaymentHistory_Members]\r\nGO\r\n",
+            "metadata": {
+              "source": "PaymentHistory.sql",
+              "table": "PaymentHistory"
+            },
+            "score": 1.0382704734802246
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[StudentPaymentHistory](\r\n\t[payment_id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[StudentNumber] [nvarchar](50) NOT NULL,\r\n\t[payment_date] [datetime] NOT NULL,\r\n\t[payment_amount] [money] NOT NULL,\r\n\t[gateway_message_id] [varchar](50) NOT NULL,\r\n\t[gateway_message] [varchar](1000) NOT NULL,\r\n\t[IsRefund] [bit] NOT NULL,\r\n\t[RegPaymentFee] [money] NULL,\r\n\t[CardSurchargeFee] [money] NULL,\r\n\t[TransactionFee] [money] NULL,\r\n\t[DishonourFee] [money] NULL,\r\n\t[ArrearsFee] [money] NULL,\r\n\t[SetupFee] [money] NULL,\r\n\t[GatewayResponseCode] [varchar](5) NULL,\r\n\t[JoiningFee] [money] NULL,\r\n\t[RefundedPaymentId] [int] NULL,\r\n\t[RefundStaffId] [int] NULL,\r\n\t[AccessCardFee] [decimal](18, 2) NULL,\r\n\t[StudentPaymentTemplateId] [int] NOT NULL,\r\n\t[PosTransaction] [decimal](18, 2) NOT NULL,\r\n\t[BankAccountNumber] [varchar](50) NULL,\r\n\t[BankAccountName] [varchar](150) NULL,\r\n\t[BankBsbNumber] [varchar](50) NULL,\r\n\t[CreditCardNumber] [varchar](20) NULL,\r\n\t[NameOnCreditCard] [varchar](200) NULL,\r\n\t[CCExpiryDate] [varchar](50) NULL,\r\n\t[CardType] [varchar](20) NULL,\r\n\t[TransactionId] [varchar](50) NOT NULL,\r\n CONSTRAINT [PK_StudentPaymentHistory] PRIMARY KEY CLUSTERED \r\n(\r\n\t[payment_id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  CONSTRAINT [DF_StudentPaymentHistory_gateway_message]  DEFAULT ('-') FOR [gateway_message]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  CONSTRAINT [DF_StudentPaymentHistory_IsRefund]  DEFAULT ((0)) FOR [IsRefund]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  DEFAULT (NULL) FOR [JoiningFee]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  DEFAULT ((0)) FOR [AccessCardFee]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  DEFAULT ((0)) FOR [StudentPaymentTemplateId]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  DEFAULT ((0)) FOR [PosTransaction]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] ADD  DEFAULT ('0') FOR [TransactionId]\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory]  WITH CHECK ADD  CONSTRAINT [FK_StudentPaymentHistory_Students] FOREIGN KEY([StudentNumber])\r\nREFERENCES [dbo].[Students] ([StudentNumber])\r\nGO\r\nALTER TABLE [dbo].[StudentPaymentHistory] CHECK CONSTRAINT [FK_StudentPaymentHistory_Students]\r\nGO\r\n",
+            "metadata": {
+              "source": "StudentPaymentHistory.sql",
+              "table": "StudentPaymentHistory"
+            },
+            "score": 1.1030170917510986
+          }
+        ]
+      },
+      "duration_sec": 2.084,
+      "timestamp": "2026-03-06T17:19:49.526353Z"
+    },
+    {
+      "name": "POST /search (q='ProductCategory', k=2)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "ProductCategory",
+          "k": 2
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 2,
+        "query": "ProductCategory",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountProductSubCategory](\r\n\t[AccountProductSubCategoryId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NULL,\r\n\t[AccountProductCategoryId] [bigint] NOT NULL,\r\n\t[ProductSubCategoryName] [nvarchar](40) NOT NULL,\r\n\t[ShortDescription] [nvarchar](255) NULL,\r\n\t[CreatedUtcDateTime] [datetime] NOT NULL,\r\n\t[CreatedUserName] [nvarchar](50) NOT NULL,\r\n\t[UpdatedUtcDateTime] [datetime] NOT NULL,\r\n\t[UpdatedUserName] [nvarchar](50) NOT NULL,\r\n\t[IsActive] [bit] NOT NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[DisplayImagePath] [nvarchar](255) NULL,\r\n\t[DeletedDateUtc] [datetime] NULL,\r\n\t[DeletedBy] [nvarchar](50) NULL,\r\n\t[GlCode] [varchar](15) NULL,\r\n CONSTRAINT [PK_AccountProductSubCategory] PRIMARY KEY CLUSTERED \r\n(\r\n\t[AccountProductSubCategoryId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory] ADD  CONSTRAINT [DF_AccountProductSubCategory_CreatedUtcDateTime]  DEFAULT (getutcdate()) FOR [CreatedUtcDateTime]\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory] ADD  CONSTRAINT [DF_AccountProductSubCategory_UpdatedUtcDateTime]  DEFAULT (getutcdate()) FOR [UpdatedUtcDateTime]\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory] ADD  CONSTRAINT [DF_AccountProductSubCategory_IsActive]  DEFAULT ((1)) FOR [IsActive]\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory]  WITH CHECK ADD  CONSTRAINT [FK_AccountProductSubCategory_AccountProductCategory] FOREIGN KEY([AccountProductCategoryId])\r\nREFERENCES [dbo].[AccountProductCategory] ([AccountProductCategoryId])\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory] CHECK CONSTRAINT [FK_AccountProductSubCategory_AccountProductCategory]\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory]  WITH CHECK ADD  CONSTRAINT [FK_AccountProductSubCategory_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountProductSubCategory] CHECK CONSTRAINT [FK_AccountProductSubCategory_Accounts]\r\nGO\r\nEXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Product sub-category internal identifier (primary key)' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'AccountProductSubCategory', @level2type=N'COLUMN',@level2name=N'AccountProductSubCategoryId'\r\nGO\r\nEXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'Product category to which the sub-category belongs' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'AccountProductSubCategory', @level2type=N'COLUMN',@level2name=N'AccountProductCategoryId'\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountProductSubCategory.sql",
+              "table": "AccountProductSubCategory"
+            },
+            "score": 1.3005813360214233
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountProductCategory](\r\n\t[AccountProductCategoryId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NULL,\r\n\t[ProductCategoryName] [nvarchar](40) NOT NULL,\r\n\t[ShortDescription] [nvarchar](255) NULL,\r\n\t[CreatedUtcDateTime] [datetime] NOT NULL,\r\n\t[CreatedUserName] [nvarchar](50) NOT NULL,\r\n\t[UpdatedUtcDateTime] [datetime] NOT NULL,\r\n\t[UpdatedUserName] [nvarchar](50) NOT NULL,\r\n\t[IsActive] [bit] NOT NULL,\r\n\t[DisplayImagePath] [nvarchar](255) NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[IsPosCategory] [bit] NOT NULL,\r\n CONSTRAINT [PK_AccountProductCategory] PRIMARY KEY CLUSTERED \r\n(\r\n\t[AccountProductCategoryId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory] ADD  CONSTRAINT [DF_AccountProductCategory_CreatedUtcDateTime]  DEFAULT (getutcdate()) FOR [CreatedUtcDateTime]\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory] ADD  CONSTRAINT [DF_AccountProductCategory_UpdatedUtcDateTime]  DEFAULT (getutcdate()) FOR [UpdatedUtcDateTime]\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory] ADD  CONSTRAINT [DF_AccountProductCategory_IsActive]  DEFAULT ((1)) FOR [IsActive]\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory] ADD  DEFAULT ((1)) FOR [IsPosCategory]\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory]  WITH CHECK ADD  CONSTRAINT [FK_AccountProductCategory_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountProductCategory] CHECK CONSTRAINT [FK_AccountProductCategory_Accounts]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountProductCategory.sql",
+              "table": "AccountProductCategory"
+            },
+            "score": 1.4255650043487549
+          }
+        ]
+      },
+      "duration_sec": 2.079,
+      "timestamp": "2026-03-06T17:19:51.606407Z"
+    },
+    {
+      "name": "GET /search?q=AccountId&k=2",
+      "request": {
+        "method": "GET",
+        "path": "/search?q=AccountId&k=2"
+      },
+      "status_code": 200,
+      "response": {
+        "k": 2,
+        "query": "AccountId",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[aspnet_Membership](\r\n\t[ApplicationId] [uniqueidentifier] NOT NULL,\r\n\t[UserId] [uniqueidentifier] NOT NULL,\r\n\t[Password] [nvarchar](128) NOT NULL,\r\n\t[PasswordFormat] [int] NOT NULL,\r\n\t[PasswordSalt] [nvarchar](128) NOT NULL,\r\n\t[MobilePIN] [nvarchar](16) NULL,\r\n\t[Email] [nvarchar](256) NULL,\r\n\t[LoweredEmail] [nvarchar](256) NULL,\r\n\t[PasswordQuestion] [nvarchar](256) NULL,\r\n\t[PasswordAnswer] [nvarchar](128) NULL,\r\n\t[IsApproved] [bit] NOT NULL,\r\n\t[IsLockedOut] [bit] NOT NULL,\r\n\t[CreateDate] [datetime] NOT NULL,\r\n\t[LastLoginDate] [datetime] NOT NULL,\r\n\t[LastPasswordChangedDate] [datetime] NOT NULL,\r\n\t[LastLockoutDate] [datetime] NOT NULL,\r\n\t[FailedPasswordAttemptCount] [int] NOT NULL,\r\n\t[FailedPasswordAttemptWindowStart] [datetime] NOT NULL,\r\n\t[FailedPasswordAnswerAttemptCount] [int] NOT NULL,\r\n\t[FailedPasswordAnswerAttemptWindowStart] [datetime] NOT NULL,\r\n\t[Comment] [ntext] NULL,\r\nPRIMARY KEY NONCLUSTERED \r\n(\r\n\t[UserId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership] ADD  DEFAULT ((0)) FOR [PasswordFormat]\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership]  WITH CHECK ADD FOREIGN KEY([ApplicationId])\r\nREFERENCES [dbo].[aspnet_Applications] ([ApplicationId])\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership]  WITH CHECK ADD FOREIGN KEY([UserId])\r\nREFERENCES [dbo].[aspnet_Users] ([UserId])\r\nGO\r\n",
+            "metadata": {
+              "source": "aspnet_Membership.sql",
+              "table": "aspnet_Membership"
+            },
+            "score": 1.2896367311477661
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentGateway](\r\n\t[PaymentGatewayId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[Name] [nvarchar](100) NOT NULL,\r\n\t[CustomerId] [nvarchar](100) NULL,\r\n\t[Password] [nvarchar](100) NULL,\r\n\t[Url] [nvarchar](200) NULL,\r\n\t[IsTest] [bit] NOT NULL,\r\n\t[IsActive] [bit] NOT NULL,\r\n\t[IsDefault] [bit] NOT NULL,\r\n\t[DeClientId] [nvarchar](100) NULL,\r\n\t[CcClientId] [nvarchar](100) NULL,\r\n\t[VaultUrl] [nvarchar](200) NULL,\r\n\t[CertPassword] [nvarchar](100) NULL,\r\n\t[Network] [nvarchar](200) NULL,\r\n\t[JSONUrl] [varchar](200) NULL,\r\n\t[AuthToken] [varchar](200) NULL,\r\n\t[HMACSecret] [nvarchar](50) NULL,\r\n\t[RefundClientId] [nvarchar](100) NULL,\r\n\t[SwimDeClientId] [nvarchar](100) NULL,\r\n\t[SwimCcClientId] [nvarchar](100) NULL,\r\n\t[SwimRefundClientId] [nvarchar](100) NULL,\r\n\t[UseJsonApi] [bit] NOT NULL,\r\n\t[CcBillingEnabled] [bit] NOT NULL,\r\n\t[DeBillingEnabled] [bit] NOT NULL,\r\n\t[IsCreditCard] [bit] NOT NULL,\r\n\t[IsDirectEntry] [bit] NOT NULL,\r\n\t[IsApplePay] [bit] NOT NULL,\r\n\t[IsGooglePay] [bit] NOT NULL,\r\n CONSTRAINT [PK_PaymentGateway] PRIMARY KEY CLUSTERED \r\n(\r\n\t[PaymentGatewayId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((1)) FOR [UseJsonApi]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [CcBillingEnabled]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [DeBillingEnabled]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsCreditCard]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsDirectEntry]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsApplePay]\r\nGO\r\nALTER TABLE [dbo].[PaymentGateway] ADD  DEFAULT ((0)) FOR [IsGooglePay]\r\nGO\r\n",
+            "metadata": {
+              "source": "PaymentGateway.sql",
+              "table": "PaymentGateway"
+            },
+            "score": 1.3788213729858398
+          }
+        ]
+      },
+      "duration_sec": 2.088,
+      "timestamp": "2026-03-06T17:19:53.694082Z"
+    },
+    {
+      "name": "POST /search (no query, expect 400)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "k": 5
+        }
+      },
+      "status_code": 400,
+      "response": {
+        "error": "Missing 'query' or 'q'"
+      },
+      "duration_sec": 2.055,
+      "timestamp": "2026-03-06T17:19:55.749401Z"
+    },
+    {
+      "name": "POST /search (empty query)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "",
+          "k": 1
+        }
+      },
+      "status_code": 400,
+      "response": {
+        "error": "Missing 'query' or 'q'"
+      },
+      "duration_sec": 2.06,
+      "timestamp": "2026-03-06T17:19:57.809116Z"
+    },
+    {
+      "name": "POST /documents (add one test doc)",
+      "request": {
+        "method": "POST",
+        "path": "/documents",
+        "body": {
+          "texts": [
+            "Test table VectorDB_Test_Table (...)"
+          ],
+          "metadatas": [
+            {
+              "table": "VectorDB_Test_Table"
+            }
+          ]
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "added": 1,
+        "message": "Documents added and index saved"
+      },
+      "duration_sec": 2.208,
+      "timestamp": "2026-03-06T17:20:00.016914Z"
+    },
+    {
+      "name": "POST /search (find added doc)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "VectorDB_Test_Table",
+          "k": 1
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 1,
+        "query": "VectorDB_Test_Table",
+        "results": [
+          {
+            "content": "Test table VectorDB_Test_Table (id int, name varchar(100));",
+            "metadata": {
+              "source": "test_vector_db_responses.py",
+              "table": "VectorDB_Test_Table"
+            },
+            "score": 0.45751115679740906
+          }
+        ]
+      },
+      "duration_sec": 2.077,
+      "timestamp": "2026-03-06T17:20:02.094043Z"
+    },
+    {
+      "name": "POST /search (q=Account, k=10)",
+      "request": {
+        "method": "POST",
+        "path": "/search",
+        "body": {
+          "query": "Account",
+          "k": 10
+        }
+      },
+      "status_code": 200,
+      "response": {
+        "k": 10,
+        "query": "Account",
+        "results": [
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[aspnet_Membership](\r\n\t[ApplicationId] [uniqueidentifier] NOT NULL,\r\n\t[UserId] [uniqueidentifier] NOT NULL,\r\n\t[Password] [nvarchar](128) NOT NULL,\r\n\t[PasswordFormat] [int] NOT NULL,\r\n\t[PasswordSalt] [nvarchar](128) NOT NULL,\r\n\t[MobilePIN] [nvarchar](16) NULL,\r\n\t[Email] [nvarchar](256) NULL,\r\n\t[LoweredEmail] [nvarchar](256) NULL,\r\n\t[PasswordQuestion] [nvarchar](256) NULL,\r\n\t[PasswordAnswer] [nvarchar](128) NULL,\r\n\t[IsApproved] [bit] NOT NULL,\r\n\t[IsLockedOut] [bit] NOT NULL,\r\n\t[CreateDate] [datetime] NOT NULL,\r\n\t[LastLoginDate] [datetime] NOT NULL,\r\n\t[LastPasswordChangedDate] [datetime] NOT NULL,\r\n\t[LastLockoutDate] [datetime] NOT NULL,\r\n\t[FailedPasswordAttemptCount] [int] NOT NULL,\r\n\t[FailedPasswordAttemptWindowStart] [datetime] NOT NULL,\r\n\t[FailedPasswordAnswerAttemptCount] [int] NOT NULL,\r\n\t[FailedPasswordAnswerAttemptWindowStart] [datetime] NOT NULL,\r\n\t[Comment] [ntext] NULL,\r\nPRIMARY KEY NONCLUSTERED \r\n(\r\n\t[UserId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership] ADD  DEFAULT ((0)) FOR [PasswordFormat]\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership]  WITH CHECK ADD FOREIGN KEY([ApplicationId])\r\nREFERENCES [dbo].[aspnet_Applications] ([ApplicationId])\r\nGO\r\nALTER TABLE [dbo].[aspnet_Membership]  WITH CHECK ADD FOREIGN KEY([UserId])\r\nREFERENCES [dbo].[aspnet_Users] ([UserId])\r\nGO\r\n",
+            "metadata": {
+              "source": "aspnet_Membership.sql",
+              "table": "aspnet_Membership"
+            },
+            "score": 1.540057897567749
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountAddonBillings](\r\n\t[Id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[ProductCatalogId] [int] NOT NULL,\r\n\t[ProductName] [varchar](200) NOT NULL,\r\n\t[Price] [money] NOT NULL,\r\n\t[IsOneOffBilling] [bit] NOT NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[DeletedUtcDateTime] [datetime] NULL,\r\n CONSTRAINT [PK_AccountAddonBillings] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountAddonBillings]  WITH CHECK ADD  CONSTRAINT [FK_AccountAddonBillings_Account_AccountId] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountAddonBillings] CHECK CONSTRAINT [FK_AccountAddonBillings_Account_AccountId]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountAddonBillings.sql",
+              "table": "AccountAddonBillings"
+            },
+            "score": 1.5456578731536865
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MemberPaymentGatewayTransactionAudit](\r\n\t[MemberPaymentGatewayTransactionAuditId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[MessageId] [varchar](50) NOT NULL,\r\n\t[MemberNumber] [varchar](20) NOT NULL,\r\n\t[PaymentGatewayId] [int] NOT NULL,\r\n\t[RequestUTCDateTime] [datetime] NOT NULL,\r\n\t[ResponseUTCDateTime] [datetime] NULL,\r\n\t[ResponseRawData] [varchar](200) NULL,\r\n\t[BilledMembershipFee] [money] NULL,\r\n\t[BilledCardSurchargeFee] [money] NULL,\r\n\t[BilledArrearsFee] [money] NULL,\r\n\t[BilledSetupFee] [money] NULL,\r\n\t[BilledJoiningFee] [money] NULL,\r\n\t[BilledDishonourFee] [money] NULL,\r\n\t[BillingTransactionFee] [money] NULL,\r\n\t[BilledTotalAmount] [money] NULL,\r\n\t[ResponseCode] [varchar](5) NULL,\r\n\t[ResponseText] [varchar](160) NULL,\r\n\t[BillingFrequency] [varchar](20) NULL,\r\n\t[PaymentType] [varchar](20) NULL,\r\n\t[IsOnline] [bit] NULL,\r\n\t[TransactionTypeId] [int] NULL,\r\n\t[MembershipTypeId] [int] NULL,\r\n\t[OrderId] [varchar](50) NOT NULL,\r\n\t[SettlementDate] [datetime] NULL,\r\n\t[CreditRef] [nvarchar](20) NULL,\r\n\t[SettlementId] [bigint] NULL,\r\n\t[IdempotencyKey] [varchar](50) NULL,\r\n\t[TransactionStatus] [varchar](200) NULL,\r\n\t[FailureReason] [varchar](200) NULL,\r\n\t[AccountId] [int] NULL,\r\n CONSTRAINT [PK_MemberPaymentGatewayTransactionAudit] PRIMARY KEY CLUSTERED \r\n(\r\n\t[MemberPaymentGatewayTransactionAuditId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit] ADD  DEFAULT ('0') FOR [OrderId]\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit]  WITH CHECK ADD  CONSTRAINT [FK_MemberPaymentGatewayTransactionAudit_Members] FOREIGN KEY([MemberNumber])\r\nREFERENCES [dbo].[Members] ([member_number])\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit] CHECK CONSTRAINT [FK_MemberPaymentGatewayTransactionAudit_Members]\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit]  WITH CHECK ADD  CONSTRAINT [FK_MemberPaymentGatewayTransactionAudit_MembershipTypes] FOREIGN KEY([MembershipTypeId])\r\nREFERENCES [dbo].[MembershipTypes] ([contract_id])\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit] CHECK CONSTRAINT [FK_MemberPaymentGatewayTransactionAudit_MembershipTypes]\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit]  WITH CHECK ADD  CONSTRAINT [FK_MemberPaymentGatewayTransactionAudit_PaymentGateway] FOREIGN KEY([PaymentGatewayId])\r\nREFERENCES [dbo].[PaymentGateway] ([PaymentGatewayId])\r\nGO\r\nALTER TABLE [dbo].[MemberPaymentGatewayTransactionAudit] CHECK CONSTRAINT [FK_MemberPaymentGatewayTransactionAudit_PaymentGateway]\r\nGO\r\n",
+            "metadata": {
+              "source": "MemberPaymentGatewayTransactionAudit.sql",
+              "table": "MemberPaymentGatewayTransactionAudit"
+            },
+            "score": 1.5613200664520264
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountPaymentGatewayTransactionAudit](\r\n\t[AccountPaymentGatewayTransactionAuditId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[MessageId] [varchar](50) NOT NULL,\r\n\t[PaymentGatewayId] [int] NOT NULL,\r\n\t[RequestUTCDateTime] [datetime] NOT NULL,\r\n\t[ResponseUTCDateTime] [datetime] NULL,\r\n\t[RequestRawData] [nvarchar](max) NOT NULL,\r\n\t[ResponseRawData] [nvarchar](max) NULL,\r\n\t[BilledTotalAmount] [money] NULL,\r\n\t[ErrorMessage] [varchar](max) NULL,\r\n\t[ResponseCode] [varchar](5) NULL,\r\n\t[ResponseText] [varchar](max) NULL,\r\n\t[PaymentType] [varchar](20) NULL,\r\n\t[SettlementDate] [datetime] NULL,\r\n\t[OrderId] [varchar](50) NOT NULL,\r\n\t[SettlementId] [bigint] NULL,\r\n\t[CreditRef] [nvarchar](20) NULL,\r\n\t[IdempotencyKey] [varchar](50) NULL,\r\n\t[TransactionStatus] [varchar](200) NULL,\r\n\t[FailureReason] [varchar](200) NULL,\r\n\t[TransactionType] [varchar](200) NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n CONSTRAINT [PK_AccountPaymentGatewayTransactionAudit] PRIMARY KEY CLUSTERED \r\n(\r\n\t[AccountPaymentGatewayTransactionAuditId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayTransactionAudit] ADD  DEFAULT ('0') FOR [OrderId]\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayTransactionAudit] ADD  DEFAULT ((0)) FOR [AccountId]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountPaymentGatewayTransactionAudit.sql",
+              "table": "AccountPaymentGatewayTransactionAudit"
+            },
+            "score": 1.5628870725631714
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountBillingItem](\r\n\t[AccountBillingItemId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[BillingReason] [int] NOT NULL,\r\n\t[BillingAmount] [money] NOT NULL,\r\n\t[BillingReference] [varchar](100) NULL,\r\n\t[CreatedUtcDateTime] [datetime] NOT NULL,\r\n\t[ProcessedUtcDateTime] [datetime] NULL,\r\n\t[MessageId] [varchar](50) NULL,\r\n\t[PaymentType] [int] NULL,\r\n\t[Quantity] [int] NOT NULL,\r\n CONSTRAINT [PK_AccountBillingItem] PRIMARY KEY CLUSTERED \r\n(\r\n\t[AccountBillingItemId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountBillingItem] ADD  DEFAULT ((1)) FOR [Quantity]\r\nGO\r\nALTER TABLE [dbo].[AccountBillingItem]  WITH CHECK ADD  CONSTRAINT [FK_AccountBillingItem_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountBillingItem] CHECK CONSTRAINT [FK_AccountBillingItem_Accounts]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountBillingItem.sql",
+              "table": "AccountBillingItem"
+            },
+            "score": 1.5634236335754395
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountPaymentGatewayBatchItem](\r\n\t[AccountPaymentGatewayBatchItemId] [bigint] IDENTITY(1,1) NOT NULL,\r\n\t[AccountPaymentGatewayBatchId] [bigint] NOT NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n\t[AmountToBill] [money] NOT NULL,\r\n\t[CreatedUTCDateTime] [datetime] NOT NULL,\r\n\t[ProcessedUTCDateTime] [datetime] NULL,\r\n\t[MessageId] [uniqueidentifier] NULL,\r\n\t[TransactionReference] [nvarchar](80) NULL,\r\n\t[TransactionStatus] [varchar](10) NULL,\r\n\t[ReturnCode] [varchar](5) NULL,\r\n\t[IsFailedPayment] [bit] NOT NULL,\r\n CONSTRAINT [PK_AccountPaymentGatewayBatchItem] PRIMARY KEY CLUSTERED \r\n(\r\n\t[AccountPaymentGatewayBatchItemId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayBatchItem] ADD  DEFAULT ((0)) FOR [IsFailedPayment]\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayBatchItem]  WITH CHECK ADD  CONSTRAINT [FK_AccountPaymentGatewayBatchItem_AccountPaymentGatewayBatch] FOREIGN KEY([AccountPaymentGatewayBatchId])\r\nREFERENCES [dbo].[AccountPaymentGatewayBatch] ([AccountPaymentGatewayBatchId])\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayBatchItem] CHECK CONSTRAINT [FK_AccountPaymentGatewayBatchItem_AccountPaymentGatewayBatch]\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayBatchItem]  WITH CHECK ADD  CONSTRAINT [FK_AccountPaymentGatewayBatchItem_Accounts] FOREIGN KEY([AccountId])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[AccountPaymentGatewayBatchItem] CHECK CONSTRAINT [FK_AccountPaymentGatewayBatchItem_Accounts]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountPaymentGatewayBatchItem.sql",
+              "table": "AccountPaymentGatewayBatchItem"
+            },
+            "score": 1.5769627094268799
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentHistory](\r\n\t[payment_id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[member_number] [varchar](20) NULL,\r\n\t[payment_date] [datetime] NOT NULL,\r\n\t[payment_amount] [money] NOT NULL,\r\n\t[gateway_message_id] [varchar](50) NOT NULL,\r\n\t[gateway_message] [varchar](1000) NOT NULL,\r\n\t[IsRefund] [bit] NOT NULL,\r\n\t[RegPaymentFee] [money] NULL,\r\n\t[CardSurchargeFee] [money] NULL,\r\n\t[TransactionFee] [money] NULL,\r\n\t[DishonourFee] [money] NULL,\r\n\t[ArrearsFee] [money] NULL,\r\n\t[SetupFee] [money] NULL,\r\n\t[GatewayResponseCode] [varchar](5) NULL,\r\n\t[JoiningFee] [money] NULL,\r\n\t[RefundedPaymentId] [int] NULL,\r\n\t[RefundStaffId] [int] NULL,\r\n\t[AccessCardFee] [decimal](18, 2) NULL,\r\n\t[AddOnAmount] [decimal](18, 2) NULL,\r\n\t[PosTransaction] [decimal](18, 2) NULL,\r\n\t[Prorata] [decimal](18, 2) NULL,\r\n\t[Adjustment] [decimal](18, 2) NULL,\r\n\t[BankAccountNumber] [varchar](50) NULL,\r\n\t[BankAccountName] [varchar](150) NULL,\r\n\t[BankBsbNumber] [varchar](50) NULL,\r\n\t[CreditCardNumber] [varchar](20) NULL,\r\n\t[NameOnCreditCard] [varchar](200) NULL,\r\n\t[CCExpiryDate] [varchar](50) NULL,\r\n\t[CardType] [varchar](20) NULL,\r\n\t[IsOngoingAddOnAmount] [bit] NULL,\r\n\t[AddOnBillUntilDate] [datetime] NULL,\r\n\t[AddOnDateFrom] [datetime] NULL,\r\n\t[AddOnDateTo] [datetime] NULL,\r\n\t[AddOnReason] [varchar](200) NULL,\r\n\t[SuspensionFee] [decimal](18, 2) NULL,\r\n\t[SubscriptionFee] [decimal](18, 2) NULL,\r\n\t[GatewayTnxReference] [nvarchar](80) NULL,\r\n\t[SubscriptionId] [int] NULL,\r\n\t[CancellationLateFee] [decimal](18, 2) NULL,\r\n\t[MaintenanceFee] [decimal](18, 2) NULL,\r\n\t[ClassNoShowFee] [decimal](18, 2) NULL,\r\n\t[PtNoShowFee] [decimal](18, 2) NULL,\r\n\t[IsOverduePaidOnline] [bit] NOT NULL,\r\n\t[PaymentGatewayToken] [varchar](50) NULL,\r\n\t[TransactionId] [varchar](50) NOT NULL,\r\n\t[PaymentType] [varchar](5) NULL,\r\n\t[DeletedDateUtc] [datetime] NULL,\r\n\t[DeletedBy] [nvarchar](100) NULL,\r\n\t[IsDeleted] [bit] NOT NULL,\r\n\t[CrecheClassNoShowFee] [decimal](8, 2) NULL,\r\n\t[PaymentFor] [varchar](100) NULL,\r\n\t[PaymentForReferenceId] [varchar](200) NULL,\r\n\t[ErrorDetail] [varchar](150) NULL,\r\n\t[AccountId] [int] NULL,\r\n CONSTRAINT [PK_PaymentHistory] PRIMARY KEY CLUSTERED \r\n(\r\n\t[payment_id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  CONSTRAINT [DF_PaymentHistory_gateway_message]  DEFAULT ('-') FOR [gateway_message]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  CONSTRAINT [DF_PaymentHistory_IsRefund]  DEFAULT ((0)) FOR [IsRefund]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT (NULL) FOR [JoiningFee]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [AccessCardFee]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [AddOnAmount]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [PosTransaction]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [Prorata]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [Adjustment]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [IsOverduePaidOnline]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ('0') FOR [TransactionId]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] ADD  DEFAULT ((0)) FOR [IsDeleted]\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory]  WITH CHECK ADD  CONSTRAINT [FK_PaymentHistory_Members] FOREIGN KEY([member_number])\r\nREFERENCES [dbo].[Members] ([member_number])\r\nGO\r\nALTER TABLE [dbo].[PaymentHistory] CHECK CONSTRAINT [FK_PaymentHistory_Members]\r\nGO\r\n",
+            "metadata": {
+              "source": "PaymentHistory.sql",
+              "table": "PaymentHistory"
+            },
+            "score": 1.5867912769317627
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountSupplierOrders](\r\n\t[Id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[AccountSupplierId] [bigint] NOT NULL,\r\n\t[OrderDate] [datetime] NOT NULL,\r\n\t[CreatedBy] [int] NOT NULL,\r\n\t[PurchaseOrderNo] [nvarchar](100) NULL,\r\n\t[ReceivedDateUtc] [datetime] NULL,\r\n\t[ReceivedByStaffId] [int] NULL,\r\n\t[Notes] [nvarchar](1000) NULL,\r\n\t[AccountId] [int] NOT NULL,\r\n CONSTRAINT [PK_AccountSupplierOrders] PRIMARY KEY CLUSTERED \r\n(\r\n\t[Id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders] ADD  DEFAULT ((0)) FOR [AccountId]\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders]  WITH CHECK ADD  CONSTRAINT [FK_AccountSupplierOrders_AccountSupplier_AccountSupplierId] FOREIGN KEY([AccountSupplierId])\r\nREFERENCES [dbo].[AccountSupplier] ([AccountSupplierId])\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders] CHECK CONSTRAINT [FK_AccountSupplierOrders_AccountSupplier_AccountSupplierId]\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders]  WITH CHECK ADD  CONSTRAINT [FK_AccountSupplierOrders_Staff_CreatedBy] FOREIGN KEY([CreatedBy])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders] CHECK CONSTRAINT [FK_AccountSupplierOrders_Staff_CreatedBy]\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders]  WITH CHECK ADD  CONSTRAINT [FK_AccountSupplierOrders_Staff_ReceivedBy] FOREIGN KEY([ReceivedByStaffId])\r\nREFERENCES [dbo].[Staff] ([StaffId])\r\nGO\r\nALTER TABLE [dbo].[AccountSupplierOrders] CHECK CONSTRAINT [FK_AccountSupplierOrders_Staff_ReceivedBy]\r\nGO\r\n",
+            "metadata": {
+              "source": "AccountSupplierOrders.sql",
+              "table": "AccountSupplierOrders"
+            },
+            "score": 1.590806245803833
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[ProspectPaymentHistory](\r\n\t[ProspectPaymentHistoryId] [int] IDENTITY(1,1) NOT NULL,\r\n\t[ProspectNumber] [varchar](10) NOT NULL,\r\n\t[payment_date] [datetime] NOT NULL,\r\n\t[payment_amount] [money] NOT NULL,\r\n\t[gateway_message_id] [varchar](150) NOT NULL,\r\n\t[gateway_message] [varchar](1000) NOT NULL,\r\n\t[IsRefund] [bit] NOT NULL,\r\n\t[CardSurchargeFee] [money] NULL,\r\n\t[TransactionFee] [money] NULL,\r\n\t[TrainerFee] [money] NULL,\r\n\t[GatewayResponseCode] [varchar](5) NULL,\r\n\t[RefundedPaymentId] [int] NULL,\r\n\t[RefundStaffId] [int] NULL,\r\n\t[PosTransaction] [decimal](18, 2) NULL,\r\n\t[BankAccountNumber] [varchar](50) NULL,\r\n\t[BankAccountName] [varchar](150) NULL,\r\n\t[BankBsbNumber] [varchar](50) NULL,\r\n\t[CreditCardNumber] [varchar](20) NULL,\r\n\t[NameOnCreditCard] [varchar](200) NULL,\r\n\t[CCExpiryDate] [varchar](50) NULL,\r\n\t[CardType] [varchar](20) NULL,\r\n\t[GatewayTnxReference] [nvarchar](80) NULL,\r\n\t[PaymentGatewayToken] [varchar](50) NULL,\r\n\t[PaymentFor] [varchar](100) NULL,\r\n\t[PaymentForReferenceId] [varchar](200) NULL,\r\n CONSTRAINT [PK_ProspectPaymentHistory] PRIMARY KEY CLUSTERED \r\n(\r\n\t[ProspectPaymentHistoryId] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[ProspectPaymentHistory] ADD  CONSTRAINT [DF_ProspectPaymentHistory_gateway_message]  DEFAULT ('-') FOR [gateway_message]\r\nGO\r\nALTER TABLE [dbo].[ProspectPaymentHistory] ADD  CONSTRAINT [DF_ProspectPaymentHistory_IsRefund]  DEFAULT ((0)) FOR [IsRefund]\r\nGO\r\nALTER TABLE [dbo].[ProspectPaymentHistory]  WITH CHECK ADD  CONSTRAINT [FK_ProspectPaymentHistory_Prospects] FOREIGN KEY([ProspectNumber])\r\nREFERENCES [dbo].[Prospects] ([ProspectNumber])\r\nGO\r\nALTER TABLE [dbo].[ProspectPaymentHistory] CHECK CONSTRAINT [FK_ProspectPaymentHistory_Prospects]\r\nGO\r\n",
+            "metadata": {
+              "source": "ProspectPaymentHistory.sql",
+              "table": "ProspectPaymentHistory"
+            },
+            "score": 1.6013269424438477
+          },
+          {
+            "content": "USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Club_Number_Audit](\r\n\t[membernumber_id] [int] IDENTITY(1,1) NOT NULL,\r\n\t[account_id] [int] NOT NULL,\r\n\t[last_membernumber] [nvarchar](50) NOT NULL,\r\n CONSTRAINT [PK_Club_Number_Audit] PRIMARY KEY CLUSTERED \r\n(\r\n\t[membernumber_id] ASC\r\n)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]\r\n) ON [PRIMARY]\r\nGO\r\nALTER TABLE [dbo].[Club_Number_Audit]  WITH CHECK ADD  CONSTRAINT [FK_Club_Number_Audit_Accounts] FOREIGN KEY([account_id])\r\nREFERENCES [dbo].[Accounts] ([account_id])\r\nGO\r\nALTER TABLE [dbo].[Club_Number_Audit] CHECK CONSTRAINT [FK_Club_Number_Audit_Accounts]\r\nGO\r\n",
+            "metadata": {
+              "source": "Club_Number_Audit.sql",
+              "table": "Club_Number_Audit"
+            },
+            "score": 1.6025183200836182
+          }
+        ]
+      },
+      "duration_sec": 2.062,
+      "timestamp": "2026-03-06T17:20:04.154792Z"
+    }
+  ]
+}

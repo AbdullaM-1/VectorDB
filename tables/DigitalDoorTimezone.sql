@@ -1,0 +1,30 @@
+USE [hkietech]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DigitalDoorTimezone](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[DoorName] [varchar](50) NOT NULL,
+	[AccountId] [int] NOT NULL,
+	[DayOfWeek] [int] NOT NULL,
+	[StartTime] [time](7) NOT NULL,
+	[EndTime] [time](7) NOT NULL,
+ CONSTRAINT [PK_DigitalDoorTimezone] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [IX_DigitalDoorTimezone] UNIQUE NONCLUSTERED 
+(
+	[AccountId] ASC,
+	[DayOfWeek] ASC,
+	[DoorName] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[DigitalDoorTimezone]  WITH CHECK ADD  CONSTRAINT [FK_DigitalDoorTimezone_Accounts] FOREIGN KEY([AccountId])
+REFERENCES [dbo].[Accounts] ([account_id])
+GO
+ALTER TABLE [dbo].[DigitalDoorTimezone] CHECK CONSTRAINT [FK_DigitalDoorTimezone_Accounts]
+GO

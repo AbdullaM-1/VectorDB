@@ -1,0 +1,2294 @@
+{
+  "nodes": [
+    "AccountAddonBillings",
+    "AccountBillingItem",
+    "AccountEventLog",
+    "AccountPaymentGatewayBatch",
+    "AccountPaymentGatewayBatchItem",
+    "AccountPaymentGatewayTransactionAudit",
+    "AccountProduct",
+    "AccountProductCategory",
+    "AccountProductSubCategory",
+    "AccountProductSupplier",
+    "AccountRoster",
+    "AccountRosterActivity",
+    "AccountSettings",
+    "AccountSupplier",
+    "AccountSupplierOrderItems",
+    "AccountSupplierOrders",
+    "AccountTill",
+    "Accounts",
+    "ActionHistory",
+    "AmendedPayment",
+    "AnalyticDashboard",
+    "AnalyticDashboardWidget",
+    "AnalyticWidgetConfiguration",
+    "AppBinaries",
+    "AppBrandingScreen",
+    "AppBrandingScreenConfiguration",
+    "AppBrandingScreenOther",
+    "AppCommands",
+    "AppConnections",
+    "AppEntityMapping",
+    "AppLogs",
+    "Apps",
+    "AttendanceLog",
+    "BirthdayEmailAttachments",
+    "BookingType",
+    "BrowserPushSubscription",
+    "CalendarNote",
+    "Campaign",
+    "CampaignAudienceStatus",
+    "CampaignFilterOptions",
+    "CampaignFilters",
+    "CampaignJobs",
+    "CampaignMessageSent",
+    "CampaignSchedule",
+    "CampaignSentReport",
+    "CampaignStatusFilterOption",
+    "CampaignTemplate",
+    "CampaignType",
+    "Class",
+    "ClassSchedule",
+    "ClassScheduleAgeRestriction",
+    "ClassScheduleAttendanceCount",
+    "ClassScheduleChangedInstructor",
+    "ClassScheduleChanges",
+    "ClassScheduleMobileAccount",
+    "ClassScheduleOnDemand",
+    "ClassScheduleOnlineAccount",
+    "ClubActivityEod",
+    "Club_Number_Audit",
+    "Contacts",
+    "Court",
+    "CourtAvailability",
+    "CourtBookings",
+    "DigitalDoorTimezone",
+    "DigitalSignature",
+    "DigitalSignatureTemp",
+    "DisbursementSummary",
+    "DisbursementTransaction",
+    "DiscountCoupons",
+    "EftposPaymentTransactionAudit",
+    "EmailEventQueue",
+    "EmailGateway",
+    "EmailTemplateAttachments",
+    "EntityTags",
+    "Exercise",
+    "ExerciseBodyPart",
+    "ExerciseDataType",
+    "ExerciseDataTypeUnit",
+    "FacebookLeads",
+    "Fields",
+    "FitnessTestingType",
+    "FormFieldMapping",
+    "FormTypes",
+    "Forms",
+    "Gateway_Audit",
+    "Group",
+    "GroupClassScheduleExcludedTime",
+    "GroupType",
+    "GroupTypeLinkToMembershipType",
+    "GuestTrainerBookingAttendance",
+    "Holidays",
+    "Icons",
+    "InvalidPaymentRejections",
+    "Invoice",
+    "InvoiceItem",
+    "Items",
+    "Kpi",
+    "LookupMasters",
+    "Lookup_Type_Items",
+    "Lookup_Types",
+    "MarketingBirthdayCampaign",
+    "MarketingEmailTemplate",
+    "MasterCalendarBlock",
+    "MasterCalendarBlockParent",
+    "MemberAccessSync",
+    "MemberActivity",
+    "MemberAgreementHistory",
+    "MemberAppointment",
+    "MemberArchiveReason",
+    "MemberArrears",
+    "MemberAttachment",
+    "MemberAttendanceRestriction",
+    "MemberAttendanceRestrictionMultiple",
+    "MemberAttendanceRestrictionZone",
+    "MemberBillingItem",
+    "MemberCall",
+    "MemberChangeAudit",
+    "MemberCommunicationFailedLogs",
+    "MemberCommunicationHistory",
+    "MemberCreditCard",
+    "MemberDebtCollection",
+    "MemberDisputes",
+    "MemberFailedPayment",
+    "MemberFamilyLink",
+    "MemberFingerprint",
+    "MemberFitnessTesting",
+    "MemberGroup",
+    "MemberGroupClassAttendanceLog",
+    "MemberGroupClassSubscription",
+    "MemberKid",
+    "MemberMeasurements",
+    "MemberMedicalConditions",
+    "MemberMembershipTypeChangeHistory",
+    "MemberNotes",
+    "MemberOrientationQuestionnaire",
+    "MemberOtherFeeRunLog",
+    "MemberOtherMembership",
+    "MemberParentGuarantor",
+    "MemberPaymentGatewayTransactionAudit",
+    "MemberPaymentTemplates",
+    "MemberPaymentVariation",
+    "MemberPosDailyActual",
+    "MemberPreActivityQuestionnaire",
+    "MemberPtSubscription",
+    "MemberReferrals",
+    "MemberRestrictedGroupClass",
+    "MemberRewardsProgram",
+    "MemberRewardsProgramLevelHistory",
+    "MemberSession",
+    "MemberSubscription",
+    "MemberSubscriptionAudit",
+    "MemberSuspension",
+    "MemberTracking",
+    "MemberTrackingSchedule",
+    "MemberTrainerBookingAttendance",
+    "MemberVerificationCode",
+    "MemberViewNotes",
+    "MemberVisit",
+    "MemberVouchers",
+    "Members",
+    "MembershipContractTypes",
+    "MembershipTypeAccount",
+    "MembershipTypes",
+    "MmsGateway",
+    "MultiFactorAuthenticationCode",
+    "MyClubMemberProfile",
+    "MyClubUserDevice",
+    "NewsFeed",
+    "OnlineAccount",
+    "OnlineShopTransaction",
+    "OnlineShopTransactionItem",
+    "OnlineShopTransactionPayment",
+    "OptoutHistory",
+    "OrientationQuestionnaire",
+    "OrientationQuestionnaireGroup",
+    "OrientationQuestionnaireParent",
+    "PIFHistory",
+    "Page",
+    "PageAction",
+    "PageGroup",
+    "PageTemplate",
+    "PaymentDateChangeHistory",
+    "PaymentGateway",
+    "PaymentGatewayBatch",
+    "PaymentGatewayBatchItem",
+    "PaymentHistory",
+    "PaymentRejections",
+    "Payments",
+    "PosTillSummary",
+    "PosTillSummaryNote",
+    "PosTransaction",
+    "PosTransactionAudit",
+    "PosTransactionGenericItem",
+    "PosTransactionItem",
+    "PosTransactionPayment",
+    "PreActivityQuestionaire",
+    "PreActivityQuestionaireGroup",
+    "PreActivityQuestionaireParent",
+    "ProcessLog",
+    "ProspectActivity",
+    "ProspectAppointment",
+    "ProspectAttachment",
+    "ProspectAttendanceLog",
+    "ProspectCall",
+    "ProspectCommunicationFailedLogs",
+    "ProspectCommunicationHistory",
+    "ProspectCreditCard",
+    "ProspectDigitalSignature",
+    "ProspectKid",
+    "ProspectMasterCalendarBlock",
+    "ProspectMasterCalendarBlockParent",
+    "ProspectMedicalConditions",
+    "ProspectMembersCancelled",
+    "ProspectNotes",
+    "ProspectParentGuarantor",
+    "ProspectPaymentGatewayTransactionAudit",
+    "ProspectPaymentHistory",
+    "ProspectPosTransaction",
+    "ProspectPosTransactionAudit",
+    "ProspectPosTransactionItem",
+    "ProspectPosTransactionPayment",
+    "ProspectPreActivityQuestionnaire",
+    "ProspectToDo",
+    "ProspectTracking",
+    "ProspectTrackingSchedule",
+    "ProspectTrainerBookingAttendance",
+    "ProspectVerificationCode",
+    "Prospects",
+    "Reminder",
+    "RestoreMembershipHistory",
+    "RestrictedDiscountCoupons",
+    "RestrictedGroupClass",
+    "RewardsProgram",
+    "RewardsProgramAccount",
+    "RewardsProgramClassPointsAllocation",
+    "RewardsProgramPointLevel",
+    "RewardsProgramPointsAudit",
+    "RolePage",
+    "RolePageAction",
+    "RoomAvailability",
+    "RoomBookings",
+    "Rooms",
+    "SchemaVersions",
+    "Settings",
+    "Settlement",
+    "SmsGateway",
+    "SocialTagMapping",
+    "SplitPaymentGatewayTransactionAudit",
+    "Staff",
+    "StaffAccount",
+    "StaffAttachments",
+    "StaffAttendanceLog",
+    "StaffCertifications",
+    "StaffCommunicationHistory",
+    "StaffFingerprint",
+    "StaffNotes",
+    "StaffReports",
+    "StaffSettings",
+    "StaffShift",
+    "StaffTask",
+    "StaffTaskAssignee",
+    "StaffTaskAttachment",
+    "StaffTimesheet",
+    "StaffTrainerAccess",
+    "Stocktakes",
+    "StudentArrears",
+    "StudentAttachment",
+    "StudentAttendanceLog",
+    "StudentBillingItem",
+    "StudentCancelledClasses",
+    "StudentCancelledFromWholeClasses",
+    "StudentChangedClassHistory",
+    "StudentClassCreditHistory",
+    "StudentClassWaitList",
+    "StudentCommunicationFailedLogs",
+    "StudentCommunicationHistory",
+    "StudentDigitalSignature",
+    "StudentFamily",
+    "StudentFamilyLink",
+    "StudentFullClassSchedule",
+    "StudentNotes",
+    "StudentPIFHistory",
+    "StudentPaymentGatewayBatch",
+    "StudentPaymentGatewayBatchItem",
+    "StudentPaymentGatewayTransactionAudit",
+    "StudentPaymentHistory",
+    "StudentPaymentRejections",
+    "StudentPaymentTemplates",
+    "StudentPaymentVariation",
+    "StudentPosDailyActual",
+    "StudentPosTillSummary",
+    "StudentPosTransaction",
+    "StudentPosTransactionGenericItem",
+    "StudentPosTransactionItem",
+    "StudentPosTransactionPayment",
+    "StudentRemoveFromSwimClassBooking",
+    "StudentSwimClassBookingDetail",
+    "StudentSwimSkills",
+    "StudentTasks",
+    "Students",
+    "Subscription",
+    "SwimClass",
+    "SwimClassSchedule",
+    "SwimClassScheduleChangedInstructor",
+    "SwimClassScheduleOnlineAccount",
+    "SwimClassScheduleTerm",
+    "SwimScheduleExcludedTime",
+    "SwimStocktakes",
+    "SwimTerm",
+    "TokenHistory",
+    "TokenProvider",
+    "TokenizerProxyCall",
+    "Trainer",
+    "TrainerAccount",
+    "TrainerAttachments",
+    "TrainerAttendanceLog",
+    "TrainerBooking",
+    "TrainerBookingGuest",
+    "TrainerBookingTypePricing",
+    "TrainerCertifications",
+    "TrainerCommunicationHistory",
+    "TrainerNotes",
+    "TrainerShift",
+    "TrainerShiftBlock",
+    "TrainerShiftBlockParent",
+    "Updates_Audit",
+    "UserLogActivity",
+    "VendorMemberSetting",
+    "Vouchers",
+    "WebhookAudit",
+    "Workout",
+    "WorkoutGroup",
+    "WorkoutGroupExercise",
+    "WorkoutGroupExerciseComment",
+    "WorkoutGroupExerciseSet",
+    "WorkoutGroupExerciseSetResult",
+    "WorkoutMemberGroup",
+    "WorkoutTemplate",
+    "WorkoutTemplateGroup",
+    "WorkoutTemplateGroupExercise",
+    "WorkoutTemplateGroupExerciseSet",
+    "aspnet_Applications",
+    "aspnet_Membership",
+    "aspnet_Paths",
+    "aspnet_PersonalizationAllUsers",
+    "aspnet_PersonalizationPerUser",
+    "aspnet_Profile",
+    "aspnet_Roles",
+    "aspnet_SchemaVersions",
+    "aspnet_Users",
+    "aspnet_UsersInRoles",
+    "aspnet_WebEvent_Events"
+  ],
+  "edges": [
+    {
+      "from": "AccountAddonBillings",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountBillingItem",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountEventLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountPaymentGatewayBatchItem",
+      "to": "AccountPaymentGatewayBatch"
+    },
+    {
+      "from": "AccountPaymentGatewayBatchItem",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountProduct",
+      "to": "AccountProductCategory"
+    },
+    {
+      "from": "AccountProduct",
+      "to": "AccountProductSubCategory"
+    },
+    {
+      "from": "AccountProduct",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountProduct",
+      "to": "AccountSupplier"
+    },
+    {
+      "from": "AccountProduct",
+      "to": "DiscountCoupons"
+    },
+    {
+      "from": "AccountProductCategory",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountProductSubCategory",
+      "to": "AccountProductCategory"
+    },
+    {
+      "from": "AccountProductSubCategory",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountProductSupplier",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "AccountProductSupplier",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountProductSupplier",
+      "to": "AccountSupplier"
+    },
+    {
+      "from": "AccountRoster",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountRoster",
+      "to": "Staff"
+    },
+    {
+      "from": "AccountRosterActivity",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountSupplier",
+      "to": "Accounts"
+    },
+    {
+      "from": "AccountSupplierOrderItems",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "AccountSupplierOrderItems",
+      "to": "AccountSupplierOrders"
+    },
+    {
+      "from": "AccountSupplierOrders",
+      "to": "AccountSupplier"
+    },
+    {
+      "from": "AccountSupplierOrders",
+      "to": "Staff"
+    },
+    {
+      "from": "AccountSupplierOrders",
+      "to": "Staff"
+    },
+    {
+      "from": "AmendedPayment",
+      "to": "Members"
+    },
+    {
+      "from": "AmendedPayment",
+      "to": "Staff"
+    },
+    {
+      "from": "AnalyticDashboardWidget",
+      "to": "AnalyticDashboard"
+    },
+    {
+      "from": "AnalyticDashboardWidget",
+      "to": "AnalyticWidgetConfiguration"
+    },
+    {
+      "from": "AppBrandingScreenConfiguration",
+      "to": "AppBrandingScreen"
+    },
+    {
+      "from": "aspnet_Membership",
+      "to": "aspnet_Applications"
+    },
+    {
+      "from": "aspnet_Membership",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "aspnet_Paths",
+      "to": "aspnet_Applications"
+    },
+    {
+      "from": "aspnet_PersonalizationAllUsers",
+      "to": "aspnet_Paths"
+    },
+    {
+      "from": "aspnet_PersonalizationPerUser",
+      "to": "aspnet_Paths"
+    },
+    {
+      "from": "aspnet_PersonalizationPerUser",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "aspnet_Profile",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "aspnet_Roles",
+      "to": "aspnet_Applications"
+    },
+    {
+      "from": "aspnet_Users",
+      "to": "aspnet_Applications"
+    },
+    {
+      "from": "aspnet_UsersInRoles",
+      "to": "aspnet_Roles"
+    },
+    {
+      "from": "aspnet_UsersInRoles",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "AttendanceLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "AttendanceLog",
+      "to": "Members"
+    },
+    {
+      "from": "BirthdayEmailAttachments",
+      "to": "MarketingBirthdayCampaign"
+    },
+    {
+      "from": "BookingType",
+      "to": "Accounts"
+    },
+    {
+      "from": "Campaign",
+      "to": "Accounts"
+    },
+    {
+      "from": "Campaign",
+      "to": "CampaignType"
+    },
+    {
+      "from": "Campaign",
+      "to": "Group"
+    },
+    {
+      "from": "Campaign",
+      "to": "MarketingEmailTemplate"
+    },
+    {
+      "from": "Campaign",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "Campaign",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "CampaignFilterOptions",
+      "to": "CampaignFilters"
+    },
+    {
+      "from": "CampaignMessageSent",
+      "to": "Campaign"
+    },
+    {
+      "from": "CampaignTemplate",
+      "to": "MarketingEmailTemplate"
+    },
+    {
+      "from": "Class",
+      "to": "Accounts"
+    },
+    {
+      "from": "Class",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "ClassSchedule",
+      "to": "Accounts"
+    },
+    {
+      "from": "ClassSchedule",
+      "to": "Class"
+    },
+    {
+      "from": "ClassSchedule",
+      "to": "Trainer"
+    },
+    {
+      "from": "ClassScheduleAgeRestriction",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleAttendanceCount",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleChangedInstructor",
+      "to": "Trainer"
+    },
+    {
+      "from": "ClassScheduleChangedInstructor",
+      "to": "Trainer"
+    },
+    {
+      "from": "ClassScheduleChangedInstructor",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleChanges",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleMobileAccount",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleMobileAccount",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "ClassScheduleMobileAccount",
+      "to": "Staff"
+    },
+    {
+      "from": "ClassScheduleOnDemand",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleOnlineAccount",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "ClassScheduleOnlineAccount",
+      "to": "OnlineAccount"
+    },
+    {
+      "from": "Club_Number_Audit",
+      "to": "Accounts"
+    },
+    {
+      "from": "ClubActivityEod",
+      "to": "Accounts"
+    },
+    {
+      "from": "ClubActivityEod",
+      "to": "Staff"
+    },
+    {
+      "from": "Court",
+      "to": "Accounts"
+    },
+    {
+      "from": "CourtAvailability",
+      "to": "Court"
+    },
+    {
+      "from": "CourtBookings",
+      "to": "BookingType"
+    },
+    {
+      "from": "CourtBookings",
+      "to": "Court"
+    },
+    {
+      "from": "DigitalDoorTimezone",
+      "to": "Accounts"
+    },
+    {
+      "from": "DigitalSignature",
+      "to": "Members"
+    },
+    {
+      "from": "DiscountCoupons",
+      "to": "Staff"
+    },
+    {
+      "from": "DiscountCoupons",
+      "to": "Staff"
+    },
+    {
+      "from": "EmailTemplateAttachments",
+      "to": "MarketingEmailTemplate"
+    },
+    {
+      "from": "EntityTags",
+      "to": "Accounts"
+    },
+    {
+      "from": "Exercise",
+      "to": "ExerciseBodyPart"
+    },
+    {
+      "from": "ExerciseDataTypeUnit",
+      "to": "ExerciseDataType"
+    },
+    {
+      "from": "FacebookLeads",
+      "to": "Accounts"
+    },
+    {
+      "from": "FitnessTestingType",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "FormFieldMapping",
+      "to": "Fields"
+    },
+    {
+      "from": "FormFieldMapping",
+      "to": "Forms"
+    },
+    {
+      "from": "Forms",
+      "to": "FormTypes"
+    },
+    {
+      "from": "Gateway_Audit",
+      "to": "Members"
+    },
+    {
+      "from": "GroupClassScheduleExcludedTime",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "GroupClassScheduleExcludedTime",
+      "to": "Staff"
+    },
+    {
+      "from": "GroupType",
+      "to": "Accounts"
+    },
+    {
+      "from": "GroupTypeLinkToMembershipType",
+      "to": "GroupType"
+    },
+    {
+      "from": "GroupTypeLinkToMembershipType",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "GuestTrainerBookingAttendance",
+      "to": "TrainerBookingGuest"
+    },
+    {
+      "from": "Holidays",
+      "to": "Accounts"
+    },
+    {
+      "from": "Icons",
+      "to": "Accounts"
+    },
+    {
+      "from": "Icons",
+      "to": "Staff"
+    },
+    {
+      "from": "Invoice",
+      "to": "Accounts"
+    },
+    {
+      "from": "Invoice",
+      "to": "Contacts"
+    },
+    {
+      "from": "Invoice",
+      "to": "Members"
+    },
+    {
+      "from": "Invoice",
+      "to": "Staff"
+    },
+    {
+      "from": "Invoice",
+      "to": "Staff"
+    },
+    {
+      "from": "InvoiceItem",
+      "to": "Invoice"
+    },
+    {
+      "from": "Kpi",
+      "to": "Accounts"
+    },
+    {
+      "from": "Lookup_Type_Items",
+      "to": "Lookup_Types"
+    },
+    {
+      "from": "MarketingEmailTemplate",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "MarketingEmailTemplate",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "MasterCalendarBlock",
+      "to": "MasterCalendarBlockParent"
+    },
+    {
+      "from": "MemberAccessSync",
+      "to": "Accounts"
+    },
+    {
+      "from": "MemberAccessSync",
+      "to": "Members"
+    },
+    {
+      "from": "MemberActivity",
+      "to": "Members"
+    },
+    {
+      "from": "MemberActivity",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberAgreementHistory",
+      "to": "Members"
+    },
+    {
+      "from": "MemberAppointment",
+      "to": "Members"
+    },
+    {
+      "from": "MemberAppointment",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberArchiveReason",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "MemberArchiveReason",
+      "to": "Members"
+    },
+    {
+      "from": "MemberArrears",
+      "to": "Members"
+    },
+    {
+      "from": "MemberAttachment",
+      "to": "Members"
+    },
+    {
+      "from": "MemberAttendanceRestrictionMultiple",
+      "to": "MemberAttendanceRestriction"
+    },
+    {
+      "from": "MemberBillingItem",
+      "to": "MemberKid"
+    },
+    {
+      "from": "MemberBillingItem",
+      "to": "Members"
+    },
+    {
+      "from": "MemberCall",
+      "to": "Members"
+    },
+    {
+      "from": "MemberCall",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberCall",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberChangeAudit",
+      "to": "Members"
+    },
+    {
+      "from": "MemberCommunicationFailedLogs",
+      "to": "Members"
+    },
+    {
+      "from": "MemberCreditCard",
+      "to": "Members"
+    },
+    {
+      "from": "MemberDebtCollection",
+      "to": "Members"
+    },
+    {
+      "from": "MemberDisputes",
+      "to": "Members"
+    },
+    {
+      "from": "MemberFailedPayment",
+      "to": "Members"
+    },
+    {
+      "from": "MemberFamilyLink",
+      "to": "Members"
+    },
+    {
+      "from": "MemberFamilyLink",
+      "to": "Members"
+    },
+    {
+      "from": "MemberFamilyLink",
+      "to": "Members"
+    },
+    {
+      "from": "MemberFingerprint",
+      "to": "Members"
+    },
+    {
+      "from": "MemberFitnessTesting",
+      "to": "FitnessTestingType"
+    },
+    {
+      "from": "MemberFitnessTesting",
+      "to": "Members"
+    },
+    {
+      "from": "MemberGroup",
+      "to": "GroupType"
+    },
+    {
+      "from": "MemberGroup",
+      "to": "Members"
+    },
+    {
+      "from": "MemberGroup",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberGroupClassAttendanceLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "MemberGroupClassAttendanceLog",
+      "to": "ClassSchedule"
+    },
+    {
+      "from": "MemberGroupClassSubscription",
+      "to": "Members"
+    },
+    {
+      "from": "MemberKid",
+      "to": "Members"
+    },
+    {
+      "from": "MemberMeasurements",
+      "to": "Members"
+    },
+    {
+      "from": "MemberMeasurements",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberMeasurements",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberMedicalConditions",
+      "to": "Members"
+    },
+    {
+      "from": "MemberMembershipTypeChangeHistory",
+      "to": "Members"
+    },
+    {
+      "from": "MemberMembershipTypeChangeHistory",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberNotes",
+      "to": "Accounts"
+    },
+    {
+      "from": "MemberNotes",
+      "to": "Members"
+    },
+    {
+      "from": "MemberOrientationQuestionnaire",
+      "to": "OrientationQuestionnaire"
+    },
+    {
+      "from": "MemberOrientationQuestionnaire",
+      "to": "OrientationQuestionnaireGroup"
+    },
+    {
+      "from": "MemberOrientationQuestionnaire",
+      "to": "Members"
+    },
+    {
+      "from": "MemberOtherFeeRunLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "MemberOtherFeeRunLog",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberOtherMembership",
+      "to": "Members"
+    },
+    {
+      "from": "MemberOtherMembership",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "MemberOtherMembership",
+      "to": "PaymentHistory"
+    },
+    {
+      "from": "MemberParentGuarantor",
+      "to": "Members"
+    },
+    {
+      "from": "MemberPaymentGatewayTransactionAudit",
+      "to": "Members"
+    },
+    {
+      "from": "MemberPaymentGatewayTransactionAudit",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "MemberPaymentGatewayTransactionAudit",
+      "to": "PaymentGateway"
+    },
+    {
+      "from": "MemberPaymentTemplates",
+      "to": "DiscountCoupons"
+    },
+    {
+      "from": "MemberPaymentTemplates",
+      "to": "Members"
+    },
+    {
+      "from": "MemberPaymentTemplates",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "MemberPaymentTemplates",
+      "to": "PaymentGateway"
+    },
+    {
+      "from": "MemberPaymentVariation",
+      "to": "Members"
+    },
+    {
+      "from": "MemberPreActivityQuestionnaire",
+      "to": "PreActivityQuestionaire"
+    },
+    {
+      "from": "MemberPreActivityQuestionnaire",
+      "to": "PreActivityQuestionaireGroup"
+    },
+    {
+      "from": "MemberPreActivityQuestionnaire",
+      "to": "Members"
+    },
+    {
+      "from": "MemberPtSubscription",
+      "to": "Members"
+    },
+    {
+      "from": "MemberReferrals",
+      "to": "Prospects"
+    },
+    {
+      "from": "MemberRestrictedGroupClass",
+      "to": "Members"
+    },
+    {
+      "from": "MemberRestrictedGroupClass",
+      "to": "Class"
+    },
+    {
+      "from": "MemberRewardsProgram",
+      "to": "Members"
+    },
+    {
+      "from": "MemberRewardsProgram",
+      "to": "RewardsProgram"
+    },
+    {
+      "from": "MemberRewardsProgram",
+      "to": "RewardsProgramPointLevel"
+    },
+    {
+      "from": "MemberRewardsProgramLevelHistory",
+      "to": "Members"
+    },
+    {
+      "from": "MemberRewardsProgramLevelHistory",
+      "to": "RewardsProgram"
+    },
+    {
+      "from": "MemberRewardsProgramLevelHistory",
+      "to": "RewardsProgramPointLevel"
+    },
+    {
+      "from": "Members",
+      "to": "Accounts"
+    },
+    {
+      "from": "Members",
+      "to": "Prospects"
+    },
+    {
+      "from": "Members",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberSession",
+      "to": "Staff"
+    },
+    {
+      "from": "MembershipTypeAccount",
+      "to": "Accounts"
+    },
+    {
+      "from": "MembershipTypeAccount",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "MembershipTypes",
+      "to": "MemberAttendanceRestriction"
+    },
+    {
+      "from": "MembershipTypes",
+      "to": "MembershipContractTypes"
+    },
+    {
+      "from": "MembershipTypes",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberSubscription",
+      "to": "Members"
+    },
+    {
+      "from": "MemberSubscription",
+      "to": "PosTransaction"
+    },
+    {
+      "from": "MemberSubscription",
+      "to": "Subscription"
+    },
+    {
+      "from": "MemberSubscriptionAudit",
+      "to": "Members"
+    },
+    {
+      "from": "MemberSubscriptionAudit",
+      "to": "MemberSubscription"
+    },
+    {
+      "from": "MemberSubscriptionAudit",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberSubscriptionAudit",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberSubscriptionAudit",
+      "to": "Trainer"
+    },
+    {
+      "from": "MemberSuspension",
+      "to": "Members"
+    },
+    {
+      "from": "MemberTracking",
+      "to": "Accounts"
+    },
+    {
+      "from": "MemberTracking",
+      "to": "MarketingEmailTemplate"
+    },
+    {
+      "from": "MemberTrackingSchedule",
+      "to": "Members"
+    },
+    {
+      "from": "MemberTrackingSchedule",
+      "to": "MemberTracking"
+    },
+    {
+      "from": "MemberTrackingSchedule",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberTrainerBookingAttendance",
+      "to": "Members"
+    },
+    {
+      "from": "MemberTrainerBookingAttendance",
+      "to": "Trainer"
+    },
+    {
+      "from": "MemberTrainerBookingAttendance",
+      "to": "TrainerBookingGuest"
+    },
+    {
+      "from": "MemberVerificationCode",
+      "to": "Members"
+    },
+    {
+      "from": "MemberViewNotes",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "MemberViewNotes",
+      "to": "Members"
+    },
+    {
+      "from": "MemberViewNotes",
+      "to": "Accounts"
+    },
+    {
+      "from": "MemberVisit",
+      "to": "Staff"
+    },
+    {
+      "from": "MemberVouchers",
+      "to": "Members"
+    },
+    {
+      "from": "MemberVouchers",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "MemberVouchers",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "MemberVouchers",
+      "to": "Vouchers"
+    },
+    {
+      "from": "MyClubMemberProfile",
+      "to": "Members"
+    },
+    {
+      "from": "MyClubMemberProfile",
+      "to": "Members"
+    },
+    {
+      "from": "NewsFeed",
+      "to": "Accounts"
+    },
+    {
+      "from": "NewsFeed",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "NewsFeed",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "OnlineShopTransaction",
+      "to": "Accounts"
+    },
+    {
+      "from": "OnlineShopTransaction",
+      "to": "Staff"
+    },
+    {
+      "from": "OnlineShopTransactionItem",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "OnlineShopTransactionItem",
+      "to": "OnlineShopTransaction"
+    },
+    {
+      "from": "OnlineShopTransactionPayment",
+      "to": "OnlineShopTransaction"
+    },
+    {
+      "from": "OptoutHistory",
+      "to": "Members"
+    },
+    {
+      "from": "OptoutHistory",
+      "to": "Prospects"
+    },
+    {
+      "from": "OptoutHistory",
+      "to": "Staff"
+    },
+    {
+      "from": "OptoutHistory",
+      "to": "Students"
+    },
+    {
+      "from": "OrientationQuestionnaire",
+      "to": "OrientationQuestionnaireGroup"
+    },
+    {
+      "from": "OrientationQuestionnaireGroup",
+      "to": "Accounts"
+    },
+    {
+      "from": "OrientationQuestionnaireParent",
+      "to": "Accounts"
+    },
+    {
+      "from": "Page",
+      "to": "PageGroup"
+    },
+    {
+      "from": "PageAction",
+      "to": "Page"
+    },
+    {
+      "from": "PaymentDateChangeHistory",
+      "to": "Members"
+    },
+    {
+      "from": "PaymentDateChangeHistory",
+      "to": "Staff"
+    },
+    {
+      "from": "PaymentGatewayBatchItem",
+      "to": "Members"
+    },
+    {
+      "from": "PaymentGatewayBatchItem",
+      "to": "PaymentGatewayBatch"
+    },
+    {
+      "from": "PaymentHistory",
+      "to": "Members"
+    },
+    {
+      "from": "PosTillSummary",
+      "to": "PosTillSummaryNote"
+    },
+    {
+      "from": "PosTransaction",
+      "to": "Accounts"
+    },
+    {
+      "from": "PosTransaction",
+      "to": "Staff"
+    },
+    {
+      "from": "PosTransaction",
+      "to": "Members"
+    },
+    {
+      "from": "PosTransaction",
+      "to": "Staff"
+    },
+    {
+      "from": "PosTransactionAudit",
+      "to": "Members"
+    },
+    {
+      "from": "PosTransactionAudit",
+      "to": "PosTransaction"
+    },
+    {
+      "from": "PosTransactionAudit",
+      "to": "Staff"
+    },
+    {
+      "from": "PosTransactionAudit",
+      "to": "Staff"
+    },
+    {
+      "from": "PosTransactionGenericItem",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "PosTransactionGenericItem",
+      "to": "PosTransaction"
+    },
+    {
+      "from": "PosTransactionItem",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "PosTransactionItem",
+      "to": "PosTransaction"
+    },
+    {
+      "from": "PosTransactionPayment",
+      "to": "PosTransaction"
+    },
+    {
+      "from": "PreActivityQuestionaire",
+      "to": "PreActivityQuestionaireGroup"
+    },
+    {
+      "from": "PreActivityQuestionaireGroup",
+      "to": "Accounts"
+    },
+    {
+      "from": "PreActivityQuestionaireParent",
+      "to": "Accounts"
+    },
+    {
+      "from": "ProspectActivity",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectActivity",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectAppointment",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectAppointment",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectAppointment",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectAttachment",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectAttendanceLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "ProspectCall",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectCall",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectCall",
+      "to": "ProspectTracking"
+    },
+    {
+      "from": "ProspectCall",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectCommunicationFailedLogs",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectCreditCard",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectKid",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectMasterCalendarBlock",
+      "to": "ProspectMasterCalendarBlockParent"
+    },
+    {
+      "from": "ProspectMedicalConditions",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectMembersCancelled",
+      "to": "Accounts"
+    },
+    {
+      "from": "ProspectMembersCancelled",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectNotes",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectParentGuarantor",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectPaymentGatewayTransactionAudit",
+      "to": "PaymentGateway"
+    },
+    {
+      "from": "ProspectPaymentGatewayTransactionAudit",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectPaymentHistory",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectPosTransaction",
+      "to": "Accounts"
+    },
+    {
+      "from": "ProspectPosTransaction",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectPosTransaction",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectPosTransaction",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectPosTransactionAudit",
+      "to": "ProspectPosTransaction"
+    },
+    {
+      "from": "ProspectPosTransactionAudit",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectPosTransactionAudit",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectPosTransactionAudit",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectPosTransactionItem",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "ProspectPosTransactionItem",
+      "to": "ProspectPosTransaction"
+    },
+    {
+      "from": "ProspectPosTransactionPayment",
+      "to": "ProspectPosTransaction"
+    },
+    {
+      "from": "ProspectPreActivityQuestionnaire",
+      "to": "PreActivityQuestionaire"
+    },
+    {
+      "from": "ProspectPreActivityQuestionnaire",
+      "to": "PreActivityQuestionaireGroup"
+    },
+    {
+      "from": "ProspectPreActivityQuestionnaire",
+      "to": "Prospects"
+    },
+    {
+      "from": "Prospects",
+      "to": "Accounts"
+    },
+    {
+      "from": "Prospects",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectToDo",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectToDo",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectTracking",
+      "to": "MarketingEmailTemplate"
+    },
+    {
+      "from": "ProspectTrackingSchedule",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectTrackingSchedule",
+      "to": "ProspectTracking"
+    },
+    {
+      "from": "ProspectTrackingSchedule",
+      "to": "Staff"
+    },
+    {
+      "from": "ProspectTrainerBookingAttendance",
+      "to": "Prospects"
+    },
+    {
+      "from": "ProspectTrainerBookingAttendance",
+      "to": "Trainer"
+    },
+    {
+      "from": "ProspectVerificationCode",
+      "to": "Prospects"
+    },
+    {
+      "from": "RestrictedDiscountCoupons",
+      "to": "DiscountCoupons"
+    },
+    {
+      "from": "RestrictedDiscountCoupons",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "RestrictedGroupClass",
+      "to": "Class"
+    },
+    {
+      "from": "RestrictedGroupClass",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "RewardsProgram",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "RewardsProgram",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "RewardsProgramAccount",
+      "to": "Accounts"
+    },
+    {
+      "from": "RewardsProgramAccount",
+      "to": "RewardsProgram"
+    },
+    {
+      "from": "RewardsProgramClassPointsAllocation",
+      "to": "Class"
+    },
+    {
+      "from": "RewardsProgramClassPointsAllocation",
+      "to": "RewardsProgram"
+    },
+    {
+      "from": "RewardsProgramPointLevel",
+      "to": "RewardsProgram"
+    },
+    {
+      "from": "RewardsProgramPointsAudit",
+      "to": "Class"
+    },
+    {
+      "from": "RewardsProgramPointsAudit",
+      "to": "Members"
+    },
+    {
+      "from": "RewardsProgramPointsAudit",
+      "to": "RewardsProgram"
+    },
+    {
+      "from": "RolePage",
+      "to": "aspnet_Roles"
+    },
+    {
+      "from": "RolePage",
+      "to": "Page"
+    },
+    {
+      "from": "RolePageAction",
+      "to": "aspnet_Roles"
+    },
+    {
+      "from": "RolePageAction",
+      "to": "PageAction"
+    },
+    {
+      "from": "RoomAvailability",
+      "to": "Rooms"
+    },
+    {
+      "from": "RoomBookings",
+      "to": "BookingType"
+    },
+    {
+      "from": "RoomBookings",
+      "to": "Rooms"
+    },
+    {
+      "from": "Settlement",
+      "to": "Accounts"
+    },
+    {
+      "from": "SocialTagMapping",
+      "to": "Accounts"
+    },
+    {
+      "from": "Staff",
+      "to": "Accounts"
+    },
+    {
+      "from": "StaffAccount",
+      "to": "Accounts"
+    },
+    {
+      "from": "StaffAccount",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffAttachments",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffAttendanceLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "StaffAttendanceLog",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffCertifications",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffFingerprint",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffNotes",
+      "to": "Accounts"
+    },
+    {
+      "from": "StaffNotes",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffReports",
+      "to": "Accounts"
+    },
+    {
+      "from": "StaffReports",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffSettings",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffShift",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffTask",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "StaffTask",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "StaffTask",
+      "to": "Members"
+    },
+    {
+      "from": "StaffTaskAssignee",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffTaskAssignee",
+      "to": "StaffTask"
+    },
+    {
+      "from": "StaffTaskAttachment",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "StaffTimesheet",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffTimesheet",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffTrainerAccess",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffTrainerAccess",
+      "to": "Staff"
+    },
+    {
+      "from": "StaffTrainerAccess",
+      "to": "Trainer"
+    },
+    {
+      "from": "Stocktakes",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "Stocktakes",
+      "to": "Accounts"
+    },
+    {
+      "from": "Stocktakes",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentArrears",
+      "to": "Students"
+    },
+    {
+      "from": "StudentAttachment",
+      "to": "Students"
+    },
+    {
+      "from": "StudentAttendanceLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "StudentAttendanceLog",
+      "to": "Students"
+    },
+    {
+      "from": "StudentAttendanceLog",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "StudentBillingItem",
+      "to": "Students"
+    },
+    {
+      "from": "StudentCancelledClasses",
+      "to": "StudentSwimClassBookingDetail"
+    },
+    {
+      "from": "StudentCancelledFromWholeClasses",
+      "to": "Students"
+    },
+    {
+      "from": "StudentCancelledFromWholeClasses",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "StudentChangedClassHistory",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentChangedClassHistory",
+      "to": "Students"
+    },
+    {
+      "from": "StudentChangedClassHistory",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "StudentClassCreditHistory",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentClassCreditHistory",
+      "to": "StudentPosTransaction"
+    },
+    {
+      "from": "StudentClassCreditHistory",
+      "to": "Students"
+    },
+    {
+      "from": "StudentClassCreditHistory",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "StudentClassWaitList",
+      "to": "Students"
+    },
+    {
+      "from": "StudentClassWaitList",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "StudentCommunicationFailedLogs",
+      "to": "Students"
+    },
+    {
+      "from": "StudentDigitalSignature",
+      "to": "Students"
+    },
+    {
+      "from": "StudentFamily",
+      "to": "Accounts"
+    },
+    {
+      "from": "StudentFamily",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentFamily",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentFamily",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentFamilyLink",
+      "to": "StudentFamily"
+    },
+    {
+      "from": "StudentFamilyLink",
+      "to": "Students"
+    },
+    {
+      "from": "StudentFullClassSchedule",
+      "to": "StudentSwimClassBookingDetail"
+    },
+    {
+      "from": "StudentNotes",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentNotes",
+      "to": "Students"
+    },
+    {
+      "from": "StudentPaymentGatewayBatchItem",
+      "to": "StudentPaymentGatewayBatch"
+    },
+    {
+      "from": "StudentPaymentGatewayBatchItem",
+      "to": "Students"
+    },
+    {
+      "from": "StudentPaymentGatewayTransactionAudit",
+      "to": "PaymentGateway"
+    },
+    {
+      "from": "StudentPaymentGatewayTransactionAudit",
+      "to": "Students"
+    },
+    {
+      "from": "StudentPaymentHistory",
+      "to": "Students"
+    },
+    {
+      "from": "StudentPaymentTemplates",
+      "to": "PaymentGateway"
+    },
+    {
+      "from": "StudentPaymentTemplates",
+      "to": "Students"
+    },
+    {
+      "from": "StudentPaymentTemplates",
+      "to": "StudentSwimClassBookingDetail"
+    },
+    {
+      "from": "StudentPaymentVariation",
+      "to": "StudentPaymentTemplates"
+    },
+    {
+      "from": "StudentPIFHistory",
+      "to": "StudentPosTransaction"
+    },
+    {
+      "from": "StudentPosTransaction",
+      "to": "Staff"
+    },
+    {
+      "from": "StudentPosTransaction",
+      "to": "Students"
+    },
+    {
+      "from": "StudentPosTransactionGenericItem",
+      "to": "MembershipTypes"
+    },
+    {
+      "from": "StudentPosTransactionGenericItem",
+      "to": "StudentPosTransaction"
+    },
+    {
+      "from": "StudentPosTransactionItem",
+      "to": "StudentPosTransaction"
+    },
+    {
+      "from": "StudentPosTransactionPayment",
+      "to": "StudentPosTransaction"
+    },
+    {
+      "from": "StudentRemoveFromSwimClassBooking",
+      "to": "StudentSwimClassBookingDetail"
+    },
+    {
+      "from": "StudentRemoveFromSwimClassBooking",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "Students",
+      "to": "Accounts"
+    },
+    {
+      "from": "StudentSwimClassBookingDetail",
+      "to": "Prospects"
+    },
+    {
+      "from": "StudentSwimClassBookingDetail",
+      "to": "StudentPosTransaction"
+    },
+    {
+      "from": "StudentSwimClassBookingDetail",
+      "to": "Students"
+    },
+    {
+      "from": "StudentSwimClassBookingDetail",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "StudentSwimSkills",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "StudentSwimSkills",
+      "to": "Students"
+    },
+    {
+      "from": "StudentTasks",
+      "to": "Accounts"
+    },
+    {
+      "from": "StudentTasks",
+      "to": "Students"
+    },
+    {
+      "from": "Subscription",
+      "to": "DiscountCoupons"
+    },
+    {
+      "from": "Subscription",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "SwimClass",
+      "to": "Accounts"
+    },
+    {
+      "from": "SwimClass",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "SwimClassSchedule",
+      "to": "Accounts"
+    },
+    {
+      "from": "SwimClassSchedule",
+      "to": "SwimClass"
+    },
+    {
+      "from": "SwimClassSchedule",
+      "to": "Trainer"
+    },
+    {
+      "from": "SwimClassScheduleChangedInstructor",
+      "to": "Trainer"
+    },
+    {
+      "from": "SwimClassScheduleChangedInstructor",
+      "to": "Trainer"
+    },
+    {
+      "from": "SwimClassScheduleChangedInstructor",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "SwimClassScheduleOnlineAccount",
+      "to": "OnlineAccount"
+    },
+    {
+      "from": "SwimClassScheduleOnlineAccount",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "SwimClassScheduleTerm",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "SwimClassScheduleTerm",
+      "to": "SwimTerm"
+    },
+    {
+      "from": "SwimScheduleExcludedTime",
+      "to": "Staff"
+    },
+    {
+      "from": "SwimScheduleExcludedTime",
+      "to": "SwimClassSchedule"
+    },
+    {
+      "from": "SwimStocktakes",
+      "to": "AccountProduct"
+    },
+    {
+      "from": "SwimStocktakes",
+      "to": "Accounts"
+    },
+    {
+      "from": "SwimStocktakes",
+      "to": "Staff"
+    },
+    {
+      "from": "TrainerAccount",
+      "to": "Accounts"
+    },
+    {
+      "from": "TrainerAccount",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerAttachments",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerAttendanceLog",
+      "to": "Accounts"
+    },
+    {
+      "from": "TrainerAttendanceLog",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerBooking",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "TrainerBooking",
+      "to": "Members"
+    },
+    {
+      "from": "TrainerBooking",
+      "to": "Prospects"
+    },
+    {
+      "from": "TrainerBooking",
+      "to": "Staff"
+    },
+    {
+      "from": "TrainerBooking",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerBooking",
+      "to": "TrainerBookingGuest"
+    },
+    {
+      "from": "TrainerBookingTypePricing",
+      "to": "BookingType"
+    },
+    {
+      "from": "TrainerBookingTypePricing",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerCertifications",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerNotes",
+      "to": "Accounts"
+    },
+    {
+      "from": "TrainerNotes",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerShift",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerShiftBlock",
+      "to": "Trainer"
+    },
+    {
+      "from": "TrainerShiftBlock",
+      "to": "TrainerShiftBlockParent"
+    },
+    {
+      "from": "TrainerShiftBlockParent",
+      "to": "Trainer"
+    },
+    {
+      "from": "UserLogActivity",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "VendorMemberSetting",
+      "to": "Members"
+    },
+    {
+      "from": "Vouchers",
+      "to": "Accounts"
+    },
+    {
+      "from": "Vouchers",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "Vouchers",
+      "to": "aspnet_Users"
+    },
+    {
+      "from": "Workout",
+      "to": "Staff"
+    },
+    {
+      "from": "Workout",
+      "to": "Members"
+    },
+    {
+      "from": "Workout",
+      "to": "Staff"
+    },
+    {
+      "from": "Workout",
+      "to": "WorkoutTemplate"
+    },
+    {
+      "from": "WorkoutGroup",
+      "to": "Workout"
+    },
+    {
+      "from": "WorkoutGroupExercise",
+      "to": "Exercise"
+    },
+    {
+      "from": "WorkoutGroupExercise",
+      "to": "WorkoutGroup"
+    },
+    {
+      "from": "WorkoutGroupExerciseComment",
+      "to": "WorkoutGroupExercise"
+    },
+    {
+      "from": "WorkoutGroupExerciseSet",
+      "to": "ExerciseDataType"
+    },
+    {
+      "from": "WorkoutGroupExerciseSet",
+      "to": "ExerciseDataTypeUnit"
+    },
+    {
+      "from": "WorkoutGroupExerciseSet",
+      "to": "WorkoutGroupExercise"
+    },
+    {
+      "from": "WorkoutGroupExerciseSetResult",
+      "to": "WorkoutGroupExerciseSet"
+    },
+    {
+      "from": "WorkoutMemberGroup",
+      "to": "GroupType"
+    },
+    {
+      "from": "WorkoutTemplate",
+      "to": "Staff"
+    },
+    {
+      "from": "WorkoutTemplate",
+      "to": "Lookup_Type_Items"
+    },
+    {
+      "from": "WorkoutTemplate",
+      "to": "Staff"
+    },
+    {
+      "from": "WorkoutTemplateGroup",
+      "to": "WorkoutTemplate"
+    },
+    {
+      "from": "WorkoutTemplateGroupExercise",
+      "to": "Exercise"
+    },
+    {
+      "from": "WorkoutTemplateGroupExercise",
+      "to": "WorkoutTemplateGroup"
+    },
+    {
+      "from": "WorkoutTemplateGroupExercise",
+      "to": "WorkoutTemplateGroupExercise"
+    },
+    {
+      "from": "WorkoutTemplateGroupExerciseSet",
+      "to": "ExerciseDataType"
+    },
+    {
+      "from": "WorkoutTemplateGroupExerciseSet",
+      "to": "ExerciseDataTypeUnit"
+    },
+    {
+      "from": "WorkoutTemplateGroupExerciseSet",
+      "to": "WorkoutTemplateGroupExercise"
+    }
+  ]
+}

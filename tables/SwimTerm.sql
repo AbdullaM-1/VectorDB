@@ -1,0 +1,19 @@
+USE [hkietech]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SwimTerm](
+	[TermId] [bigint] IDENTITY(1,1) NOT NULL,
+	[TermName] [nvarchar](100) NULL,
+	[StartDateTimeLocal] [datetime] NOT NULL,
+	[EndDateTimeLocal] [datetime] NOT NULL,
+	[CreatedDateUTC] [datetime] NOT NULL,
+	[CreatedBy] [int] NOT NULL,
+ CONSTRAINT [PK_SwimTerm] PRIMARY KEY CLUSTERED 
+(
+	[TermId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
