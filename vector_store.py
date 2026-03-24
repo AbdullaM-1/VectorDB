@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
 
 
@@ -15,11 +15,8 @@ INDEX_DIR = Path(os.environ.get("FAISS_INDEX_DIR", "./faiss_index"))
 
 
 def get_embeddings():
-    """Embedding model for vectorizing text. Uses local HuggingFace model by default."""
-    return HuggingFaceEmbeddings(
-        model_name="sentence-transformers/all-MiniLM-L6-v2",
-        model_kwargs={"device": "cpu"},
-    )
+    """Embedding model for vectorizing text. Uses OpenAI text-embedding-3-small."""
+    return OpenAIEmbeddings(model="text-embedding-3-small")
 
 
 def get_or_create_vector_store(index_dir: Path = None) -> FAISS:

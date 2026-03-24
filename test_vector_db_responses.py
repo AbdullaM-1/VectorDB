@@ -198,7 +198,7 @@ def write_txt_report(results: list[dict], path: Path) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Test Vector DB and save responses to file")
-    parser.add_argument("--base", default="http://localhost:5000", help="Base URL of the Vector DB API")
+    parser.add_argument("--base", default="http://localhost:5003", help="Base URL of the Vector DB API")
     parser.add_argument("--out", default=None, help="Base name for output files (default: vector_db_test_responses)")
     args = parser.parse_args()
     base = args.base.rstrip("/")

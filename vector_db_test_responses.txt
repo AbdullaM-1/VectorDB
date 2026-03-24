@@ -1,12 +1,12 @@
 ============================================================
 Vector DB test responses
-Run at: 2026-03-06T17:20:04.157814Z
+Run at: 2026-03-18T22:48:05.625434Z
 ============================================================
 
 [PASS] GET /health
   Request:  {'method': 'GET', 'path': '/health'}
   Status:   200
-  Duration: 2.1 s
+  Duration: 0.012 s
   Response: {
   "service": "vector-db",
   "status": "ok"
@@ -15,7 +15,7 @@ Run at: 2026-03-06T17:20:04.157814Z
 [PASS] GET / (service info)
   Request:  {'method': 'GET', 'path': '/'}
   Status:   200
-  Duration: 2.061 s
+  Duration: 0.001 s
   Response: {
   "endpoints": {
     "GET /health": "Health check",
@@ -29,107 +29,107 @@ Run at: 2026-03-06T17:20:04.157814Z
 [PASS] POST /search (q='AccountId', k=3)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'AccountId', 'k': 3}}
   Status:   200
-  Duration: 2.171 s
+  Duration: 1.223 s
   Results:  3 items
-    [1] table=aspnet_Membership score=1.2896367311477661 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[aspnet_Membership](\r\n\t[Appl...'
-    [2] table=PaymentGateway score=1.3788213729858398 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentGateway](\r\n\t[Payment...'
-    [3] table=ClubActivityEod score=1.388910174369812 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[ClubActivityEod](\r\n\t[Id] [i...'
+    [1] table=AccountAddonBillings score=1.179753303527832 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[AccountAddonBillings](\n\t[Id] [int...'
+    [2] table=StaffAttendanceLog score=1.235304594039917 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[StaffAttendanceLog](\n\t[Id] [int] ...'
+    [3] table=TrainerAccount score=1.2357286214828491 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[TrainerAccount](\n\t[TrainerAccount...'
 
 [PASS] POST /search (q='Members', k=4)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'Members', 'k': 4}}
   Status:   200
-  Duration: 2.069 s
+  Duration: 2.653 s
   Results:  4 items
-    [1] table=Members score=1.3729894161224365 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Members](\r\n\t[member_id] [in...'
-    [2] table=ClubActivityEod score=1.3863632678985596 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[ClubActivityEod](\r\n\t[Id] [i...'
-    [3] table=MembershipTypeAccount score=1.4164812564849854 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MembershipTypeAccount](\r\n\t[...'
+    [1] table=Members score=1.2307683229446411 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[Members](\n\t[member_id] [int] IDEN...'
+    [2] table=MembershipTypes score=1.2775328159332275 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MembershipTypes](\n\t[contract_id] ...'
+    [3] table=MemberOtherMembership score=1.3098405599594116 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MemberOtherMembership](\n\t[Id] [in...'
     ... and 1 more
 
 [PASS] POST /search (q='FOREIGN KEY', k=3)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'FOREIGN KEY', 'k': 3}}
   Status:   200
-  Duration: 2.087 s
+  Duration: 0.264 s
   Results:  3 items
-    [1] table=StaffTaskAssignee score=1.0771840810775757 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[StaffTaskAssignee](\r\n\t[Staf...'
-    [2] table=FormFieldMapping score=1.1219538450241089 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[FormFieldMapping](\r\n\t[FormI...'
-    [3] table=AccountSupplierOrderItems score=1.166924238204956 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountSupplierOrderItems](...'
+    [1] table=MemberFingerprint score=0.9930562376976013 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MemberFingerprint](\n\t[member_numb...'
+    [2] table=StudentFamilyLink score=1.0024611949920654 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[StudentFamilyLink](\n\t[StudentFami...'
+    [3] table=MyClubMemberProfile score=1.003440260887146 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MyClubMemberProfile](\n\t[Id] [int]...'
 
 [PASS] POST /search (q='billing invoice', k=4)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'billing invoice', 'k': 4}}
   Status:   200
-  Duration: 2.099 s
+  Duration: 0.348 s
   Results:  4 items
-    [1] table=AccountBillingItem score=1.0944254398345947 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountBillingItem](\r\n\t[Acc...'
-    [2] table=InvoiceItem score=1.2063250541687012 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[InvoiceItem](\r\n\t[InvoiceIte...'
-    [3] table=Invoice score=1.2205790281295776 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Invoice](\r\n\t[InvoiceId] [bi...'
+    [1] table=Invoice score=0.9552718997001648 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[Invoice](\n\t[InvoiceId] [bigint] I...'
+    [2] table=InvoiceItem score=1.046243667602539 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[InvoiceItem](\n\t[InvoiceItemId] [b...'
+    [3] table=AccountAddonBillings score=1.1118720769882202 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[AccountAddonBillings](\n\t[Id] [int...'
     ... and 1 more
 
 [PASS] POST /search (q='CREATE TABLE', k=2)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'CREATE TABLE', 'k': 2}}
   Status:   200
-  Duration: 2.072 s
+  Duration: 0.296 s
   Results:  2 items
-    [1] table=TrainerBooking score=1.2668838500976562 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[TrainerBooking](\r\n\t[Trainer...'
-    [2] table=Trainer score=1.2773382663726807 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Trainer](\r\n\t[TrainerId] [in...'
+    [1] table=ExerciseDataType score=1.0050480365753174 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[ExerciseDataType](\n\t[ExerciseData...'
+    [2] table=FormTypes score=1.0192906856536865 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[FormTypes](\n\t[FormTypeId] [int] I...'
 
 [PASS] POST /search (q='Staff Trainer', k=3)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'Staff Trainer', 'k': 3}}
   Status:   200
-  Duration: 2.103 s
+  Duration: 0.286 s
   Results:  3 items
-    [1] table=StaffTrainerAccess score=1.1936103105545044 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[StaffTrainerAccess](\r\n\t[Id]...'
-    [2] table=TrainerShiftBlock score=1.2591017484664917 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[TrainerShiftBlock](\r\n\t[Trai...'
-    [3] table=TrainerBooking score=1.3426611423492432 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[TrainerBooking](\r\n\t[Trainer...'
+    [1] table=Trainer score=1.011733889579773 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[Trainer](\n\t[TrainerId] [int] IDEN...'
+    [2] table=TrainerAttachments score=1.0991491079330444 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[TrainerAttachments](\n\t[Id] [int] ...'
+    [3] table=TrainerCertifications score=1.0996031761169434 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[TrainerCertifications](\n\t[Id] [in...'
 
 [PASS] POST /search (q='MembershipType', k=3)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'MembershipType', 'k': 3}}
   Status:   200
-  Duration: 2.088 s
+  Duration: 0.266 s
   Results:  3 items
-    [1] table=MembershipTypeAccount score=1.229797601699829 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MembershipTypeAccount](\r\n\t[...'
-    [2] table=Group score=1.2680726051330566 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[Group](\r\n\t[GroupId] [int] I...'
-    [3] table=MembershipContractTypes score=1.3129148483276367 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MembershipContractTypes](\r\n...'
+    [1] table=MembershipTypes score=0.9500977993011475 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MembershipTypes](\n\t[contract_id] ...'
+    [2] table=MemberOtherMembership score=0.9838128089904785 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MemberOtherMembership](\n\t[Id] [in...'
+    [3] table=MembershipTypeAccount score=1.0339330434799194 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[MembershipTypeAccount](\n\t[Members...'
 
 [PASS] POST /search (q='Payment Gateway', k=2)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'Payment Gateway', 'k': 2}}
   Status:   200
-  Duration: 2.084 s
+  Duration: 0.262 s
   Results:  2 items
-    [1] table=PaymentHistory score=1.0382704734802246 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentHistory](\r\n\t[payment...'
-    [2] table=StudentPaymentHistory score=1.1030170917510986 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[StudentPaymentHistory](\r\n\t[...'
+    [1] table=PaymentGateway score=0.9500751495361328 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[PaymentGateway](\n\t[PaymentGateway...'
+    [2] table=PaymentGatewayBatchItem score=1.0880910158157349 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[PaymentGatewayBatchItem](\n\t[Payme...'
 
 [PASS] POST /search (q='ProductCategory', k=2)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'ProductCategory', 'k': 2}}
   Status:   200
-  Duration: 2.079 s
+  Duration: 0.286 s
   Results:  2 items
-    [1] table=AccountProductSubCategory score=1.3005813360214233 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountProductSubCategory](...'
-    [2] table=AccountProductCategory score=1.4255650043487549 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountProductCategory](\r\n\t...'
+    [1] table=AccountProductSubCategory score=1.0456886291503906 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[AccountProductSubCategory](\n\t[Acc...'
+    [2] table=AccountProductCategory score=1.0898165702819824 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[AccountProductCategory](\n\t[Accoun...'
 
 [PASS] GET /search?q=AccountId&k=2
   Request:  {'method': 'GET', 'path': '/search?q=AccountId&k=2'}
   Status:   200
-  Duration: 2.088 s
+  Duration: 0.282 s
   Results:  2 items
-    [1] table=aspnet_Membership score=1.2896367311477661 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[aspnet_Membership](\r\n\t[Appl...'
-    [2] table=PaymentGateway score=1.3788213729858398 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[PaymentGateway](\r\n\t[Payment...'
+    [1] table=AccountAddonBillings score=1.179753303527832 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[AccountAddonBillings](\n\t[Id] [int...'
+    [2] table=StaffAttendanceLog score=1.235304594039917 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[StaffAttendanceLog](\n\t[Id] [int] ...'
 
 [FAIL] POST /search (no query, expect 400)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'k': 5}}
   Status:   400
-  Duration: 2.055 s
+  Duration: 0.002 s
   Error:    Missing 'query' or 'q'
 
 [FAIL] POST /search (empty query)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': '', 'k': 1}}
   Status:   400
-  Duration: 2.06 s
+  Duration: 0.001 s
   Error:    Missing 'query' or 'q'
 
 [PASS] POST /documents (add one test doc)
   Request:  {'method': 'POST', 'path': '/documents', 'body': {'texts': ['Test table VectorDB_Test_Table (...)'], 'metadatas': [{'table': 'VectorDB_Test_Table'}]}}
   Status:   200
-  Duration: 2.208 s
+  Duration: 0.293 s
   Response: {
   "added": 1,
   "message": "Documents added and index saved"
@@ -138,18 +138,18 @@ Run at: 2026-03-06T17:20:04.157814Z
 [PASS] POST /search (find added doc)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'VectorDB_Test_Table', 'k': 1}}
   Status:   200
-  Duration: 2.077 s
+  Duration: 0.271 s
   Results:  1 items
-    [1] table=VectorDB_Test_Table score=0.45751115679740906 content='Test table VectorDB_Test_Table (id int, name varchar(100));'
+    [1] table=VectorDB_Test_Table score=0.4937567114830017 content='Test table VectorDB_Test_Table (id int, name varchar(100));'
 
 [PASS] POST /search (q=Account, k=10)
   Request:  {'method': 'POST', 'path': '/search', 'body': {'query': 'Account', 'k': 10}}
   Status:   200
-  Duration: 2.062 s
+  Duration: 0.293 s
   Results:  10 items
-    [1] table=aspnet_Membership score=1.540057897567749 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[aspnet_Membership](\r\n\t[Appl...'
-    [2] table=AccountAddonBillings score=1.5456578731536865 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[AccountAddonBillings](\r\n\t[I...'
-    [3] table=MemberPaymentGatewayTransactionAudit score=1.5613200664520264 content='USE [hkietech]\r\nGO\r\nSET ANSI_NULLS ON\r\nGO\r\nSET QUOTED_IDENTIFIER ON\r\nGO\r\nCREATE TABLE [dbo].[MemberPaymentGatewayTransac...'
+    [1] table=Accounts score=1.0980385541915894 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[Accounts](\n\t[account_id] [int] ID...'
+    [2] table=AccountRosterActivity score=1.1293232440948486 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[AccountRosterActivity](\n\t[Account...'
+    [3] table=StaffAccount score=1.1657450199127197 content='USE [hkietech]\nGO\nSET ANSI_NULLS ON\nGO\nSET QUOTED_IDENTIFIER ON\nGO\nCREATE TABLE [dbo].[StaffAccount](\n\t[StaffAccountId] ...'
     ... and 7 more
 
 ============================================================

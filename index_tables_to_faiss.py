@@ -2,6 +2,9 @@
 Load all SQL table files from tables/ into the FAISS vector store.
 Run once to populate the index so the Flask app can search over table definitions.
 """
+from dotenv import load_dotenv
+load_dotenv()
+
 from pathlib import Path
 
 from langchain_core.documents import Document
