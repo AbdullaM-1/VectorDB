@@ -2,15 +2,14 @@
 flask>=3.0.0
 gunicorn
 
-# LangChain + FAISS vector store
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-community>=0.3.0
-faiss-cpu>=1.7.4
-
-# OpenAI embeddings
-langchain-openai>=0.2.0
+# OpenAI embeddings (text-embedding-3-small) for Stage 1
 openai>=1.0.0
+numpy
+
+# Jina Reranker (jina-reranker-v2-base-multilingual) for Stage 2
+transformers>=4.40.0
+torch>=2.0.0
+einops
 
 # Environment & utilities
 python-dotenv>=1.0.0

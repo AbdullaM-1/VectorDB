@@ -1,3 +1,92 @@
+/*
+================================================================================
+SCHEMA SEMANTICS (indexed with this file for vector search — same text as the DDL below)
+================================================================================
+Table: dbo.Members
+
+SUMMARY FOR SEARCH AND DOCUMENTATION
+The Members table holds club-member–specific data: which club (account) they belong to,
+their membership status, contact details, access and communication flags, billing-related
+flags, medical notes, trainer and sales attribution, and soft-delete metadata.
+
+COLUMN REFERENCE
+member_id is the table’s surrogate primary key (unique row identifier).
+member_number is the member’s unique business identifier (also used as a key elsewhere).
+member_first_name is the member’s given name.
+member_last_name is the member’s surname, family name, or last name.
+member_dob is the member’s date of birth.
+member_gender is gender: M = Male, F = Female, O = Other, or blank if unspecified.
+member_address is the street line of the postal address (number and street name).
+member_email is the member’s email address.
+member_suburb is the suburb part of the address.
+member_state is the state or region part of the address.
+member_postcode is the postcode or ZIP portion of the address.
+member_homephone is the home phone number.
+member_workphone is the work phone number.
+member_mobile is the mobile phone number.
+member_emergencycontactname is the name of the emergency contact.
+member_emergencycontactno is the phone number for the emergency contact.
+member_photo_location marks where a photo file would live; do not use photos in AI answers for now.
+member_sales_person is the StaffId credited with selling this membership.
+member_trainer is the TrainerId of the assigned trainer.
+member_howheard is a foreign key into Lookup_Type_Items for how the member heard about the gym.
+member_status is lifecycle/status: Active; Payment_Error (failed payment); Staging_Online_Signup;
+Suspended; Pending_Online_Signup; Pending_Activation; WaitingConversion; Archived; and related states.
+member_barcode is the barcode used by access-control systems to enter the facility.
+FitnessPassportNumber stores the member’s Fitness Passport identifier.
+source_id should be ignored for semantic Q&A.
+member_occupation is the member’s job or occupation.
+member_employer is the member’s employer name.
+last_sms_datetime is the last local date/time an SMS was sent to the member.
+is_new_member is true when the member has never been billed yet.
+is_payment_pending is true when a payment is awaiting a response from the payment gateway.
+last_status_update_utcdatetime is when the member_status last changed (UTC).
+MedicalInfo holds free-text medical information for the member.
+AccountId is the foreign key to Accounts (which club or account the member belongs to).
+CreatedBy is the StaffId of the user who created the member record.
+MemberStreetNumber is unused; ignore for analytics.
+AccessControlUserId should be ignored for semantic Q&A.
+IsManuallyTag should be ignored for semantic Q&A.
+GeoCoordinates stores latitude and longitude for the member’s address.
+HasMobileApp is true when the Clubfit mobile app is installed and activated for this profile.
+PtFrequency should be ignored for semantic Q&A.
+NumberofPtsessions should be ignored for semantic Q&A.
+MaxNumberOfBookedClasses should be ignored for semantic Q&A.
+IsSmsBlocked is true when the member opted out of SMS.
+IsEmailSubscribed is false when the member opted out of marketing or email contact.
+Department distinguishes gym vs swim: 1 = Gym, 2 = Swim.
+DeletedDateUtc is when the member was soft-deleted (UTC).
+DeletedBy identifies the staff user who performed the soft delete.
+IsDeleted is true for soft-deleted members.
+PortalUserId is the mobile app user id for this member.
+ReferredBy names who referred the member to the gym.
+EmergencyRelationship describes how the emergency contact is related to the member.
+IsBadEmail is true when email to member_email bounces or is undeliverable.
+IsBadMobile is true when SMS to member_mobile fails delivery.
+HasAppAccess is true when the member may use the mobile app.
+DriversLicense stores the member’s driver licence identifier if captured.
+IsOverduePaidOnline is true when overdue balances were paid online.
+IsBlackListed is true when staff flagged the member as blacklisted.
+AccessBlocked is true when the facility should deny physical access.
+AccessBlockedReason explains why access was blocked.
+IsCovidVaccinated, CovidVaccinationDetails, CovidVaccinatedDateTimeRecorded, and
+CovidVaccinatedRecordedByStaffId are legacy COVID fields; ignore for semantic Q&A.
+TransferMembershipUtcDateTime is when this membership was transferred to the member (UTC).
+TransferredFrom references the prior member record involved in a transfer.
+Trainer (column) should be ignored for semantic Q&A.
+NDISNumber holds the member’s NDIS number if applicable.
+StatusCheckSum should be ignored for semantic Q&A.
+IsOnlineSignupCompleted is true when online signup is finished.
+ProspectNumber is set when the member was converted from a prospect.
+LastRoyaltyChargedDateUtc is the last time a royalty fee was charged to this member (UTC).
+LastUpdatedUtcDateTime is the last UTC time the member profile was updated.
+OnlineSignupSource indicates origin of signup: 1 = OnlineSignup, 2 = InClubSignup.
+FacialRecognitionId is the identifier in the facial-recognition access system.
+
+Additional DDL-only columns (present in the script below) may appear without separate business descriptions; infer meaning from names and types in the CREATE TABLE block.
+================================================================================
+*/
+
 USE [hkietech]
 GO
 SET ANSI_NULLS ON

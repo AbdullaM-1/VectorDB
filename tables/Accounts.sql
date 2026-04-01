@@ -1,3 +1,40 @@
+/*
+================================================================================
+SCHEMA SEMANTICS (indexed with this file for vector search — same text as the DDL below)
+================================================================================
+Table: dbo.Accounts
+
+SUMMARY FOR SEARCH AND DOCUMENTATION
+The Accounts table stores information specific to an account. An account is also
+commonly known as a club (site, venue, or tenant in the Clubfit sense).
+
+COLUMN REFERENCE
+account_id is the table’s unique identifier (primary key).
+account_name is the display name of the account or club.
+timezone is the time zone the account operates in.
+IsActive is true when the account is active.
+AddressLine1 should be ignored for semantic Q&A.
+Street is the street line of the account address.
+SubUrb is the suburb part of the account address (column name uses mixed casing as in DDL).
+City is the city part of the account address.
+State is the state or region part of the account address.
+PostalCode is the postal or ZIP code part of the account address.
+Email is the account’s contact email address.
+PhoneNumber is the account’s main phone number.
+WebsiteUrl is the account’s website URL.
+FacebookUrl is the account’s Facebook page URL.
+DialingCode is the country dialing code for the account’s phone numbers.
+BusinessOwnerName is the business owner’s name.
+BusinessOwnerPhoneNumber is the business owner’s phone number.
+BusinessOwnerEmail is the business owner’s email address.
+GeoCoordinates holds latitude and longitude for the account location.
+ClubfitFeeFailedPaymentCount is how many times Clubfit billing fees have failed for this account.
+PaymentIssueSuspensionDate is the date the account was suspended due to failed Clubfit billing.
+AdvancedEmailEditorUid is the account’s advanced email editor unique identifier.
+CompanyLegalName is the legal name of the company operating the account.
+================================================================================
+*/
+
 USE [hkietech]
 GO
 SET ANSI_NULLS ON

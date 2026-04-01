@@ -1,5 +1,5 @@
 """
-Client to connect to the FAISS Vector DB Flask API from another file or project.
+Client to connect to the Document Search Flask API (Jina Reranker).
 Uses only the standard library (no requests required).
 
 Example:
@@ -15,21 +15,15 @@ from typing import Any
 
 
 class VectorDBClient:
-    """Client for the FAISS vector DB Flask API."""
+    """Client for the Document Search API (Jina Reranker)."""
 
-    def __init__(self, base_url: str = "http://localhost:5000", timeout: int = 60):
-        """
-        Args:
-            base_url: API base URL (e.g. http://localhost:5000).
-            timeout: Timeout in seconds for search/document requests (first call can be slow).
-        """
+    def __init__(self, base_url: str = "http://localhost:5003", timeout: int = 600):
         self.base_url = base_url.rstrip("/")
         self.timeout = timeout
 
     def _request(
         self, method: str, path: str, body: dict | None = None
     ) -> tuple[int, dict[str, Any]]:
-        """Send request. Returns (status_code, json_body)."""
         url = f"{self.base_url}{path}"
         req = urllib.request.Request(url, method=method)
         req.add_header("Accept", "application/json")
@@ -50,25 +44,19 @@ class VectorDBClient:
             return 0, {"error": str(e.reason)}
 
     def health(self) -> bool:
-        """Check if the API is up. Returns True if status is ok."""
+        """Check if the API is up."""
         status, data = self._request("GET", "/health")
         return status == 200 and data.get("status") == "ok"
 
-    def search(self, query: str, k: int = 4) -> dict[str, Any]:
-        """
-        Similarity search.
-
-        Args:
-            query: Search text.
-            k: Max number of results (default 4).
+    def search(self, query: str, k: int = 5) -> dict[str, Any]:
+        """Search documents using Jina Reranker scoring.
 
         Returns:
-            {"query": ..., "k": ..., "results": [{"content": ..., "metadata": {...}, "score": ...}, ...]}
-            On error: {"error": "..."} and results may be missing.
+            {"query": ..., "k": ..., "results": [...]}
+            Each result: {"content": str, "metadata": dict, "score": float}
         """
-        status, data = self._request(
-            "POST", "/search", body={"query": query, "k": k}
-        )
+        body: dict[str, Any] = {"query": query, "k": k}
+        status, data = self._request("POST", "/search", body=body)
         if status != 200:
             return {"error": data.get("error", data), "results": []}
         return data
@@ -78,17 +66,8 @@ class VectorDBClient:
         texts: list[str],
         metadatas: list[dict] | None = None,
     ) -> dict[str, Any]:
-        """
-        Add documents to the vector store.
-
-        Args:
-            texts: List of document strings.
-            metadatas: Optional list of dicts (e.g. [{"source": "a.sql", "table": "A"}]).
-
-        Returns:
-            {"added": n, "message": "..."} on success, or {"error": "..."} on failure.
-        """
-        body = {"texts": texts}
+        """Add documents to the store."""
+        body: dict[str, Any] = {"texts": texts}
         if metadatas is not None:
             body["metadatas"] = metadatas
         status, data = self._request("POST", "/documents", body=body)
@@ -96,17 +75,21 @@ class VectorDBClient:
             return {"error": data.get("error", data)}
         return data
 
+    def stats(self) -> dict[str, Any]:
+        """Get document count and model info."""
+        status, data = self._request("GET", "/stats")
+        return data if status == 200 else {"error": data}
+
     def info(self) -> dict[str, Any]:
         """Get service info (GET /)."""
         status, data = self._request("GET", "/")
         return data if status == 200 else {"error": data}
 
 
-# Convenience: use from another file without creating a class instance
 _default_client: VectorDBClient | None = None
 
 
-def get_client(base_url: str = "http://localhost:5000") -> VectorDBClient:
+def get_client(base_url: str = "http://localhost:5003") -> VectorDBClient:
     """Return a shared client instance (or create one)."""
     global _default_client
     if _default_client is None:

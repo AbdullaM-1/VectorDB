@@ -1,93 +1,114 @@
 """
-Flask microservice for FAISS vector DB access via LangChain.
-Endpoints: add documents, similarity search, health.
+Flask microservice for SQL table search.
+
+Stage 1: OpenAI text-embedding-3-small (cosine similarity retrieval via API).
+Stage 2: Jina Reranker jina-reranker-v2-base-multilingual (cross-encoder scoring).
 """
 import os
-from pathlib import Path
 
+from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 
+load_dotenv()
+
 from vector_store import (
-    get_or_create_vector_store,
-    save_vector_store,
-    add_documents,
     search,
-    INDEX_DIR,
+    document_count,
+    persisted_store_exists,
+)
+from jina_reranker import (
+    EMBEDDING_MODEL_ID,
+    RERANKER_MODEL_ID,
+    RERANK_CANDIDATES,
+    is_reranker_loaded,
+    is_tables_loaded,
+    get_openai_client,
+    get_reranker,
+    load_tables,
 )
 
 app = Flask(__name__)
 
-# Load FAISS index at startup (or create empty)
-_vector_store = None
+
+def _preload_all():
+    """Load table data + embeddings, OpenAI client, and reranker at startup."""
+    print("[app] Loading table data + embeddings ...")
+    n = load_tables()
+    print(f"[app] Loaded {n} tables with embeddings.")
+
+    print("[app] Initialising OpenAI client ...")
+    get_openai_client()
+
+    print("[app] Preloading reranker model ...")
+    get_reranker()
+
+    print("[app] All ready.")
 
 
-def get_store():
-    global _vector_store
-    if _vector_store is None:
-        _vector_store = get_or_create_vector_store()
-    return _vector_store
+_preload_all()
 
 
 @app.route("/health", methods=["GET"])
 def health():
-    """Liveness/readiness check."""
-    return jsonify({"status": "ok", "service": "vector-db"})
+    return jsonify({
+        "status": "ok",
+        "service": "table-search (OpenAI Embeddings + Jina Reranker)",
+        "embedding_model": EMBEDDING_MODEL_ID,
+        "reranker_model": RERANKER_MODEL_ID,
+        "reranker_loaded": is_reranker_loaded(),
+        "tables_loaded": is_tables_loaded(),
+        "rerank_candidates": RERANK_CANDIDATES,
+        "persisted_store_present": persisted_store_exists(),
+    })
 
 
-@app.route("/documents", methods=["POST"])
-def documents_add():
-    """
-    Add documents to the vector store.
-    JSON body: { "texts": ["text1", "text2"], "metadatas": [{"source": "a"}, ...] } (metadatas optional)
-    """
+@app.route("/stats", methods=["GET"])
+def stats():
     try:
-        body = request.get_json(force=True) or {}
-        texts = body.get("texts") or body.get("documents") or []
-        if not texts:
-            return jsonify({"error": "Missing 'texts' or 'documents' in body"}), 400
-        metadatas = body.get("metadatas")
-        store = get_store()
-        add_documents(store, texts, metadatas)
-        save_vector_store(store)
-        return jsonify({"added": len(texts), "message": "Documents added and index saved"})
+        return jsonify({
+            "reranker_model": RERANKER_MODEL_ID,
+            "reranker_loaded": is_reranker_loaded(),
+            "table_count": document_count(),
+        })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
 @app.route("/search", methods=["GET", "POST"])
 def search_endpoint():
-    """
-    Similarity search.
-    GET: ?q=query&k=4
-    POST: { "query": "...", "k": 4 }
-    """
     try:
         if request.method == "GET":
             query = request.args.get("q") or request.args.get("query")
-            k = request.args.get("k", 4, type=int)
+            k = request.args.get("k", 5, type=int)
         else:
             body = request.get_json(force=True) or {}
             query = body.get("query") or body.get("q")
-            k = body.get("k", 4)
+            k = body.get("k", 5)
+            try:
+                k = int(k)
+            except (TypeError, ValueError):
+                k = 5
         if not query:
             return jsonify({"error": "Missing 'query' or 'q'"}), 400
-        store = get_store()
-        results = search(store, query, k=k)
-        return jsonify({"query": query, "k": k, "results": results})
+        results = search(query, k=k)
+        return jsonify({
+            "query": query,
+            "k": k,
+            "results": results,
+        })
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
 
 @app.route("/", methods=["GET"])
 def index():
-    """Simple service info."""
     return jsonify({
-        "service": "FAISS Vector DB (LangChain)",
+        "service": "Table Search (OpenAI Embeddings + Jina Reranker)",
         "endpoints": {
-            "GET /health": "Health check",
-            "POST /documents": "Add documents (body: texts, optional metadatas)",
-            "GET /search?q=...&k=4": "Similarity search",
-            "POST /search": "Similarity search (body: query, k)",
+            "GET /health": "Health check + model status",
+            "GET /stats": "Table count and model info",
+            "GET /search?q=...&k=5": "Search tables (embeddings + reranker)",
+            "POST /search": "Search tables (body: query, k)",
         },
     })
 
