@@ -25,5 +25,5 @@ def document_count() -> int:
     return table_count()
 
 
-def search(query: str, k: int = 5) -> list[dict]:
-    return jina_search(query, top_k=k)
+def search(query: str, k: int = 5, return_timing: bool = False):
+    return jina_search(query, top_k=k, return_timing=return_timing)

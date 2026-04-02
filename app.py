@@ -20,6 +20,7 @@ from jina_reranker import (
     EMBEDDING_MODEL_ID,
     RERANKER_MODEL_ID,
     RERANK_CANDIDATES,
+    SEARCH_PIPELINE,
     is_reranker_loaded,
     is_tables_loaded,
     get_openai_client,
@@ -59,6 +60,8 @@ def health():
         "tables_loaded": is_tables_loaded(),
         "rerank_candidates": RERANK_CANDIDATES,
         "persisted_store_present": persisted_store_exists(),
+        "search_pipeline": SEARCH_PIPELINE,
+        "uses_faiss": False,
     })
 
 
@@ -80,6 +83,7 @@ def search_endpoint():
         if request.method == "GET":
             query = request.args.get("q") or request.args.get("query")
             k = request.args.get("k", 5, type=int)
+            want_timing = request.args.get("timing", "0") in ("1", "true", "True", "yes")
         else:
             body = request.get_json(force=True) or {}
             query = body.get("query") or body.get("q")
@@ -88,14 +92,22 @@ def search_endpoint():
                 k = int(k)
             except (TypeError, ValueError):
                 k = 5
+            wt = body.get("timing", False)
+            want_timing = wt in (True, 1, "1", "true", "True", "yes")
         if not query:
             return jsonify({"error": "Missing 'query' or 'q'"}), 400
-        results = search(query, k=k)
-        return jsonify({
-            "query": query,
-            "k": k,
-            "results": results,
-        })
+        if want_timing:
+            results, timings = search(query, k=k, return_timing=True)
+            payload = {
+                "query": query,
+                "k": k,
+                "results": results,
+                "timings": timings,
+            }
+        else:
+            results = search(query, k=k)
+            payload = {"query": query, "k": k, "results": results}
+        return jsonify(payload)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
@@ -107,8 +119,8 @@ def index():
         "endpoints": {
             "GET /health": "Health check + model status",
             "GET /stats": "Table count and model info",
-            "GET /search?q=...&k=5": "Search tables (embeddings + reranker)",
-            "POST /search": "Search tables (body: query, k)",
+            "GET /search?q=...&k=5&timing=1": "Search + per-stage timings (no FAISS)",
+            "POST /search": "Search tables (body: query, k, timing optional)",
         },
     })
 

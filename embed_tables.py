@@ -14,13 +14,17 @@ import sys
 import time
 from pathlib import Path
 
+import numpy as np
 from dotenv import load_dotenv
 from openai import OpenAI
 
 load_dotenv()
 
 TABLES_DIR = Path(__file__).resolve().parent / "tables"
-OUTPUT_FILE = Path(__file__).resolve().parent / "tables_embeddings.json"
+_BASE_DIR = Path(__file__).resolve().parent
+OUTPUT_JSON = _BASE_DIR / "tables_embeddings.json"
+OUTPUT_NPZ = _BASE_DIR / "tables_embeddings.npz"
+OUTPUT_META = _BASE_DIR / "tables_metadata.json"
 MODEL_ID = "text-embedding-3-large"
 BATCH_SIZE = 50
 
@@ -75,6 +79,26 @@ def main() -> None:
 
     dim = len(all_vecs[0])
 
+    # --- Save fast binary NPZ (primary) ---
+    embeddings_matrix = np.array(all_vecs, dtype=np.float32)
+    np.savez_compressed(OUTPUT_NPZ, embeddings=embeddings_matrix)
+    print(f"\nSaved NPZ: {OUTPUT_NPZ}  ({OUTPUT_NPZ.stat().st_size / 1024 / 1024:.1f} MB)")
+
+    meta = {
+        "model": MODEL_ID,
+        "count": len(docs),
+        "dim": dim,
+        "tables": [
+            {"table": f.stem, "file": f.name, "snippet": docs[i][:600]}
+            for i, f in enumerate(sql_files)
+        ],
+    }
+    OUTPUT_META.write_text(
+        json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(f"Saved metadata: {OUTPUT_META}")
+
+    # --- Also save legacy JSON for backward compatibility ---
     payload = {
         "model": MODEL_ID,
         "count": len(docs),
@@ -89,11 +113,10 @@ def main() -> None:
             for i, f in enumerate(sql_files)
         ],
     }
-
-    OUTPUT_FILE.write_text(
+    OUTPUT_JSON.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"
     )
-    print(f"\nSaved {len(docs)} table embeddings to {OUTPUT_FILE}")
+    print(f"Saved legacy JSON: {OUTPUT_JSON}")
     print(f"Embedding dimension: {dim}")
 
     # Sanity check
@@ -102,7 +125,6 @@ def main() -> None:
     q_resp = client.embeddings.create(model=MODEL_ID, input=[query])
     q_vec = q_resp.data[0].embedding
 
-    import numpy as np
     mat = np.array(all_vecs, dtype=np.float32)
     qv = np.array(q_vec, dtype=np.float32)
     mat = mat / np.clip(np.linalg.norm(mat, axis=1, keepdims=True), 1e-12, None)
